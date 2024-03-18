@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home4/aglayabi/public_html/elmst/
+    - /bin/cp -R . $DEPLOYPATH
