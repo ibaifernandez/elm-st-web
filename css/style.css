@@ -324,8 +324,7 @@ hr {
 /*=======================================================
       TOP BAR
 ========================================================*/
-.top-bar {
-}
+
 /*=======================================================
       Padding 150px
 ========================================================*/
@@ -382,12 +381,6 @@ header nav li a {
 	font-family: 'montserratregular';
 	position: relative;
 }
-header nav li.active a:hover {
-}
-header nav li.active a {
-}
-header nav li a:hover {
-}
 header nav .ownmenu li {
 	float: left;
 	padding: 0 15px;
@@ -419,8 +412,6 @@ header .ownmenu li > .megamenu li a:hover {
 }
 header nav .ownmenu .indicator {
 	display: none;
-}
-header ul.dropdown {
 }
 header ul.dropdown li {
 	padding: 0px;
@@ -560,13 +551,9 @@ header.main-header nav .ownmenu li {
 /*=======================================================
     	ABOUT
 ========================================================*/
-.about {
-}
 /*=======================================================
       SERVICES
 ========================================================*/
-.services {
-}
 .services .ser-in {
 	text-align: left;
 }
@@ -590,10 +577,6 @@ header.main-header nav .ownmenu li {
 .services .ser-in button {
 	text-transform: uppercase
 }
-.services .ser-in .icon {
-}
-.services .ser-in .icon i {
-}
 .services .ser-in a {
 	font-size: 12px;
 	color: #666666;
@@ -613,8 +596,6 @@ header.main-header nav .ownmenu li {
 	padding-left: 10px;
 	opacity: 1;
 }
-.services-offer {
-}
 .services-offer li {
 	padding: 0 20px;
 	text-align: center;
@@ -628,8 +609,6 @@ header.main-header nav .ownmenu li {
 }
 .services-offer li:nth-last-child(1) {
 	border-right: none;
-}
-.services-offer li img {
 }
 .services-offer li h6 {
 	font-size: 12px;
@@ -681,8 +660,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       HISTORY
 ========================================================*/
-.history {
-}
 .history hr {
 	height: 2px;
 }
@@ -733,8 +710,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
 			PRICING
 ========================================================*/
-.pricing {
-}
 .pricing .plan-in {
 	border: 1px solid #eeeeee;
 	padding-bottom: 30px;
@@ -791,8 +766,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
 			COUNTER
 ========================================================*/
-#counters {
-}
 #counters ul {
 	margin-bottom: 0px;
 	display: inline-block;
@@ -840,8 +813,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       WHY CHOOSE US
 ========================================================*/
-.why-choose {
-}
 .sec-choose {
 	position: relative;
 }
@@ -1079,8 +1050,6 @@ header.main-header nav .ownmenu li {
 .tittle-left {
 	float: left;
 }
-.port-style-5 {
-}
 .port-style-5 ul li {
 	padding: 5px;
 }
@@ -1133,8 +1102,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       PORTFOLIO SINGLE
 ========================================================*/
-.portfolio-detail {
-}
 .folio-detail p {
 	font-size: 14px;
 }
@@ -1174,8 +1141,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       PAGINATION
 ========================================================*/
-.team {
-}
 .team ul li {
 	position: relative;
 	overflow: hidden;
@@ -1383,8 +1348,6 @@ header.main-header nav .ownmenu li {
 	font-size: 30px;
 	margin-top: 50px;
 }
-.our-blog {
-}
 .our-blog .blog-in {
 	padding-left: 120px;
 }
@@ -1572,8 +1535,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       Our Services
 ========================================================*/
-.our-services {
-}
 .our-services .our-ser p {
 	font-style: italic;
 	font-size: 13px;
@@ -1611,8 +1572,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       clients-logo
 ========================================================*/
-.clients-logo {
-}
 .clients-logo ul {
 	display: inline-block;
 	width: 100%;
@@ -1652,10 +1611,6 @@ header.main-header nav .ownmenu li {
 	padding: 30px 0;
 	width: 100%;
 	background: rgba(255,255,255,0.1);
-}
-.clients ul {
-}
-.clients ul li {
 }
 .clients ul li a {
 	opacity: 0.4;
@@ -1711,8 +1666,6 @@ header.main-header nav .ownmenu li {
 /*=======================================================
       Footer Up
 ========================================================*/
-.footer-up {
-}
 .footer-up .col-sm-6 {
 	text-align: center;
 	padding: 0px;
@@ -1891,8 +1844,6 @@ footer .social_icons li a {
 #map {
 	height: 400px;
 }
-.contact-us {
-}
 .contact #contact_form {
 	text-align: center;
 }
@@ -2018,12 +1969,8 @@ footer .social_icons li a {
 /*=======================================================
 			BLOG
 ========================================================*/
-.blog-small {
-}
 .blog.blog-small ul.som-info {
 	width: 60%;
-}
-.blog article {
 }
 .blog article img {
 	position: relative;
@@ -2202,8 +2149,6 @@ footer .social_icons li a {
 	width: 95px;
 	height: 95px;
 }
-.comments .media-body {
-}
 .comments .media-body h4 span {
 	font-size: 12px;
 	color: #777777;
@@ -2341,16 +2286,12 @@ footer .social_icons li a {
 	font-size: 14px;
 	letter-spacing: 0px;
 }
-.cate li a span {
-}
 .cate li a:hover {
 	color: #222222;
 }
 /*=======================================================
 			PAPULAR POST
 ========================================================*/
-.papu-post {
-}
 .papu-post .media-left {
 	width: 80px;
 	margin-right: 0px;
@@ -2431,9 +2372,11 @@ footer .social_icons li a {
 	margin-right: 5px;
 }
 .social_icons a:hover i {
+	border-radius: 100%;
 	-webkit-border-radius: 100%;
 	-moz-border-radius: 100%;
 	-webkit-transition: 0.4s ease-in-out;
+	transition: 0.4s ease-in-out;
 	color: #fff;
 }
 .social_icons .behance a:hover {
