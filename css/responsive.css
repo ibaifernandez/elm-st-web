@@ -88,7 +88,8 @@ header.main-header nav .ownmenu li {
 }
 @media(max-width:767px) {
 .home-slider {
-    margin-top: 1450px;
+    padding-top: 1450px;
+    display:none;
 }
 .tastimonial .testi {
 	width: 100%;
