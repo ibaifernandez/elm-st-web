@@ -88,6 +88,9 @@ if ($container.length && $.fn.imagesLoaded && $.fn.isotope) {
 if ($('.tp-banner').length && $.fn.revolution) {
 	jQuery('.tp-banner').show().revolution({
 		dottedOverlay:"none",
+		spinner:"off",
+		lazyLoad:"on",
+		lazyType:"single",
 		delay:10000,
 		startwidth:1170,
 		startheight:825,
@@ -106,6 +109,9 @@ if ($('.tp-banner').length && $.fn.revolution) {
 		forceFullWidth:"off",
 		fullScreenOffsetContainer:""
 	});
+	if (document.documentElement && document.documentElement.classList) {
+		document.documentElement.classList.add("rev-ready");
+	}
 }
 });
 /*-----------------------------------------------------------------------------------*/

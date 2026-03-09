@@ -30,10 +30,20 @@ All notable changes to this project are documented in this file.
 - CI visual baselines refreshed after header language switch rollout:
   - `tests/visual.spec.js-snapshots/home-desktop-chromium-linux.png`
   - `tests/visual.spec.js-snapshots/home-mobile-chromium-linux.png`
+- Slider image loading hardening (no visual/copy changes):
+  - Home hero slides now load WebP as primary source with JPG fallback in `index.html` and `en/index.html`.
+  - Revolution slider boot now enables `spinner:"off"` and lazy load flags in `js/main.js`.
+- Typography delivery hardening:
+  - `fonts/montserrat-fonts.css` now self-hosts `Montserrat` (`400/700`) with `font-display: swap`.
+  - Google `Montserrat` remote stylesheet requests removed from public HTML pages; `Droid Serif` remains remote.
+- Cross-platform visual baselines refreshed after typography and slider loading updates:
+  - `tests/visual.spec.js-snapshots/*-chromium-darwin.png`
+  - `tests/visual.spec.js-snapshots/*-chromium-linux.png`
 
 ### Fixed
 - GitHub Actions quality gate failure caused by missing Linux visual snapshots.
 - GitHub Actions quality gate failure (2026-03-09 run) caused by Linux home snapshot height drift (`+28px desktop`, `+56px mobile`) after nav updates.
+- Intermittent quality drift caused by external font dependency and visual snapshot desync after performance hardening.
 - Lighthouse threshold instability on `/` (Performance 0.89) by reducing critical image payload while keeping visual/copy freeze.
 - Layering bug in "¿Cómo trabajamos en Elm St.?" section:
   - `.sec-choose .choose-tab` no longer overlays the fixed header while scrolling.

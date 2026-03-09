@@ -41,6 +41,7 @@
 | PERF-003 | P1 | DONE | Revisar carga de JS/CSS y `defer` en no críticos | Menor blocking time inicial |
 | PERF-004 | P2 | TODO | Definir budget por página | Budget documentado y medible |
 | PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 8 rutas auditadas (ES/EN) |
+| PERF-006 | P1 | DONE | Reducir dependencia de fuentes externas en render crítico | `Montserrat` servido en local con `font-display: swap` y menor variabilidad de LCP |
 
 ## Seguridad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -61,6 +62,7 @@
 | QLT-005 | P2 | DONE | Fijar versión de Node para desarrollo local | `.nvmrc` presente y CI alineado |
 | QLT-006 | P1 | DONE | Alinear snapshots visuales por plataforma en CI | Baselines `chromium-linux` versionados y `test:visual` estable en GitHub Actions |
 | QLT-007 | P1 | DONE | Refrescar baseline Linux de Home tras cambio de navegación (selector idioma) | `home-*-chromium-linux.png` actualizado y Quality Gate desbloqueado |
+| QLT-008 | P1 | DONE | Re-sincronizar baselines visuales tras hardening de carga tipográfica/slider | Baselines `chromium-darwin` y `chromium-linux` regenerados y `test:visual` estable |
 
 ## Internacionalización (i18n)
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
