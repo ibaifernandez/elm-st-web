@@ -60,6 +60,7 @@
 | QLT-004 | P1 | DONE | Implementar regresión visual baseline | Snapshots versionados y passing |
 | QLT-005 | P2 | DONE | Fijar versión de Node para desarrollo local | `.nvmrc` presente y CI alineado |
 | QLT-006 | P1 | DONE | Alinear snapshots visuales por plataforma en CI | Baselines `chromium-linux` versionados y `test:visual` estable en GitHub Actions |
+| QLT-007 | P1 | DONE | Refrescar baseline Linux de Home tras cambio de navegación (selector idioma) | `home-*-chromium-linux.png` actualizado y Quality Gate desbloqueado |
 
 ## Internacionalización (i18n)
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |

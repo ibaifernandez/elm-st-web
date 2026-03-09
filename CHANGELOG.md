@@ -27,9 +27,13 @@ All notable changes to this project are documented in this file.
   - targeted `maxDiffPixelRatio` tolerance added for known Linux drift cases in `tests/visual.spec.js`.
 - Language UX:
   - visible ES/EN switch added in main navigation across public ES and EN pages.
+- CI visual baselines refreshed after header language switch rollout:
+  - `tests/visual.spec.js-snapshots/home-desktop-chromium-linux.png`
+  - `tests/visual.spec.js-snapshots/home-mobile-chromium-linux.png`
 
 ### Fixed
 - GitHub Actions quality gate failure caused by missing Linux visual snapshots.
+- GitHub Actions quality gate failure (2026-03-09 run) caused by Linux home snapshot height drift (`+28px desktop`, `+56px mobile`) after nav updates.
 - Lighthouse threshold instability on `/` (Performance 0.89) by reducing critical image payload while keeping visual/copy freeze.
 - Layering bug in "¿Cómo trabajamos en Elm St.?" section:
   - `.sec-choose .choose-tab` no longer overlays the fixed header while scrolling.
