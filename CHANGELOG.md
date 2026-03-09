@@ -56,6 +56,7 @@ All notable changes to this project are documented in this file.
   - `LHCI_GITHUB_APP_TOKEN` in `.github/workflows/quality-gate.yml`.
 - CI workflow now supports manual dispatch:
   - `workflow_dispatch` enabled in `.github/workflows/quality-gate.yml`.
+- CI push trigger now includes plain `codex` branch in addition to `codex/**`.
 
 ### Removed
 - Legacy PHP form handlers:
