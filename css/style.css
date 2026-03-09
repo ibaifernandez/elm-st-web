@@ -1278,11 +1278,13 @@ header.main-header nav .ownmenu li {
 }
 .parallax-bg {
 	background: url(../images/bg/testi-bg.jpg) center center fixed no-repeat;
+	background-image: image-set(url(../images/bg/testi-bg.webp) type("image/webp"), url(../images/bg/testi-bg.jpg) type("image/jpeg"));
 	background-size: cover !important;
 	text-align: center;
 }
 .parallax-bg2 {
 	background: url(../images/bg/testi-bg.jpg) center center fixed no-repeat;
+	background-image: image-set(url(../images/bg/testi-bg.webp) type("image/webp"), url(../images/bg/testi-bg.jpg) type("image/jpeg"));
 	background-size: cover !important;
 	text-align: center;
 }
@@ -1518,6 +1520,7 @@ header.main-header nav .ownmenu li {
 }
 .tastimonial-bg {
 	background: url(../images/bg/testi-bg.jpg) center center fixed no-repeat;
+	background-image: image-set(url(../images/bg/testi-bg.webp) type("image/webp"), url(../images/bg/testi-bg.jpg) type("image/jpeg"));
 	background-size: cover;
 }
 .tastimonial-bg .testi p {

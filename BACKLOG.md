@@ -40,7 +40,7 @@
 | PERF-002 | P1 | TODO | Eliminar activos residuales (`Thumbs.db`, duplicados) | Repositorio limpio de basura binaria |
 | PERF-003 | P1 | DONE | Revisar carga de JS/CSS y `defer` en no críticos | Menor blocking time inicial |
 | PERF-004 | P2 | TODO | Definir budget por página | Budget documentado y medible |
-| PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 4 rutas auditadas |
+| PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 8 rutas auditadas (ES/EN) |
 
 ## Seguridad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -59,6 +59,7 @@
 | QLT-003 | P2 | DONE | Corregir enlaces rotos/malformados (`https://https://...`) | 0 enlaces malformados |
 | QLT-004 | P1 | DONE | Implementar regresión visual baseline | Snapshots versionados y passing |
 | QLT-005 | P2 | DONE | Fijar versión de Node para desarrollo local | `.nvmrc` presente y CI alineado |
+| QLT-006 | P1 | DONE | Alinear snapshots visuales por plataforma en CI | Baselines `chromium-linux` versionados y `test:visual` estable en GitHub Actions |
 
 ## Internacionalización (i18n)
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |

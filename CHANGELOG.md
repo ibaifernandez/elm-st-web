@@ -7,6 +7,27 @@ All notable changes to this project are documented in this file.
 ### Planned
 - Bilingual implementation ES/EN for public routes (pending approved EN copy).
 
+## [2026-03-09]
+
+### Added
+- Linux visual baseline snapshots for CI stability:
+  - `tests/visual.spec.js-snapshots/*-chromium-linux.png`
+- WebP optimized assets for critical home visuals:
+  - `images/slides/slide-1.webp`
+  - `images/slides/slide-2.webp`
+  - `images/bg/testi-bg.webp`
+
+### Changed
+- Home routes now prefer optimized WebP with safe fallback:
+  - `index.html`, `inicio.html`, `en/index.html` use `srcset` for hero slides.
+  - `css/style.css` uses `image-set(...)` for testimonial/parallax background.
+- Quality workflow trigger updated for branch strategy:
+  - push now includes `codex` and `codex/**`.
+
+### Fixed
+- GitHub Actions quality gate failure caused by missing Linux visual snapshots.
+- Lighthouse threshold instability on `/` (Performance 0.89) by reducing critical image payload while keeping visual/copy freeze.
+
 ## [2026-03-08]
 
 ### Added
