@@ -23,6 +23,8 @@ All notable changes to this project are documented in this file.
   - `css/style.css` uses `image-set(...)` for testimonial/parallax background.
 - Quality workflow trigger updated for branch strategy:
   - push now includes `codex` and `codex/**`.
+- Visual regression stability in CI:
+  - targeted `maxDiffPixelRatio` tolerance added for known Linux drift cases in `tests/visual.spec.js`.
 
 ### Fixed
 - GitHub Actions quality gate failure caused by missing Linux visual snapshots.
