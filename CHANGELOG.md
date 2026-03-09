@@ -44,6 +44,8 @@ All notable changes to this project are documented in this file.
 - GitHub Actions quality gate failure caused by missing Linux visual snapshots.
 - GitHub Actions quality gate failure (2026-03-09 run) caused by Linux home snapshot height drift (`+28px desktop`, `+56px mobile`) after nav updates.
 - Intermittent quality drift caused by external font dependency and visual snapshot desync after performance hardening.
+- Production redirect loop on English home (`/en/`) caused by a forced self-redirect rule in `_redirects`:
+  - removed `/en /en/ 301!` and aligned `scripts/check-netlify-config.mjs`.
 - Lighthouse threshold instability on `/` (Performance 0.89) by reducing critical image payload while keeping visual/copy freeze.
 - Layering bug in "¿Cómo trabajamos en Elm St.?" section:
   - `.sec-choose .choose-tab` no longer overlays the fixed header while scrolling.

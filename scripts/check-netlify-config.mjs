@@ -30,7 +30,6 @@ const requiredRedirectRules = [
   "/nosotros /nosotros.html 200",
   "/portafolio /portafolio.html 200",
   "/contacto /contacto.html 200",
-  "/en /en/ 301!",
   "/en/about /en/about.html 200",
   "/en/portfolio /en/portfolio.html 200",
   "/en/contact /en/contact.html 200",

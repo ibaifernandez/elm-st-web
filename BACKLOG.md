@@ -13,6 +13,7 @@
 | PLAT-004 | P0 | DONE | Migrar formulario de `php/submit.php` a solución Netlify | Envío y recepción de mensajes verificados |
 | PLAT-005 | P1 | TODO | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
+| PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
