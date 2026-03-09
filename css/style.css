@@ -353,7 +353,7 @@ hr {
       HEADER
 ========================================================*/
 header {
-	z-index: 99;
+	z-index: 1200;
 	position: fixed;
 	font-family: 'Montserrat', sans-serif;
 	background-color: #fff;
@@ -427,6 +427,19 @@ header ul.dropdown li:hover {
 }
 header.main-header nav .ownmenu li {
 	padding: 0px;
+}
+header nav .ownmenu li.lang-switch a {
+	margin-left: 24px;
+	padding: 6px 10px;
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+	line-height: 1;
+	font-size: 11px;
+	letter-spacing: 1px;
+}
+header nav .ownmenu li.lang-switch a:hover {
+	background: #222222;
+	color: #fff;
 }
 /*=======================================================
       HOME SLIDER
@@ -825,7 +838,7 @@ header.main-header nav .ownmenu li {
 .sec-choose .choose-tab {
 	background: #fff;
 	position: relative;
-	z-index: 99;
+	z-index: 1;
 	margin-top: 100px;
 	border: 2px solid rgba(208,208,208,0.4);
 }

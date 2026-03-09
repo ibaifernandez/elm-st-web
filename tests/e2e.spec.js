@@ -21,6 +21,47 @@ test.describe("Critical route availability", () => {
   }
 });
 
+test.describe("Language switch visibility", () => {
+  const languageSwitchRoutes = [
+    { route: "/", label: "EN", href: "/en/" },
+    { route: "/nosotros.html", label: "EN", href: "/en/about.html" },
+    { route: "/portafolio.html", label: "EN", href: "/en/portfolio.html" },
+    { route: "/contacto.html", label: "EN", href: "/en/contact.html" },
+    { route: "/en/", label: "ES", href: "/" },
+    { route: "/en/about.html", label: "ES", href: "/nosotros.html" },
+    { route: "/en/portfolio.html", label: "ES", href: "/portafolio.html" },
+    { route: "/en/contact.html", label: "ES", href: "/contacto.html" }
+  ];
+
+  for (const langRoute of languageSwitchRoutes) {
+    test(`shows language switch on ${langRoute.route}`, async ({ page }) => {
+      await page.goto(langRoute.route, { waitUntil: "domcontentloaded" });
+      const switchLink = page.locator("li.lang-switch a").first();
+      await expect(switchLink).toHaveText(langRoute.label);
+      await expect(switchLink).toHaveAttribute("href", langRoute.href);
+    });
+  }
+});
+
+test("header stays above choose-tab section", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const zIndexes = await page.evaluate(() => {
+    const header = document.querySelector("header.main-header");
+    const chooseTab = document.querySelector(".sec-choose .choose-tab");
+
+    if (!header || !chooseTab) {
+      return { headerZ: null, chooseTabZ: null };
+    }
+
+    const headerZ = Number.parseInt(getComputedStyle(header).zIndex || "0", 10);
+    const chooseTabZ = Number.parseInt(getComputedStyle(chooseTab).zIndex || "0", 10);
+
+    return { headerZ, chooseTabZ };
+  });
+
+  expect(zIndexes.headerZ).toBeGreaterThan(zIndexes.chooseTabZ);
+});
+
 test.describe("Netlify form behavior", () => {
   test("contact page submits via POST /", async ({ page }) => {
     let posted = false;

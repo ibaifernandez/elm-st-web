@@ -68,6 +68,7 @@
 | I18N-002 | P0 | DONE | Crear rutas EN equivalentes para páginas públicas | Paridad funcional ES/EN |
 | I18N-003 | P0 | DOING | Traducir copy EN aprobado por negocio | 100% contenido público con versión EN |
 | I18N-004 | P1 | DOING | QA bilingüe (links, sitemap, hreflang, Lighthouse) | Gate de calidad pasa en ES y EN |
+| I18N-005 | P1 | DONE | Exponer selector visible de idioma en navegación | Cambio ES/EN accesible desde header en todas las rutas públicas |
 
 ## Observabilidad y documentación
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |

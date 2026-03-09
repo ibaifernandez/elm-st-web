@@ -25,10 +25,16 @@ All notable changes to this project are documented in this file.
   - push now includes `codex` and `codex/**`.
 - Visual regression stability in CI:
   - targeted `maxDiffPixelRatio` tolerance added for known Linux drift cases in `tests/visual.spec.js`.
+- Language UX:
+  - visible ES/EN switch added in main navigation across public ES and EN pages.
 
 ### Fixed
 - GitHub Actions quality gate failure caused by missing Linux visual snapshots.
 - Lighthouse threshold instability on `/` (Performance 0.89) by reducing critical image payload while keeping visual/copy freeze.
+- Layering bug in "¿Cómo trabajamos en Elm St.?" section:
+  - `.sec-choose .choose-tab` no longer overlays the fixed header while scrolling.
+- External link checker stability:
+  - allowlist updated for `https://instagram.com/monicamontufarq` anti-bot responses.
 
 ## [2026-03-08]
 
