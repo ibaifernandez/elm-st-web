@@ -1,0 +1,35 @@
+{
+  "name": "elm-st-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Quality gate and Netlify migration hardening for elm-st-web",
+  "scripts": {
+    "build:noop": "echo \"Static site - no build step\"",
+    "serve:test": "node scripts/serve-test.mjs",
+    "lint:html": "htmlhint \"*.html\" \"en/*.html\"",
+    "lint:js": "eslint js/main.js scripts/**/*.mjs tests/**/*.js playwright.config.js",
+    "lint:css": "stylelint --allow-empty-input \"css/*.css\" \"dist/*.css\"",
+    "test:lint": "npm run lint:html && npm run lint:js && npm run lint:css",
+    "test:netlify": "node scripts/check-netlify-config.mjs",
+    "test:links": "node scripts/check-links.mjs",
+    "test:e2e": "playwright test tests/e2e.spec.js",
+    "test:a11y": "playwright test tests/a11y.spec.js",
+    "test:visual": "playwright test tests/visual.spec.js",
+    "test:visual:update": "playwright test tests/visual.spec.js --update-snapshots",
+    "test:lighthouse": "lhci autorun --config=.lighthouserc.json",
+    "quality:ci": "npm run test:lint && npm run test:netlify && npm run test:links && npm run test:e2e && npm run test:a11y && npm run test:visual && npm run test:lighthouse"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.52.0",
+    "eslint": "^8.57.1",
+    "htmlhint": "^1.6.3",
+    "http-server": "^14.1.1",
+    "stylelint": "^16.19.1",
+    "stylelint-config-recommended": "^14.0.1"
+  }
+}

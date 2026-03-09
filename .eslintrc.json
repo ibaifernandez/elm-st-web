@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "globals": {
+    "$": "readonly",
+    "jQuery": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "script"
+  },
+  "ignorePatterns": [
+    "js/*.min.js",
+    "js/main-original.js",
+    "rs-plugin/**",
+    "vendor/**",
+    "node_modules/**",
+    "tests/**/snapshots/**"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "scripts/**/*.mjs"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+      }
+    }
+  ],
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ]
+  }
+}

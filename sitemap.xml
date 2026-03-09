@@ -6,34 +6,54 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://elmst.tv/</loc>
+  <loc>https://elmst.ibaifernandez.com/</loc>
   <lastmod>2020-09-18T14:37:33+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://elmst.tv/nosotros.html</loc>
+  <loc>https://elmst.ibaifernandez.com/nosotros.html</loc>
   <lastmod>2020-09-17T14:20:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://elmst.tv/portafolio.html</loc>
+  <loc>https://elmst.ibaifernandez.com/portafolio.html</loc>
   <lastmod>2020-09-17T20:08:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://elmst.tv/contacto.html</loc>
+  <loc>https://elmst.ibaifernandez.com/contacto.html</loc>
   <lastmod>2020-09-18T14:12:24+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://elmst.tv/inicio.html</loc>
+  <loc>https://elmst.ibaifernandez.com/inicio.html</loc>
   <lastmod>2020-09-18T14:37:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://elmst.tv/sitemap.html</loc>
+  <loc>https://elmst.ibaifernandez.com/sitemap.html</loc>
   <lastmod>2020-09-29T17:31:33+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://elmst.ibaifernandez.com/en/</loc>
+  <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://elmst.ibaifernandez.com/en/about.html</loc>
+  <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://elmst.ibaifernandez.com/en/portfolio.html</loc>
+  <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://elmst.ibaifernandez.com/en/contact.html</loc>
+  <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 

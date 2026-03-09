@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  command = "echo 'Static site: no build step'"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"

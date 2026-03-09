@@ -1,0 +1,29 @@
+# elm-st-web
+Canonical: https://elmst.ibaifernandez.com/
+
+## Project
+Corporate static website for Elm St. (audiovisual production company).
+
+## Goals
+- Netlify migration and hardening.
+- High technical quality: SEO, accessibility, performance, security.
+- No visual or editorial regressions in Spanish pages.
+
+## Key Docs
+- /README.md
+- /PRD.md
+- /ARCHITECTURE.md
+- /ROADMAP.md
+- /BACKLOG.md
+- /CHANGELOG.md
+- /I18N-STRATEGY.md
+
+## Tech
+- Static HTML/CSS/JS
+- Netlify hosting + Netlify Forms
+- Playwright (E2E, a11y, visual)
+- Lighthouse CI
+
+## Constraints
+- Visual/copy freeze on existing Spanish site.
+- Bilingual rollout (ES/EN) is additive.

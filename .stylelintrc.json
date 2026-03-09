@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "block-no-empty": null,
+    "declaration-block-no-duplicate-properties": null,
+    "declaration-block-no-shorthand-property-overrides": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "keyframe-block-no-duplicate-selectors": null,
+    "no-duplicate-selectors": null
+  }
+}

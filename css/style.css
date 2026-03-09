@@ -113,7 +113,7 @@ h6 {
 	font-size: 16px;
 }
 p {
-	color: #797979;
+	color: #767676;
 	font-size: 13px;
 	line-height: 28px;
 	font-family: 'montserratlight';
@@ -260,6 +260,9 @@ section {
 .no-padding-b {
 	padding-bottom: 0px !important;
 }
+.no-padding-b .tittle p {
+	color: #555555;
+}
 hr {
 	height: 1px;
 	width: 35px;
@@ -313,7 +316,7 @@ hr {
 	line-height: 1em;
 }
 .tittle p {
-	color: #989898;
+	color: #666666;
 	font-size: 15px;
 	font-family: 'Droid Serif', serif;
 	line-height: 28px;
@@ -574,7 +577,7 @@ header.main-header nav .ownmenu li {
 }
 .services .ser-in p {
 	font-size: 14px;
-	color: #777777;
+	color: #747474;
 	letter-spacing: 0.5px;
 }
 .services .ser-in button {

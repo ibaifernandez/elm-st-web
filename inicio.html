@@ -8,24 +8,32 @@
 <meta name="description" content="Elm St. - Productora audiovisual radicada en Bogotá, Colombia">
 <meta name="author" content="Ibai Fernández">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="canonical" href="https://elmst.ibaifernandez.com/">
+<meta name="robots" content="noindex,follow">
+
 <!-- FONTS ONLINE -->
-<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" rel="stylesheet" type="text/css"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" type="text/css"></noscript>
 
 <!--MAIN STYLE-->
-<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="preload" as="style" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></noscript>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="preload" as="style" href="css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"></noscript>
 <link href="css/main.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
-<link href="css/animate.css" rel="stylesheet" type="text/css">
 <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+<link rel="preload" as="image" href="images/slides/slide-1.jpg" fetchpriority="high">
 
 <!--LIGHTBOX-->
-<link href="dist/lity.css" rel="stylesheet">
-<script src="vendor/jquery.js"></script>
-<script src="dist/lity.js"></script>
+<link rel="preload" as="style" href="dist/lity.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="dist/lity.min.css" rel="stylesheet"></noscript>
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
@@ -37,14 +45,21 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115156525-2"></script>
+<!-- Google Analytics (lazy-loaded after first paint) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-115156525-2');
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-115156525-2';
+      document.head.appendChild(gaScript);
+    }, 2500);
+  });
 </script>
 
 </head>
@@ -55,7 +70,7 @@
   <div id="main-wrapper">
     <header id="header" class="main-header">
       <div class="container">
-        <div class="logo"><img src="images/logo.png" alt="Elm St. Logo"></div>
+        <div class="logo"><img src="images/logo.png" alt="Elm St. Logo" loading="eager" fetchpriority="high" decoding="async"></div>
         
         <!-- Nav -->
         <nav>
@@ -91,7 +106,7 @@
         <div class="tp-banner">
           <ul>
             <!-- Slider 1 -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="20"> <img src="images/slides/slide-1.jpg"  alt=""  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
+            <li data-transition="fade" data-slotamount="5" data-masterspeed="20"> <img src="images/slides/slide-1.jpg"  alt="Imagen Elm St."  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" loading="eager" fetchpriority="high" decoding="async"> 
               
               <!-- Layer -->
               <div class="tp-caption sft font-montserrat text-uppercase tp-resizeme" 
@@ -127,7 +142,7 @@
             </li>
             
             <!-- Slider 2 -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="700"> <img src="images/slides/slide-2.jpg"  alt=""  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"> 
+            <li data-transition="fade" data-slotamount="5" data-masterspeed="700"> <img src="images/slides/slide-2.jpg"  alt="Imagen Elm St."  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" loading="lazy" decoding="async"> 
               
               <!-- Layer -->
               <div class="tp-caption sft font-montserrat uppercase tp-resizeme" 
@@ -187,19 +202,19 @@
       <div class="container"> 
         <!-- Tittle -->
         <div class="tittle">
-          <h1 style="font-size: 24px;"">Elm St. | Productora adiovisual | Bogotá · Colombia</h1>
+          <h1 style="font-size: 24px;">Elm St. | Productora adiovisual | Bogotá · Colombia</h1>
           <p>Laboratorio creativo a cargo de profesionales expertos en diseño gráfico, fotografía, comunicación, publicidad, cine y televisión, redacción, composición musical y producción audiovisual.</p>
         </div>
         <ul class="row">
-          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-1.jpg" alt="" >
+          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-1.jpg" alt="Imagen Elm St."  loading="lazy" decoding="async">
             <h6 class="margin-top-20">¿Para quiénes trabajamos?</h6>
             <p class="justify">Para individuos u organizaciones que requieran la más alta calidad, los precios más razonables, los más rigurosos plazos de entrega y la máxima eficacia.</p>
           </li>
-          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-2.jpg" alt="" >
+          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-2.jpg" alt="Imagen Elm St."  loading="lazy" decoding="async">
             <h6 class="margin-top-20">¿Con quiénes colaboramos?</h6>
             <p class="justify">Con una amplia red de colaboradores especializados, nacionales e internacionales, a ser convocados en función de la naturaleza de cada proyecto.</p>
           </li>
-          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-3.jpg" alt="" >
+          <li class="col-sm-4"> <img class="img-responsive" src="images/about-img-3.jpg" alt="Imagen Elm St."  loading="lazy" decoding="async">
             <h6 class="margin-top-20">¿Cuál es nuestro objetivo?</h6>
             <p class="justify">Cubrir las necesidades propuestas con altos estándares de calidad, entusiasmo por la comunicación, marcado sentido estético y mucho amor a nuestra profesión.</p>
           </li>
@@ -222,11 +237,11 @@
           <!-- Service -->
           <li class="col-md-4">
             <div class="services ser-in margin-bottom-30">
-              <div class="icon"> <img src="images/icon-1.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-1.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
                 <h5>Consultoría</h5>
                 <hr>
                 <p> Te aconsejamos cómo implementar las mejores estrategia de comunicación. </p><br>
-                  <a href="https://www.youtube.com/watch?v=jj7WPzXavFA" data-lity>
+                  <a href="https://www.youtube.com/watch?v=jj7WPzXavFA" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                     <button class="services ser-in" style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
                   </a>
             </div>
@@ -235,11 +250,11 @@
            <!-- Service -->
            <li class="col-md-4">
             <div class="services ser-in margin-bottom-30">
-              <div class="icon"> <img src="images/icon-1.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-1.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
                 <h5>Producción digital</h5>
                 <hr>
                 <p> La producción audiovisual no tiene que ser cara. Te enseñamos cómo y por qué.</p><br>
-                  <a class="services ser-in holaquetal" href="https://www.youtube.com/watch?v=rimS7t_0gNY&t=80s" data-lity>
+                  <a class="services ser-in holaquetal" href="https://www.youtube.com/watch?v=rimS7t_0gNY&t=80s" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                     <button style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
                   </a>
             </div>
@@ -248,11 +263,11 @@
           <!-- Service -->
           <li class="col-md-4 margin-bottom-30">
             <div class="ser-in">
-              <div class="icon"> <img src="images/icon-3.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-3.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
               <h5>Comunicación estratégica</h5>
               <hr>
               <p> Aprende a desarrollar un plan a corto, medio o largo plazo en materia de comunicación. </p><br>
-              <a href="https://www.youtube.com/watch?v=yuk9L-fV71g" data-lity>
+              <a href="https://www.youtube.com/watch?v=yuk9L-fV71g" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                 <button style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
               </a>
             </div>
@@ -265,11 +280,11 @@
           <!-- Service -->
           <li class="col-md-4">
             <div class="ser-in margin-bottom-30">
-              <div class="icon"> <img src="images/icon-4.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-4.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
               <h5>Fotografía</h5>
               <hr>
               <p> Las mejores imágenes para las mejores experiencas. Estudio fotográfico, sesiones en exterior y fotografía de producto.</p><br>
-              <a href="https://www.youtube.com/watch?v=AldwmbSsshE" data-lity>
+              <a href="https://www.youtube.com/watch?v=AldwmbSsshE" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                 <button style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
               </a>
             </div>
@@ -278,11 +293,11 @@
           <!-- Service -->
           <li class="col-md-4">
             <div class="ser-in margin-bottom-30">
-              <div class="icon"> <img src="images/icon-5.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-5.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
               <h5>Publicidad</h5>
               <hr>
               <p> A la vanguardia de los cambios constantes en la tecnología y el estilo de vida que reflejan las preferencias del consumidor. </p><br>
-              <a href="https://www.youtube.com/watch?v=HJEpJaYEXD0" data-lity>
+              <a href="https://www.youtube.com/watch?v=HJEpJaYEXD0" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                 <button style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
               </a>
             </div>
@@ -291,11 +306,11 @@
           <!-- Service -->
           <li class="col-md-4 margin-bottom-30">
             <div class="ser-in">
-              <div class="icon"> <img src="images/icon-6.png" alt=""> </div>
+              <div class="icon"> <img src="images/icon-6.png" alt="Imagen Elm St." loading="lazy" decoding="async"> </div>
               <h5>Generación de contenido</h5>
               <hr>
               <p> El éxito de una buena estrategia de generación de contenidos debe ayudarte a lograr una comunidad propia. </p><br>
-              <a href="https://www.youtube.com/watch?v=9FslPaL7ftU" data-lity>
+              <a href="https://www.youtube.com/watch?v=9FslPaL7ftU" data-lity aria-label="Ver vídeo" title="Ver vídeo">
                 <button style="float:right; margin-right: 10px; padding:5px;" type="button">Ver más</button>
               <!-- esto estaba así <a/> en lugar de así </a> --> </a>
             </div>
@@ -332,7 +347,7 @@
               
               <!-- Escuchar -->
               <div role="tabpanel" class="tab-pane active" id="escuchar">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-music"></i>
                     <p>Explícanos detalladamente tu necesidad. La primera de nuestras misiones será escucharte hablar de tus aspiraciones. Recuerda: quien mejor conoce tu meta has de ser tú mismo.</p>
                   </div>
@@ -341,7 +356,7 @@
               
               <!-- Orientar -->
               <div role="tabpanel" class="tab-pane" id="orientar">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-dot-circle-o"></i>
                     <p>Nuestra siguiente misión será aconsejarte lo mejor para cubrir esa necesidad, satisfacer esa aspiración y lograr esa meta. Comenzaremos con ello una búsqueda conjunta en pos del mejor resultado.</p>
                   </div>
@@ -350,7 +365,7 @@
               
               <!-- Investigar -->
               <div role="tabpanel" class="tab-pane" id="investigar">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-search"></i>
                     <p>Comenzaremos la investigación de las mejores soluciones y de los procesos que consigan transmitir los mensajes más claros, bellos y eficaces que consigan conectar con tu audiencia.</p>
                   </div>
@@ -359,7 +374,7 @@
               
               <!-- Crear -->
               <div role="tabpanel" class="tab-pane" id="crear">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-pencil"></i>
                     <p>Con la creatividad como la base de nuestro oficio y trabajando estrechamente con el cliente comenzamos a crear. Nada sale del laboratorio hasta que estamos satisfechos con nuestro aporte.</p>
                   </div>
@@ -368,7 +383,7 @@
 
               <!-- Planear -->
               <div role="tabpanel" class="tab-pane" id="planear">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-eye"></i>
                     <p>Más de la mitad de la creación de un buen producto audiovisual consiste en la planificación que se haga del mismo. Y si algo nos encanta es que los planes salgan bien.</p>
                   </div>
@@ -377,7 +392,7 @@
 
              <!-- Presentar -->
              <div role="tabpanel" class="tab-pane" id="presentar">
-                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="">
+                <div class="detail-in"> <img class="img-responsive" src="images/why-choose-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async">
                   <div class="text-content col-md-8"> <i class="fa fa-star"></i>
                     <p>Buenos profesionales, mejores personas; personas que aman su trabajo en búsqueda de la innovación constante con un sólo objetivo: la satisfacción plena por parte del cliente.</p>
                   </div>
@@ -404,10 +419,10 @@
           
           <!-- Noche sin mañana -->
           <li class="item">
-            <article> <img src="images/folio-img-1.jpg" alt=""> 
+            <article> <img src="images/folio-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://www.youtube.com/watch?v=m_G2yF4-5wQ" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://www.youtube.com/watch?v=m_G2yF4-5wQ" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Noche sin mañana</h6>
                 </div>
               </div>
@@ -416,10 +431,10 @@
           
           <!-- Workkey -->
           <li class="item">
-            <article> <img src="images/folio-img-2.jpg" alt=""> 
+            <article> <img src="images/folio-img-2.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://www.youtube.com/watch?v=rimS7t_0gNY&t" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://www.youtube.com/watch?v=rimS7t_0gNY&t" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Workkey</h6>
                 </div>
               </div>
@@ -428,10 +443,10 @@
           
           <!-- Sorry -->
           <li class="item">
-            <article> <img src="images/folio-img-3.jpg" alt=""> 
+            <article> <img src="images/folio-img-3.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/4IWFjgdH6IM" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/4IWFjgdH6IM" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Sorry - Amy Jo Doh & The Spangles</h6>
                 </div>
               </div>
@@ -440,10 +455,10 @@
           
           <!-- #NosGustasTU -->
           <li class="item">
-            <article> <img src="images/folio-img-4.jpg" alt=""> 
+            <article> <img src="images/folio-img-4.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/HJEpJaYEXD0" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/HJEpJaYEXD0" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>#NosGustasTU</h6>
                 </div>
               </div>
@@ -452,10 +467,10 @@
           
           <!-- JIT -->
           <li class="item int arch">
-            <article> <img src="images/folio-img-5.jpg" alt=""> 
+            <article> <img src="images/folio-img-5.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/5HhZIQbssP4" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/5HhZIQbssP4" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>JIT: más allá de la pasión</h6>
                 </div>
               </div>
@@ -464,10 +479,10 @@
           
           <!-- The Self Show -->
           <li class="item">
-            <article> <img src="images/folio-img-6.jpg" alt=""> 
+            <article> <img src="images/folio-img-6.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/6qchmb3ZI5k" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/6qchmb3ZI5k" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>The Self Show</h6>
                 </div>
               </div>
@@ -476,10 +491,10 @@
           
           <!-- Más de un día -->
           <li class="item">
-            <article> <img src="images/folio-img-7.jpg" alt=""> 
+            <article> <img src="images/folio-img-7.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/VzQwup8HIMo" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/VzQwup8HIMo" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Más de un día</h6>
                 </div>
               </div>
@@ -488,10 +503,10 @@
           
           <!-- Manuel Espejo: Interiorismo & Decoración -->
           <li class="item">
-            <article> <img src="images/folio-img-8.jpg" alt=""> 
+            <article> <img src="images/folio-img-8.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/knFXVht8hpk" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/knFXVht8hpk" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Manuel Espejo: Interiorismo & Decoración</h6>
                 </div>
               </div>
@@ -529,7 +544,7 @@
           
           <!--======= SLIDE 1 =========-->
           <div class="testi">
-            <div class="avatar"> <img src="images/avatar-1.png"></div>
+            <div class="avatar"> <img src="images/avatar-1.png" alt="Avatar de cliente 1" loading="lazy" decoding="async"></div>
             <h6>Garry Donoghue </h6>
             <span>Tasmania, Australia </span>
             <p>I have never seen such a display of talent in such a short time and with such good results. Ibai Fernández and the Elm St. team demonstrated with facts how creativity can overcome any obstacle when it comes to planning and producing a communication campaign.</p>
@@ -537,7 +552,7 @@
           
           <!--======= SLIDE 2 =========-->
           <div class="testi">
-            <div class="avatar"> <img src="images/avatar-2.png"></div>
+            <div class="avatar"> <img src="images/avatar-2.png" alt="Avatar de cliente 2" loading="lazy" decoding="async"></div>
             <h6>Alfredo Espinosa</h6>
             <span>Quito, Ecuador </span>
             <p>Con Elm St., por primera vez en mi vida — y llevo muchos años sobre las tablas y tras las cámaras —, me di cuenta de que en Ecuador se podían hacer otro tipo de producciones, tanto por su contenido como por la técnica y la belleza con la que hicimos «Noche sin mañana». Ojalá y todas las producciones en las que me meto fueran como las de Ibai.</p>
@@ -545,7 +560,7 @@
           
           <!--======= SLIDE 3 =========-->
           <div class="testi">
-            <div class="avatar"> <img src="images/avatar-3.png"></div>
+            <div class="avatar"> <img src="images/avatar-3.png" alt="Avatar de cliente 3" loading="lazy" decoding="async"></div>
             <h6>Antonella Moreno</h6>
             <span>Quito, Ecuador</span>
             <p>Fotos impecables. Me dejó jugar, ser yo misma, mientras él tomaba ángulos y momentos precisos. Después de tantos años sigo usando sus fotos y le confiaría con los ojos cerrados una nueva sesión. 🤘</p>
@@ -564,12 +579,12 @@
           <p>Conoce a aquellos clientes con los que ya tuvimos el gusto de trabajar.</p>
         </div>
         <ul class="row">
-          <li class="col-sm-4"> <a href="https://nic.ec" target="_blank"><img src="images/c-logo-1.png" title="NIC.ec" alt=""></a></li>
-          <li class="col-sm-4"> <a href="https://ascari.net/" target="_blank"><img src="images/c-logo-2.png" title="Ascari Resort" alt=""></a></li>
-          <li class="col-sm-4"> <a href="https://https://www.facebook.com/elestudio.blanco" target="_blank"><img src="images/c-logo-3.png" title="El Estudio Blanco" alt=""></a></li>
-          <li class="col-sm-4"> <a href="https://lapiscinadealicia.com/" target="_blank"><img src="images/c-logo-4.png" title="La Piscina de Alicia" alt=""></a></li>
-          <li class="col-sm-4"> <a href="http://tqecuador.com/" target="_blank"><img src="images/c-logo-5.png" title="TQ Ecuador" alt=""></a></li>
-          <li class="col-sm-4"> <a href="https://www.facebook.com/AmyJoDoh/" target="_blank"><img src="images/c-logo-6.png" title="Any Jo Doh & The Spangles" alt=""></a></li>
+          <li class="col-sm-4"> <a href="https://nic.ec" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-1.png" title="NIC.ec" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
+          <li class="col-sm-4"> <a href="https://ascari.net/" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-2.png" title="Ascari Resort" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
+          <li class="col-sm-4"> <a href="https://www.facebook.com/elestudio.blanco" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-3.png" title="El Estudio Blanco" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
+          <li class="col-sm-4"> <a href="https://lapiscinadealicia.com/" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-4.png" title="La Piscina de Alicia" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
+          <li class="col-sm-4"> <a href="https://tqecuador.com/" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-5.png" title="TQ Ecuador" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
+          <li class="col-sm-4"> <a href="https://www.facebook.com/AmyJoDoh/" target="_blank" rel="noopener noreferrer"><img src="images/c-logo-6.png" title="Any Jo Doh & The Spangles" alt="Imagen Elm St." loading="lazy" decoding="async"></a></li>
         </ul>
       </div>
     </section>
@@ -583,28 +598,30 @@
           <p>Para empezar un proyecto, por consultarnos sobre uno, porque te gustó lo que viste, para mantener el contacto... Escríbenos.</p>
         </div>
         <div class="contact-form"> 
-          <form role="form" id="contact_form" class="contact-form" method="post" onSubmit="return false">
+          <form role="form" id="contact_form" class="contact-form" method="POST" name="contact" data-netlify="true" netlify-honeypot="bot-field" onSubmit="return false">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display:none;"><label>No rellenar: <input name="bot-field" aria-label="No rellenar"></label></p>
             <div class="row">
               <div class="col-md-12">
                 <ul class="row">
                   <li class="col-sm-6">
                     <label>
-                      <input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" aria-label="Nombre" required>
                     </label>
                   </li>
                   <li class="col-sm-6">
                     <label>
-                      <input type="text" class="form-control" name="email" id="email" placeholder="Correo eletrónico">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Correo eletrónico" aria-label="Correo electrónico" required>
                     </label>
                   </li>
                   <li class="col-sm-6">
                     <label>
-                      <input type="text" class="form-control" name="phone" id="phone" placeholder="Teléfono">
+                      <input type="tel" class="form-control" name="phone" id="phone" placeholder="Teléfono" aria-label="Teléfono">
                     </label>
                   </li>
                   <li class="col-sm-6">
                     <label>
-                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">
+                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" aria-label="Asunto" required>
                     </label>
                   </li>
                 </ul>
@@ -613,7 +630,7 @@
                 <ul class="row">
                   <li class="col-sm-12">
                     <label>
-                      <textarea class="form-control" name="message" id="message" rows="5" placeholder="Mensaje"></textarea>
+                      <textarea class="form-control" name="message" id="message" rows="5" placeholder="Mensaje" aria-label="Mensaje" required></textarea>
                     </label>
                   </li>
                   <li class="col-sm-12 no-margin">
@@ -641,13 +658,13 @@
           <!--======= Social Icon =========-->
           <h5 class="dirigido" style="padding-bottom: 5px;">Síguenos en redes sociales</h5>
           <ul class="social_icons">
-            <li class="facebook"><a class="facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
-            <li class="youtube"><a class="youtube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow"><i class="fa fa-youtube"></i></a></li>
-            <li class="linkedin"><a class="linkedin" href="https://www.linkedin.com/company/elm-st-productions" target="_blank" rel="nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li class="facebook"><a class="facebook" aria-label="Facebook" title="Facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
+            <li class="youtube"><a class="youtube" aria-label="YouTube" title="YouTube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-youtube"></i></a></li>
+            <li class="linkedin"><a class="linkedin" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/company/elm-st-productions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
       </div>
-      <div class="copyright"><p>Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Colombia por <a href="https://ibaifernandez.com" target="_blank">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p>
+      <div class="copyright"><p>Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Colombia por <a href="https://ibaifernandez.com" target="_blank" rel="noopener noreferrer">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p>
       </div>
     </section>
   </div>
@@ -658,13 +675,12 @@
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/own-menu.js"></script> 
 <script src="js/owl.carousel.min.js"></script> 
-<script src="js/jquery.isotope.min.js"></script> 
-<script src="js/counter.js"></script> 
 
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
 <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
 <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
  
+<script src="dist/lity.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

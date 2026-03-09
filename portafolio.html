@@ -8,27 +8,43 @@
 <meta name="description" content="Elm St. - Productora audiovisual radicada en Bogotá, Colombia">
 <meta name="author" content="Ibai Fernández">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="canonical" href="https://elmst.ibaifernandez.com/portafolio.html">
+<link rel="alternate" hreflang="es" href="https://elmst.ibaifernandez.com/portafolio.html">
+<link rel="alternate" hreflang="en" href="https://elmst.ibaifernandez.com/en/portfolio.html">
+<link rel="alternate" hreflang="x-default" href="https://elmst.ibaifernandez.com/">
+
+<meta property="og:locale" content="es_CO">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elm St.">
+<meta property="og:title" content="Elm St. — Portafolio">
+<meta property="og:description" content="Descubre el portafolio audiovisual de Elm St. en cine, televisión y publicidad.">
+<meta property="og:url" content="https://elmst.ibaifernandez.com/portafolio.html">
+<meta property="og:image" content="https://elmst.ibaifernandez.com/images/port-img-1.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elm St. — Portafolio">
+<meta name="twitter:description" content="Descubre el portafolio audiovisual de Elm St. en cine, televisión y publicidad.">
+<meta name="twitter:image" content="https://elmst.ibaifernandez.com/images/port-img-1.jpg">
+
 <!-- FONTS ONLINE -->
-<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" rel="stylesheet" type="text/css"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" type="text/css"></noscript>
 
 <!--MAIN STYLE-->
-<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="css/main.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
-<link href="css/animate.css" rel="stylesheet" type="text/css">
 <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
 
 <!--LIGHTBOX-->
-<link href="dist/lity.css" rel="stylesheet">
-<script src="vendor/jquery.js"></script>
-<script src="dist/lity.js"></script>
-
-<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+<link href="dist/lity.min.css" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,14 +53,21 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115156525-2"></script>
+<!-- Google Analytics (lazy-loaded after first paint) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-115156525-2');
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-115156525-2';
+      document.head.appendChild(gaScript);
+    }, 2500);
+  });
 </script>
 	
 </head>
@@ -55,7 +78,7 @@
   <div id="main-wrapper">
     <header id="header" class="main-header">
       <div class="container">
-        <div class="logo"> <a href="inicio.html"> <img src="images/logo.png" alt="Elm St. Logo"></a> </div>
+        <div class="logo"> <a href="inicio.html"> <img src="images/logo.png" alt="Elm St. Logo" loading="eager" fetchpriority="high" decoding="async"></a> </div>
         
         <!-- Nav -->
         <nav>
@@ -96,8 +119,8 @@
           <div class="container">
             <h4>Échale un ojo a nuestro reel</h4>
             
-            <a href="https://www.youtube.com/watch?v=m_G2yF4-5wQ" data-lity class="play-btn" style="display: flex; justify-content: center; align-items: center; margin: 25px auto;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+            <a href="https://www.youtube.com/watch?v=m_G2yF4-5wQ" data-lity class="play-btn" style="display: flex; justify-content: center; align-items: center; margin: 25px auto;" aria-label="Ver vídeo" title="Ver vídeo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" fill="#fff" />
                 </svg>
             </a> </div>
@@ -111,10 +134,10 @@
           
           <!-- Noche sin mañana -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-1.jpg" alt=""> 
+            <article> <img src="images/port-img-1.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/m_G2yF4-5wQ" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/m_G2yF4-5wQ" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Noche sin mañana</h6>
                 </div>
               </div>
@@ -123,10 +146,10 @@
           
           <!-- 2x2 -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-2.jpg" alt=""> 
+            <article> <img src="images/port-img-2.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/aN9rRLCpRBs" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/aN9rRLCpRBs" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>2x2</h6>
                 </div>
               </div>
@@ -135,10 +158,10 @@
           
           <!-- Más de un día -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-3.jpg" alt=""> 
+            <article> <img src="images/port-img-3.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/VzQwup8HIMo" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/VzQwup8HIMo" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Más de un día</h6>
                 </div>
               </div>
@@ -152,10 +175,10 @@
         
           <!-- Sorry -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-4.jpg" alt=""> 
+            <article> <img src="images/port-img-4.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/4IWFjgdH6IM" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/4IWFjgdH6IM" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>«Sorry» - Amy Jo Doh & The Spangles</h6>
                 </div>
               </div>
@@ -164,10 +187,10 @@
           
           <!-- Now or Never -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-5.jpg" alt=""> 
+            <article> <img src="images/port-img-5.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/_qvfxsG6BNQ" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/_qvfxsG6BNQ" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>«Now or Never» — Joel</h6>
                 </div>
               </div>
@@ -176,10 +199,10 @@
           
           <!-- Eurovegas -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-6.jpg" alt=""> 
+            <article> <img src="images/port-img-6.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/JRF_YgoiYkc" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/JRF_YgoiYkc" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>«Eurovegas» — Skone</h6>
                 </div>
               </div>
@@ -193,10 +216,10 @@
 
           <!-- JIT -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-7.jpg" alt=""> 
+            <article> <img src="images/port-img-7.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/CEaC_FVD8ZY" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/CEaC_FVD8ZY" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>JIT: más allá de la pasión</h6>
                 </div>
               </div>
@@ -205,10 +228,10 @@
           
           <!-- Ecuador: Destino Zero -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-8.jpg" alt=""> 
+            <article> <img src="images/port-img-8.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/vzZy8-dMamY" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/vzZy8-dMamY" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Ecuador: Destino Zero (pitch)</h6>
                 </div>
               </div>
@@ -217,10 +240,10 @@
 
           <!-- The Self Show -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-9.jpg" alt=""> 
+            <article> <img src="images/port-img-9.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/6qchmb3ZI5k" data-lity=""><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/6qchmb3ZI5k" data-lity="" aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>The Self Show</h6>
                 </div>
               </div>
@@ -234,10 +257,10 @@
 
           <!-- A Christmas Tale -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-10.jpg" alt=""> 
+            <article> <img src="images/port-img-10.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/6PlLe88NHdM" data-lity=""><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/6PlLe88NHdM" data-lity="" aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>A Christmas Tale</h6>
                 </div>
               </div>
@@ -246,10 +269,10 @@
           
           <!-- Pacifpetrol -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-11.jpg" alt=""> 
+            <article> <img src="images/port-img-11.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/ghkBTKjoSz0" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/ghkBTKjoSz0" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Pacifpetrol (corporativo)</h6>
                 </div>
               </div>
@@ -258,10 +281,10 @@
 
           <!-- Ascari Race Resort -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-12.jpg" alt=""> 
+            <article> <img src="images/port-img-12.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/RKba9TSEKns" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/RKba9TSEKns" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Ascari Race resort</h6>
                 </div>
               </div>
@@ -275,10 +298,10 @@
 
           <!-- #NosGustasTU -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-13.jpg" alt=""> 
+            <article> <img src="images/port-img-13.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/HJEpJaYEXD0" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/HJEpJaYEXD0" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>#NosGustasTU</h6>
                 </div>
               </div>
@@ -287,10 +310,10 @@
           
           <!-- Dirección General de Tráfico (España) -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-14.jpg" alt=""> 
+            <article> <img src="images/port-img-14.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/H9hctKTHxWk" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/H9hctKTHxWk" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Dirección General de Tráfico (España)</h6>
                 </div>
               </div>
@@ -299,10 +322,10 @@
 
           <!-- Burger King -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-15.jpg" alt=""> 
+            <article> <img src="images/port-img-15.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/X99mzQqlfZ0" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/X99mzQqlfZ0" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Burger King (España)</h6>
                 </div>
               </div>
@@ -316,10 +339,10 @@
 
           <!-- Workkey -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-16.jpg" alt=""> 
+            <article> <img src="images/port-img-16.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/rimS7t_0gNY" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/rimS7t_0gNY" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Workkey</h6>
                 </div>
               </div>
@@ -328,10 +351,10 @@
           
           <!-- Cooperativa Nacional de Ahorro y Crédito de la Policía Nacional de Ecuador -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-17.jpg" alt=""> 
+            <article> <img src="images/port-img-17.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/ttrJhjsMZQM" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/ttrJhjsMZQM" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>Cooperativa Nacional de Ahorro y Crédito de la Policía Nacional de Ecuador</h6>
                 </div>
               </div>
@@ -340,10 +363,10 @@
 
           <!-- 123fácil -->
           <li class="item padding-15">
-            <article> <img src="images/port-img-18.jpg" alt=""> 
+            <article> <img src="images/port-img-18.jpg" alt="Imagen Elm St." loading="lazy" decoding="async"> 
               <!-- Hover Info -->
               <div class="hover-port">
-                <div class="position-center-center"> <a href="https://youtu.be/73YSx96Ne7w" data-lity><i class="fa fa-link"></i></a>
+                <div class="position-center-center"> <a href="https://youtu.be/73YSx96Ne7w" data-lity aria-label="Ver vídeo" title="Ver vídeo"><i class="fa fa-link"></i></a>
                   <h6>123fácil</h6>
                 </div>
               </div>
@@ -352,7 +375,7 @@
         </ul>
 
         <div class="text-center">
-            <a href="https://www.youtube.com/user/elmstproductions/videos" target="_blank" class="btn">Ver más trabajos</a>
+            <a href="https://www.youtube.com/user/elmstproductions/videos" target="_blank" rel="noopener noreferrer" class="btn">Ver más trabajos</a>
         </div>
       </div>
     </section>
@@ -371,28 +394,23 @@
           <!--======= Social Icon =========-->
           <h5 class="dirigido" style="padding-bottom: 5px;">Síguenos en redes sociales</h5>
           <ul class="social_icons">
-            <li class="facebook"><a class="facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
-            <li class="youtube"><a class="youtube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow"><i class="fa fa-youtube"></i></a></li>
-            <li class="linkedin"><a class="linkedin" href="https://www.linkedin.com/company/elm-st-productions" target="_blank" rel="nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li class="facebook"><a class="facebook" aria-label="Facebook" title="Facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
+            <li class="youtube"><a class="youtube" aria-label="YouTube" title="YouTube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-youtube"></i></a></li>
+            <li class="linkedin"><a class="linkedin" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/company/elm-st-productions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
       </div>
-      <div class="copyright"><p>Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Ecuador por <a href="https://ibaifernandez.com" target="_blank">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p>
+      <div class="copyright"><p>Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Ecuador por <a href="https://ibaifernandez.com" target="_blank" rel="noopener noreferrer">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p>
       </div>
     </section>  </div>
 </div>
 <!-- Wrap End --> 
 
 <script src="js/jquery-1.11.3.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
 <script src="js/own-menu.js"></script> 
-<script src="js/owl.carousel.min.js"></script> 
 <script src="js/jquery.isotope.min.js"></script> 
-<script src="js/counter.js"></script> 
 
-<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+<script src="dist/lity.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
