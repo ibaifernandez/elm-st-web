@@ -88,6 +88,7 @@ All notable changes to this project are documented in this file.
 - Netlify form POST hardening:
   - Added explicit root rewrite rule (`/ /index.html 200`) as mitigation while diagnosing production `POST /` failures.
   - Added hidden Netlify "shadow form" in ES/EN home routes to force form detection at deploy-time.
+  - Removed catch-all redirect `/* /404.html 404` to avoid intercepting non-GET requests before Netlify Forms processing.
   - Current status: Netlify still returns `404` for form submissions; final fix depends on Forms-side activation/detection in platform settings.
 - Sentry browser boot sequence:
   - Fixed loader flow for `js.sentry-cdn.com` by supporting `Sentry.onLoad(...)` + `Sentry.forceLoad()` before `Sentry.init(...)`.

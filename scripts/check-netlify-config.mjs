@@ -36,8 +36,7 @@ const requiredRedirectRules = [
   "/en/about /en/about.html 200",
   "/en/portfolio /en/portfolio.html 200",
   "/en/contact /en/contact.html 200",
-  "/LLM.txt /llms.txt 301!",
-  "/* /404.html 404"
+  "/LLM.txt /llms.txt 301!"
 ];
 
 const missingRedirectRules = requiredRedirectRules.filter((rule) => !redirects.includes(rule));
