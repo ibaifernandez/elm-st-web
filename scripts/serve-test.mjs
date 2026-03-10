@@ -73,7 +73,12 @@ const server = http.createServer((request, response) => {
     const requestPath = request.url || "/";
 
     if (requestPath.startsWith("/.netlify/functions/runtime-config")) {
-      sendJson(response, { turnstileSiteKey: "" });
+      sendJson(response, {
+        turnstileSiteKey: "",
+        sentryDsn: "",
+        sentryEnvironment: "test",
+        sentryRelease: ""
+      });
       return;
     }
 

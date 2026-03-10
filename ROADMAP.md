@@ -6,7 +6,7 @@
 - Quality gate: `quality:ci` en verde (lint, links, e2e, a11y, visual, Lighthouse).
 - Bilingue ES/EN: rutas EN publicadas en modo operativo; QA de tono en curso.
 - Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
-- Formulario: Netlify Forms + honeypot activo + capa de captcha invisible opcional (Cloudflare Turnstile) lista para habilitar por variables de entorno.
+- Formulario: Netlify Forms + honeypot + Turnstile invisible activo en produccion.
 
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
@@ -15,28 +15,23 @@ Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
 ### Bloque 1 - Cerrar antispam y seguridad de formulario
 Periodo: 10 marzo 2026 - 12 marzo 2026
 - Implementacion (Codex):
-  - Verificar en produccion el flujo `runtime-config` + `verify-turnstile`.
-  - Endurecer mensajes de error y logging de verificacion captcha.
-  - Registrar evidencia en `CHANGELOG.md`.
+  - Verificado en produccion el flujo `runtime-config` + `verify-turnstile`.
+  - Turnstile serverless activo en ES/EN.
+  - Evidencia registrada en `CHANGELOG.md`.
 - Necesito de ti:
-  - Crear widget Turnstile para `elmst.ibaifernandez.com`.
-  - Cargar en Netlify:
-    - `TURNSTILE_SITE_KEY`
-    - `TURNSTILE_SECRET_KEY`
-  - Lanzar redeploy de produccion.
+  - Nada bloqueante en este bloque (completado).
 - Entregable:
-  - Formulario operativo con captcha invisible activo y sin regresion visual/copy.
+  - Formulario operativo con captcha invisible activo y sin regresion visual/copy. (cumplido)
 
 ### Bloque 2 - Observabilidad y uptime
 Periodo: 13 marzo 2026 - 17 marzo 2026
 - Implementacion (Codex):
-  - Integrar captura de errores frontend (Sentry JS o alternativa equivalente).
-  - Definir endpoint/ping de uptime y checklist de alarmas.
-  - Documentar runbook de incidentes P1.
+  - Integrada captura de errores frontend con Sentry JS por runtime config.
+  - Monitor HTTP externo creado en UptimeRobot para `elmst.ibaifernandez.com`.
+  - Pendiente: checklist final de alarmas y runbook de incidentes P1.
 - Necesito de ti:
-  - Cuenta de herramienta elegida (Sentry/Better Stack/UptimeRobot).
-  - Credenciales/DSN o API key correspondiente (como secret en GitHub o Netlify).
-  - Email/telefono de alerta.
+  - Confirmar canal de alerta primario (email/SMS) y destinatarios.
+  - Confirmar severidad para notificaciones de Sentry (error/fatal).
 - Entregable:
   - Deteccion automatica de caidas y errores JS criticos.
 
@@ -115,7 +110,7 @@ Periodo: 10 marzo 2026 - 6 abril 2026
 - Accesibilidad: cierre de gaps serios y eliminacion de excepciones en axe.
 - Performance: optimizacion de imagenes y carga de JS/CSS no critico.
 - Seguridad: hardening de enlaces, headers, mixed content, secretos.
-- Seguridad formulario: verificacion serverless de captcha Turnstile pendiente de activacion con claves productivas.
+- Seguridad formulario: verificacion serverless de captcha Turnstile activa con claves productivas.
 
 Exit criteria:
 - `quality:ci` en verde. (cumplido en esta iteracion)

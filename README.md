@@ -36,7 +36,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - `_headers`
 - `index.html` (entrada principal)
 - `404.html` (fallback de Netlify)
-- `netlify/functions/runtime-config.js` y `netlify/functions/verify-turnstile.js` (captcha opcional)
+- `netlify/functions/runtime-config.js` y `netlify/functions/verify-turnstile.js` (runtime config + captcha opcional)
 
 ## Hallazgos clave de auditoría inicial
 - Dependencias frontend antiguas (jQuery 1.x, Bootstrap 3.x).
@@ -113,6 +113,23 @@ Con ambas variables presentes:
 - El frontend solicita el site key vía `/.netlify/functions/runtime-config`.
 - `js/main.js` ejecuta Turnstile invisible.
 - `/.netlify/functions/verify-turnstile` valida token antes del submit final.
+
+## Observabilidad (Sentry + Uptime)
+Frontend error monitoring está integrado de forma opcional y sin cambio visual/copy.
+
+1. Define en Netlify:
+   - `SENTRY_DSN`
+   - `SENTRY_ENVIRONMENT` (ejemplo: `production`)
+   - `SENTRY_RELEASE` (opcional)
+2. Redeploy del sitio.
+
+Con variables presentes:
+- El frontend solicita `sentryDsn`, `sentryEnvironment`, `sentryRelease` vía `/.netlify/functions/runtime-config`.
+- `js/main.js` carga SDK de Sentry en runtime (`js.sentry-cdn.com`) y reporta errores JS.
+- CSP en `_headers` permite dominios de carga/ingesta de Sentry.
+
+Uptime externo:
+- Monitor HTTP activo en UptimeRobot sobre `https://elmst.ibaifernandez.com`.
 
 ## Próximos pasos
 Seguir el orden de prioridades definido en `BACKLOG.md` empezando por tareas P0 de plataforma/migración.

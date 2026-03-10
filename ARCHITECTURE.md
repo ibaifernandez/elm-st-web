@@ -14,7 +14,7 @@
 - Metadatos SEO completos en rutas críticas (canonical, `hreflang`, OG, Twitter).
 - Accesibilidad y contraste endurecidos para pasar axe sin excepciones.
 - API key de Google Maps eliminada del runtime público activo.
-- Hardening opcional de captcha invisible preparado (Turnstile + verificación serverless).
+- Hardening de captcha invisible activo (Turnstile + verificación serverless).
 - Activos pesados y residuos (`Thumbs.db`, vídeo principal grande).
 
 ## 2) Arquitectura objetivo (to-be)
@@ -27,7 +27,7 @@
 - Capa de presentación: páginas estáticas optimizadas.
 - Capa de integración: Netlify Forms + Netlify Functions auxiliares (`runtime-config`, `verify-turnstile` opcional).
 - Capa de entrega: Netlify (deploys versionados, previews, CDN global).
-- Capa de observabilidad: analítica + monitoreo de errores.
+- Capa de observabilidad: analítica + monitoreo de errores (Sentry) + uptime externo (UptimeRobot).
 
 ## 3) Dominio y routing
 - Dominio principal de producción: `elmst.ibaifernandez.com`.
@@ -61,7 +61,7 @@
 - Sin secretos en frontend.
 - Validación de inputs y protección anti-spam en contacto:
   - honeypot activo en Netlify Forms (base).
-  - captcha invisible opcional con Turnstile y verificación serverless (cuando haya claves).
+  - captcha invisible activo con Turnstile y verificación serverless.
 
 ## 6) SEO objetivo
 - Canonical por página.
@@ -82,4 +82,4 @@
 - D-02: Contacto vía Netlify Forms vs Function + proveedor de email.
 - D-03: Alcance del rediseño visual en fase 1 vs fase 2.
 - D-04 (resuelta): Selector de idioma flotante tipo "pelotita" abajo izquierda, generado desde rutas ES/EN existentes sin alterar copy.
-- D-05: Activar o no captcha obligatorio en producción (depende de volumen real de spam y de provisionar claves Turnstile).
+- D-05 (resuelta): Turnstile activo en producción; se mantiene como capa adicional de seguridad sobre Netlify Forms.

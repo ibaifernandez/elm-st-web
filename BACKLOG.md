@@ -54,8 +54,8 @@
 | SEC-003 | P1 | DONE | Revisar enlaces externos `target="_blank"` con `rel` seguro | 100% enlaces externos endurecidos |
 | SEC-004 | P1 | TODO | Gestionar API keys expuestas en frontend | Ningún secreto sensible en HTML/JS público |
 | SEC-005 | P2 | DONE | Estabilizar checker de enlaces externos ante anti-bot (allowlist) | `test:links` estable en CI con externos habilitados |
-| SEC-006 | P1 | DOING | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
-| SEC-007 | P0 | TODO | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN |
+| SEC-006 | P1 | DONE | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
+| SEC-007 | P0 | DONE | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN |
 
 ## Calidad de código y contenido
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -84,8 +84,8 @@
 |---|---|---|---|---|
 | OBS-001 | P1 | TODO | Migrar tracking UA a GA4 o alternativa | Eventos base verificados en tiempo real |
 | OBS-002 | P2 | TODO | Definir panel mínimo de KPIs | Dashboard con tráfico y conversiones |
-| OBS-003 | P1 | TODO | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
-| OBS-004 | P1 | TODO | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
+| OBS-003 | P1 | DOING | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
+| OBS-004 | P1 | DOING | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
 | DOC-001 | P1 | DONE | Crear y mantener `CHANGELOG.md` | Historial de releases y cambios disponible |
 | DOC-002 | P1 | DONE | Mantener `ROADMAP.md` y `BACKLOG.md` al día | Estado real reflejado tras cada iteración |
 | DOC-003 | P1 | DONE | Publicar informe de estado por iteración | Resumen técnico + riesgos + resultados de tests por ciclo |

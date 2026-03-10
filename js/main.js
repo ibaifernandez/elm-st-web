@@ -1,15 +1,26 @@
 /*-----------------------------------------------------------------------------------*/
 /* 		Mian Js Start 
 /*-----------------------------------------------------------------------------------*/
+var elmstRuntimeConfig = {
+	checked: false,
+	requested: false,
+	turnstileSiteKey: "",
+	sentryDsn: "",
+	sentryEnvironment: "production",
+	sentryRelease: ""
+};
+
 var elmstFormSecurity = {
-	runtimeChecked: false,
-	runtimeRequested: false,
 	turnstileEnabled: false,
 	turnstileSiteKey: "",
 	turnstileWidgetId: null,
 	turnstileToken: "",
 	turnstileReady: false,
 	pendingSubmit: null
+};
+
+var elmstObservability = {
+	sentryBooted: false
 };
 
 $(document).ready(function($) {
@@ -95,6 +106,7 @@ if ($container.length && $.fn.imagesLoaded && $.fn.isotope) {
 }
 
 	initFloatingLanguageSwitcher();
+	initSentryObservability();
 	initContactFormSecurity();
 
 /*-----------------------------------------------------------------------------------*/
@@ -183,35 +195,127 @@ function initFloatingLanguageSwitcher() {
 	document.body.classList.add("lang-switch-enhanced");
 }
 
-function loadContactRuntimeConfig(callback) {
-	if (elmstFormSecurity.runtimeChecked) {
-		callback();
+function sanitizeRuntimeString(value) {
+	return typeof value === "string" ? value.trim() : "";
+}
+
+function loadRuntimeConfig(callback) {
+	if (elmstRuntimeConfig.checked) {
+		callback(elmstRuntimeConfig);
 		return;
 	}
-	if (elmstFormSecurity.runtimeRequested) {
+	if (elmstRuntimeConfig.requested) {
 		setTimeout(function() {
-			loadContactRuntimeConfig(callback);
+			loadRuntimeConfig(callback);
 		}, 100);
 		return;
 	}
 
-	elmstFormSecurity.runtimeRequested = true;
+	elmstRuntimeConfig.requested = true;
 	$.ajax({
 		type: "GET",
 		url: "/.netlify/functions/runtime-config",
 		dataType: "json",
-		timeout: 2500,
+		timeout: 3000,
 		success: function(response) {
-			var siteKey = response && typeof response.turnstileSiteKey === "string"
-				? response.turnstileSiteKey.trim()
-				: "";
-			elmstFormSecurity.turnstileSiteKey = siteKey;
-			elmstFormSecurity.turnstileEnabled = siteKey.length > 0;
+			elmstRuntimeConfig.turnstileSiteKey = sanitizeRuntimeString(response && response.turnstileSiteKey);
+			elmstRuntimeConfig.sentryDsn = sanitizeRuntimeString(response && response.sentryDsn);
+			elmstRuntimeConfig.sentryEnvironment = sanitizeRuntimeString(response && response.sentryEnvironment) || "production";
+			elmstRuntimeConfig.sentryRelease = sanitizeRuntimeString(response && response.sentryRelease);
 		},
 		complete: function() {
-			elmstFormSecurity.runtimeChecked = true;
-			callback();
+			elmstRuntimeConfig.checked = true;
+			callback(elmstRuntimeConfig);
 		}
+	});
+}
+
+function loadContactRuntimeConfig(callback) {
+	loadRuntimeConfig(function(runtimeConfig) {
+		var siteKey = runtimeConfig.turnstileSiteKey;
+		elmstFormSecurity.turnstileSiteKey = siteKey;
+		elmstFormSecurity.turnstileEnabled = siteKey.length > 0;
+		callback();
+	});
+}
+
+function getSentryLoaderUrl(dsn) {
+	var match = dsn.match(/^https?:\/\/([^@]+)@/i);
+	if (!match || !match[1]) {
+		return "";
+	}
+	var publicKey = match[1].split(":")[0].trim();
+	if (!publicKey) {
+		return "";
+	}
+	return "https://js.sentry-cdn.com/" + encodeURIComponent(publicKey) + ".min.js";
+}
+
+function loadSentryScript(scriptUrl, onLoaded) {
+	if (window.Sentry && typeof window.Sentry.init === "function") {
+		onLoaded();
+		return;
+	}
+
+	var existingScript = document.getElementById("sentry-browser-script");
+	if (existingScript) {
+		existingScript.addEventListener("load", onLoaded, { once: true });
+		return;
+	}
+
+	var script = document.createElement("script");
+	script.id = "sentry-browser-script";
+	script.src = scriptUrl;
+	script.async = true;
+	script.defer = true;
+	script.crossOrigin = "anonymous";
+	script.onload = onLoaded;
+	document.head.appendChild(script);
+}
+
+function initSentryObservability() {
+	if (elmstObservability.sentryBooted) {
+		return;
+	}
+
+	loadRuntimeConfig(function(runtimeConfig) {
+		if (!runtimeConfig.sentryDsn) {
+			return;
+		}
+
+		var scriptUrl = getSentryLoaderUrl(runtimeConfig.sentryDsn);
+		if (!scriptUrl) {
+			return;
+		}
+
+		loadSentryScript(scriptUrl, function() {
+			if (elmstObservability.sentryBooted || !window.Sentry || typeof window.Sentry.init !== "function") {
+				return;
+			}
+
+			try {
+				var sentryOptions = {
+					dsn: runtimeConfig.sentryDsn,
+					environment: runtimeConfig.sentryEnvironment || "production",
+					sampleRate: 1,
+					tracesSampleRate: 0,
+					sendDefaultPii: false
+				};
+
+				if (runtimeConfig.sentryRelease) {
+					sentryOptions.release = runtimeConfig.sentryRelease;
+				}
+
+				window.Sentry.init(sentryOptions);
+				if (typeof window.Sentry.setTag === "function") {
+					window.Sentry.setTag("site", "elmst");
+					window.Sentry.setTag("locale", (document.documentElement.lang || "es").toLowerCase());
+				}
+				elmstObservability.sentryBooted = true;
+			} catch (error) {
+				elmstObservability.sentryBooted = false;
+			}
+		});
 	});
 }
 

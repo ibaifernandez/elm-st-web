@@ -18,10 +18,16 @@ All notable changes to this project are documented in this file.
 - QA matrix extensions for manual review of new language switcher and captcha hardening:
   - `qa/qa-desktop.csv`
   - `qa/qa-mobile.csv`
+- Runtime observability wiring for frontend errors:
+  - `netlify/functions/runtime-config.js` now exposes sanitized `sentryDsn`, `sentryEnvironment`, and `sentryRelease`.
+  - `js/main.js` initializes Sentry browser SDK conditionally from runtime config.
 
 ### Changed
 - CSP updated to allow optional Turnstile runtime endpoints:
   - `_headers` now includes `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`.
+- CSP updated for Sentry browser SDK + ingest endpoints:
+  - `_headers` now includes `https://js.sentry-cdn.com` in `script-src`.
+  - `_headers` now includes Sentry ingest domains in `connect-src`.
 - Local test server now stubs Netlify function endpoints used by form hardening:
   - `scripts/serve-test.mjs`.
 - Netlify config validator now checks required function files:
@@ -76,6 +82,9 @@ All notable changes to this project are documented in this file.
   - `.sec-choose .choose-tab` no longer overlays the fixed header while scrolling.
 - External link checker stability:
   - allowlist updated for `https://instagram.com/monicamontufarq` anti-bot responses.
+- Production captcha activation:
+  - `/.netlify/functions/runtime-config` now returns configured Turnstile site key in production.
+  - `/.netlify/functions/verify-turnstile` rejects missing tokens as expected (`Missing captcha token.`).
 
 ## [2026-03-08]
 
