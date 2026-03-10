@@ -55,7 +55,7 @@
 | SEC-004 | P1 | TODO | Gestionar API keys expuestas en frontend | Ningún secreto sensible en HTML/JS público |
 | SEC-005 | P2 | DONE | Estabilizar checker de enlaces externos ante anti-bot (allowlist) | `test:links` estable en CI con externos habilitados |
 | SEC-006 | P1 | DONE | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
-| SEC-007 | P0 | DONE | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN |
+| SEC-007 | P0 | BLOCKED | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN (actualmente `POST /` responde 404 en Netlify) |
 
 ## Calidad de código y contenido
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
