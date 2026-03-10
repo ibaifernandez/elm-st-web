@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "numberOfRuns": 1,
+      "numberOfRuns": 3,
       "startServerCommand": "npm run serve:test",
       "startServerReadyPattern": "Available on",
       "url": [
@@ -9,10 +9,12 @@
         "http://127.0.0.1:4173/nosotros.html",
         "http://127.0.0.1:4173/portafolio.html",
         "http://127.0.0.1:4173/contacto.html",
+        "http://127.0.0.1:4173/dossier-tecnico.html",
         "http://127.0.0.1:4173/en/",
         "http://127.0.0.1:4173/en/about.html",
         "http://127.0.0.1:4173/en/portfolio.html",
-        "http://127.0.0.1:4173/en/contact.html"
+        "http://127.0.0.1:4173/en/contact.html",
+        "http://127.0.0.1:4173/en/technical-dossier.html"
       ],
       "settings": {
         "preset": "desktop",

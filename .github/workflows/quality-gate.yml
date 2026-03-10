@@ -8,6 +8,8 @@ on:
       - "codex/**"
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1"
 
 jobs:
   quality:
@@ -16,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'schedule' && 'codex' || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -34,3 +38,16 @@ jobs:
           CHECK_EXTERNAL_LINKS: "true"
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: npm run quality:ci
+
+      - name: Generate release report snapshot
+        if: always()
+        continue-on-error: true
+        run: npm run report:release -- --output reports/releases/latest-ci.md
+
+      - name: Upload release report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-report-${{ github.run_id }}
+          path: reports/releases/latest-ci.md
+          if-no-files-found: warn

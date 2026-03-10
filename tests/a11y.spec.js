@@ -6,10 +6,12 @@ const pages = [
   "/nosotros.html",
   "/portafolio.html",
   "/contacto.html",
+  "/dossier-tecnico.html",
   "/en/",
   "/en/about.html",
   "/en/portfolio.html",
-  "/en/contact.html"
+  "/en/contact.html",
+  "/en/technical-dossier.html"
 ];
 
 test.describe("Accessibility automated checks", () => {

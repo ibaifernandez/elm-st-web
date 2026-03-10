@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elm St. — Technical Dossier</title>
+<meta name="keywords" content="Elm St., technical dossier, web architecture, CI/CD, web security, Lighthouse, accessibility, technical SEO">
+<meta name="description" content="Public technical dossier for Elm St.: architecture, CI, security, i18n, Lighthouse, observability, and operations.">
+<meta name="author" content="Ibai Fernández">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="canonical" href="https://elmst.ibaifernandez.com/en/technical-dossier.html">
+<link rel="alternate" hreflang="es" href="https://elmst.ibaifernandez.com/dossier-tecnico.html">
+<link rel="alternate" hreflang="en" href="https://elmst.ibaifernandez.com/en/technical-dossier.html">
+<link rel="alternate" hreflang="x-default" href="https://elmst.ibaifernandez.com/dossier-tecnico.html">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Elm St.">
+<meta property="og:title" content="Elm St. — Technical Dossier">
+<meta property="og:description" content="The engineering system behind Elm St.: CI, security, i18n, performance, and monitoring.">
+<meta property="og:url" content="https://elmst.ibaifernandez.com/en/technical-dossier.html">
+<meta property="og:image" content="https://elmst.ibaifernandez.com/images/bg/bg-2.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elm St. — Technical Dossier">
+<meta name="twitter:description" content="Architecture and quality system behind the Elm St. website.">
+<meta name="twitter:image" content="https://elmst.ibaifernandez.com/images/bg/bg-2.jpg">
+
+<!-- FONTS ONLINE -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" rel="stylesheet" type="text/css"></noscript>
+
+<!--MAIN STYLE-->
+<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/responsive.css" rel="stylesheet" type="text/css">
+<link rel='icon' href='/favicon.ico' type='image/x-icon'/ >
+
+<!-- Google Analytics (lazy-loaded after first paint) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-115156525-2');
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-115156525-2';
+      document.head.appendChild(gaScript);
+    }, 8000);
+  });
+</script>
+
+</head>
+<body>
+
+<!-- Page Wrap -->
+<div id="wrap" class="no-padding">
+  <div id="main-wrapper">
+    <header class="main-header">
+      <div class="container">
+        <div class="logo"> <a href="/en/"> <img src="/images/logo.png" alt="Elm St. Logo" loading="eager" fetchpriority="high" decoding="async"></a> </div>
+
+        <!-- Nav -->
+        <nav>
+          <ul id="ownmenu" class="ownmenu">
+            <li><a href="/en/"> Home</a></li>
+            <li><a href="/en/about.html">About</a></li>
+            <li><a href="/en/portfolio.html">Portfolio</a></li>
+            <li><a href="/en/contact.html">Contact</a></li>
+            <li class="active"><a href="#dossier">Dossier</a></li>
+            <li class="lang-switch"><a href="/dossier-tecnico.html" hreflang="es" lang="es" aria-label="Cambiar idioma a español">ES</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="sub-banner">
+      <div class="container">
+        <div class="position-center-center">
+          <h2 style="color:#fff; font-weight: 900;">Technical dossier</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectoion-100px" id="dossier">
+      <div class="container">
+        <div class="tittle">
+          <h4>Website engineering</h4>
+          <p>Public documentation of the technical layer that makes elmst.ibaifernandez.com robust internally.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Architecture and hosting</h5>
+            <p>Static HTML/CSS/JS website deployed on Netlify, using serverless functions for runtime config, captcha validation, and contact submit.</p>
+            <ul>
+              <li>Hosting: Netlify + production domain `elmst.ibaifernandez.com`.</li>
+              <li>Functions: `runtime-config`, `verify-turnstile`, `submit-contact`.</li>
+              <li>Routing and hardening: `_redirects`, `_headers`, `netlify.toml`.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5>Quality and CI</h5>
+            <p>Blocking pipeline in GitHub Actions. If one check fails, quality gate fails.</p>
+            <ul>
+              <li>Playwright E2E for critical routes and contact form.</li>
+              <li>Desktop/mobile visual regression.</li>
+              <li>Automated accessibility with axe.</li>
+              <li>Lighthouse CI + route-level budgets.</li>
+              <li>Link checker and mixed-content detection.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row margin-top-40">
+          <div class="col-md-6">
+            <h5>Security</h5>
+            <ul>
+              <li>Security headers (CSP, HSTS, X-Frame-Options, etc.).</li>
+              <li>Invisible Turnstile captcha with server-side verification.</li>
+              <li>Honeypot and backend field validation.</li>
+              <li>No legacy PHP backend in production.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5>Technical SEO and i18n</h5>
+            <ul>
+              <li>ES/EN versions with page-level `hreflang` and canonical.</li>
+              <li>Sitemap and robots aligned with production domain.</li>
+              <li>Route-level OG/Twitter metadata.</li>
+              <li>Friendly routes with controlled legacy compatibility redirects.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row margin-top-40">
+          <div class="col-md-6">
+            <h5>Observability and uptime</h5>
+            <ul>
+              <li>Sentry for frontend error capture (runtime-config based).</li>
+              <li>External HTTP uptime monitor in UptimeRobot.</li>
+              <li>Alert policy and incident runbook documented.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5>Continuous operations</h5>
+            <ul>
+              <li>Manual + weekly automated Quality Gate.</li>
+              <li>Versioned technical report per release.</li>
+              <li>Monthly manual QA CSV checks (desktop/mobile).</li>
+              <li>Backlog and roadmap updated each iteration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="margin-top-40">
+          <p><strong>Latest technical update:</strong> March 10, 2026.</p>
+          <p>Full documentation in repository files: `README.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `BACKLOG.md`, `CHANGELOG.md`.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-up">
+      <div class="col-sm-6">
+        <div class="work"> <i class="ion-map"></i>
+          <p>17th Street #4-77 · Bogota D.C. <br>
+            Colombia </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="contact">
+          <h5 class="dirigido" style="padding-bottom: 5px;">Follow us on social media</h5>
+          <ul class="social_icons">
+            <li class="facebook"><a class="facebook" aria-label="Facebook" title="Facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
+            <li class="youtube"><a class="youtube" aria-label="YouTube" title="YouTube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-youtube"></i></a></li>
+            <li class="linkedin"><a class="linkedin" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/company/elm-st-productions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright"><p>Made for <a href="https://aglaya.biz">AGLAYA</a> with lots of ❤️ in Colombia by <a href="https://ibaifernandez.com" target="_blank" rel="noopener noreferrer">Ibai Fernández</a> © 2020 · All rights reserved.</p>
+      </div>
+    </section>
+  </div>
+</div>
+<!-- Wrap End -->
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/own-menu.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

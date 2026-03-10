@@ -1,0 +1,164 @@
+{
+  "routes": {
+    "http://127.0.0.1:4173/": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2200,
+        "total-blocking-time": 300,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 2200,
+        "total-byte-weight": 1800000,
+        "network-requests": 65
+      }
+    },
+    "http://127.0.0.1:4173/nosotros.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2200,
+        "total-blocking-time": 250,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1600,
+        "total-byte-weight": 2100000,
+        "network-requests": 35
+      }
+    },
+    "http://127.0.0.1:4173/portafolio.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2400,
+        "total-blocking-time": 250,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1800,
+        "total-byte-weight": 2400000,
+        "network-requests": 50
+      }
+    },
+    "http://127.0.0.1:4173/contacto.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 1800,
+        "total-blocking-time": 220,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1200,
+        "total-byte-weight": 1150000,
+        "network-requests": 30
+      }
+    },
+    "http://127.0.0.1:4173/dossier-tecnico.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 1900,
+        "total-blocking-time": 220,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1300,
+        "total-byte-weight": 1150000,
+        "network-requests": 32
+      }
+    },
+    "http://127.0.0.1:4173/en/": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2200,
+        "total-blocking-time": 300,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 2200,
+        "total-byte-weight": 1800000,
+        "network-requests": 65
+      }
+    },
+    "http://127.0.0.1:4173/en/about.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2200,
+        "total-blocking-time": 250,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1600,
+        "total-byte-weight": 2100000,
+        "network-requests": 35
+      }
+    },
+    "http://127.0.0.1:4173/en/portfolio.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 2400,
+        "total-blocking-time": 250,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1800,
+        "total-byte-weight": 2400000,
+        "network-requests": 50
+      }
+    },
+    "http://127.0.0.1:4173/en/contact.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 1800,
+        "total-blocking-time": 220,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1200,
+        "total-byte-weight": 1150000,
+        "network-requests": 30
+      }
+    },
+    "http://127.0.0.1:4173/en/technical-dossier.html": {
+      "minScores": {
+        "performance": 0.9,
+        "accessibility": 0.95,
+        "seo": 0.95,
+        "best-practices": 0.95
+      },
+      "maxMetrics": {
+        "largest-contentful-paint": 1900,
+        "total-blocking-time": 220,
+        "cumulative-layout-shift": 0.1,
+        "speed-index": 1300,
+        "total-byte-weight": 1150000,
+        "network-requests": 32
+      }
+    }
+  }
+}

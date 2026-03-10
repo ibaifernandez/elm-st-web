@@ -5,10 +5,12 @@ const routes = [
   "/nosotros.html",
   "/portafolio.html",
   "/contacto.html",
+  "/dossier-tecnico.html",
   "/en/",
   "/en/about.html",
   "/en/portfolio.html",
-  "/en/contact.html"
+  "/en/contact.html",
+  "/en/technical-dossier.html"
 ];
 
 test.describe("Critical route availability", () => {
@@ -27,10 +29,12 @@ test.describe("Language switch visibility", () => {
     { route: "/nosotros.html", href: "/en/about.html", expectedAria: "English" },
     { route: "/portafolio.html", href: "/en/portfolio.html", expectedAria: "English" },
     { route: "/contacto.html", href: "/en/contact.html", expectedAria: "English" },
+    { route: "/dossier-tecnico.html", href: "/en/technical-dossier.html", expectedAria: "English" },
     { route: "/en/", href: "/", expectedAria: "español" },
     { route: "/en/about.html", href: "/nosotros.html", expectedAria: "español" },
     { route: "/en/portfolio.html", href: "/portafolio.html", expectedAria: "español" },
-    { route: "/en/contact.html", href: "/contacto.html", expectedAria: "español" }
+    { route: "/en/contact.html", href: "/contacto.html", expectedAria: "español" },
+    { route: "/en/technical-dossier.html", href: "/dossier-tecnico.html", expectedAria: "español" }
   ];
 
   for (const langRoute of languageSwitchRoutes) {

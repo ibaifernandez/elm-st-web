@@ -14,6 +14,7 @@
 | PLAT-005 | P1 | DONE | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
+| PLAT-008 | P1 | TODO | Activar entrega por email del formulario (Resend) | Cada envío válido llega al correo destino en < 1 minuto |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -41,10 +42,10 @@
 | PERF-001 | P0 | DONE | Comprimir/modernizar imágenes pesadas | Reducción significativa del peso total |
 | PERF-002 | P1 | TODO | Eliminar activos residuales (`Thumbs.db`, duplicados) | Repositorio limpio de basura binaria |
 | PERF-003 | P1 | DONE | Revisar carga de JS/CSS y `defer` en no críticos | Menor blocking time inicial |
-| PERF-004 | P2 | TODO | Definir budget por página | Budget documentado y medible |
-| PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 8 rutas auditadas (ES/EN) |
+| PERF-004 | P2 | DONE | Definir budget por página | Budget documentado en `performance-budgets.json` y validado por `test:budgets` |
+| PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 10 rutas auditadas (ES/EN + dossier) |
 | PERF-006 | P1 | DONE | Reducir dependencia de fuentes externas en render crítico | `Montserrat` servido en local con `font-display: swap` y menor variabilidad de LCP |
-| PERF-007 | P1 | TODO | Convertir umbrales Lighthouse en budgets de release por ruta | Presupuesto técnico publicado y auditado por release |
+| PERF-007 | P1 | DONE | Convertir umbrales Lighthouse en budgets de release por ruta | Presupuesto técnico publicado y auditado por release (`npm run report:release`) |
 
 ## Seguridad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -75,7 +76,7 @@
 | I18N-001 | P0 | DONE | Definir estrategia bilingüe ES/EN (rutas, SEO, QA) | Documento de arquitectura i18n aprobado |
 | I18N-002 | P0 | DONE | Crear rutas EN equivalentes para páginas públicas | Paridad funcional ES/EN |
 | I18N-003 | P0 | DOING | Traducir copy EN aprobado por negocio | 100% contenido público con versión EN |
-| I18N-004 | P1 | DOING | QA bilingüe (links, sitemap, hreflang, Lighthouse) | Gate de calidad pasa en ES y EN |
+| I18N-004 | P1 | DONE | QA bilingüe (links, sitemap, hreflang, Lighthouse) | Gate de calidad pasa en ES y EN |
 | I18N-005 | P1 | DONE | Exponer selector visible de idioma en navegación | Cambio ES/EN accesible desde botón flotante en todas las rutas públicas |
 | I18N-006 | P2 | DONE | Replicar patrón de selector flotante tipo portfolio (`pelotita` abajo izquierda) | Selector flotante con bandera y fallback accesible en navegación legacy |
 
@@ -84,11 +85,12 @@
 |---|---|---|---|---|
 | OBS-001 | P1 | TODO | Migrar tracking UA a GA4 o alternativa | Eventos base verificados en tiempo real |
 | OBS-002 | P2 | TODO | Definir panel mínimo de KPIs | Dashboard con tráfico y conversiones |
-| OBS-003 | P1 | DOING | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
-| OBS-004 | P1 | DOING | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
+| OBS-003 | P1 | DONE | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
+| OBS-004 | P1 | DONE | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
 | DOC-001 | P1 | DONE | Crear y mantener `CHANGELOG.md` | Historial de releases y cambios disponible |
 | DOC-002 | P1 | DONE | Mantener `ROADMAP.md` y `BACKLOG.md` al día | Estado real reflejado tras cada iteración |
 | DOC-003 | P1 | DONE | Publicar informe de estado por iteración | Resumen técnico + riesgos + resultados de tests por ciclo |
-| DOC-004 | P1 | TODO | Programar ejecución semanal automática de `Quality Gate` | Workflow `Quality Gate` corre por `schedule` y reporta estado |
+| DOC-004 | P1 | DONE | Programar ejecución semanal automática de `Quality Gate` | Workflow `Quality Gate` corre por `schedule` y reporta estado |
 | DOC-005 | P1 | TODO | Formalizar revisión manual mensual de QA CSV | Issue mensual con checklist desktop/mobile y owner asignado |
-| DOC-006 | P1 | TODO | Generar reporte técnico versionado por release | Archivo de release con métricas de calidad, SEO, seguridad y pruebas |
+| DOC-006 | P1 | DONE | Generar reporte técnico versionado por release | Archivo de release con métricas de calidad, SEO, seguridad y pruebas |
+| DOC-007 | P1 | DONE | Publicar dossier técnico web ES/EN | `dossier-tecnico.html` y `en/technical-dossier.html` disponibles en sitemap |

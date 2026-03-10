@@ -25,6 +25,17 @@ All notable changes to this project are documented in this file.
   - `netlify/functions/submit-contact.js` validates fields + Turnstile server-side.
   - Stores submissions in function logs as durable fallback backend (sin dependencia de Netlify Forms).
   - Optional Resend delivery (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`).
+- Route-level performance budgets and release reporting automation:
+  - `performance-budgets.json`
+  - `scripts/check-performance-budgets.mjs`
+  - `scripts/generate-release-report.mjs`
+- First technical release report snapshot:
+  - `reports/releases/2026-03-10.md`
+- Public technical dossier pages (portfolio/vibe-coder track):
+  - `dossier-tecnico.html`
+  - `en/technical-dossier.html`
+- Alerting runbook:
+  - `ALERTING.md` (P1/P2/P3 policy + incident flow).
 
 ### Changed
 - CSP updated to allow optional Turnstile runtime endpoints:
@@ -44,6 +55,16 @@ All notable changes to this project are documented in this file.
 - Backlog and roadmap synchronized with migration state, SEO/i18n completion, and captcha rollout status:
   - `BACKLOG.md`
   - `ROADMAP.md`
+- Quality workflow hardened:
+  - weekly schedule enabled (`cron: 0 13 * * 1`).
+  - checkout forced to `codex` for scheduled runs.
+  - CI artifact for `latest-ci.md` technical release snapshot.
+- Lighthouse CI stability hardening:
+  - `.lighthouserc.json` now collects `3` runs per route (median-based assertions).
+- Google Analytics runtime load delayed further to reduce Lighthouse TBT noise in CI:
+  - delay moved from `2500ms` to `8000ms` in public ES/EN pages.
+- QA coverage expanded to dossier pages:
+  - `tests/e2e.spec.js`, `tests/a11y.spec.js`, `_redirects`, sitemap/URL lists.
 
 ## [2026-03-09]
 

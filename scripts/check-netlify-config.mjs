@@ -10,9 +10,12 @@ const requiredFiles = [
   "en/about.html",
   "en/portfolio.html",
   "en/contact.html",
+  "dossier-tecnico.html",
+  "en/technical-dossier.html",
   "netlify/functions/runtime-config.js",
   "netlify/functions/verify-turnstile.js",
-  "netlify/functions/submit-contact.js"
+  "netlify/functions/submit-contact.js",
+  "performance-budgets.json"
 ];
 const missingFiles = requiredFiles.filter((file) => !fs.existsSync(file));
 
@@ -33,10 +36,12 @@ const requiredRedirectRules = [
   "/nosotros /nosotros.html 200",
   "/portafolio /portafolio.html 200",
   "/contacto /contacto.html 200",
+  "/dossier-tecnico /dossier-tecnico.html 200",
   "/ /index.html 200",
   "/en/about /en/about.html 200",
   "/en/portfolio /en/portfolio.html 200",
   "/en/contact /en/contact.html 200",
+  "/en/technical-dossier /en/technical-dossier.html 200",
   "/LLM.txt /llms.txt 301!"
 ];
 

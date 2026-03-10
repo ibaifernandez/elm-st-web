@@ -18,12 +18,14 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - [Guía de agentes](./AGENTS.md)
 - [Estrategia i18n](./I18N-STRATEGY.md)
 - [Changelog](./CHANGELOG.md)
+- [Runbook de alertas](./ALERTING.md)
 - [QA Desktop CSV](./qa/qa-desktop.csv)
 - [QA Mobile CSV](./qa/qa-mobile.csv)
 
 ## Estructura actual (legacy)
 - Páginas: `inicio.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, `error-404.html`, `en-construccion.html`.
 - Rutas EN: `en/index.html`, `en/about.html`, `en/portfolio.html`, `en/contact.html`.
+- Dossier técnico: `dossier-tecnico.html`, `en/technical-dossier.html`.
 - Estilos: `css/`
 - Scripts: `js/`, `vendor/`, `rs-plugin/`
 - Activos: `images/`, `videos/`, `fonts/`
@@ -37,6 +39,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - `index.html` (entrada principal)
 - `404.html` (fallback de Netlify)
 - `netlify/functions/runtime-config.js`, `netlify/functions/verify-turnstile.js` y `netlify/functions/submit-contact.js` (runtime config + captcha + submit serverless)
+- `performance-budgets.json` + scripts de budgets/reporte técnico por release
 
 ## Hallazgos clave de auditoría inicial
 - Dependencias frontend antiguas (jQuery 1.x, Bootstrap 3.x).
@@ -52,6 +55,8 @@ Completar una migración segura a Netlify sin regresiones funcionales, dejando u
 - `quality:ci`: en verde.
 - Checks en verde: lint (HTML/JS/CSS), netlify config, links/mixed-content, E2E, a11y (axe), visual regression (ES), Lighthouse (ES+EN).
 - Umbrales Lighthouse activos: Performance >= 90, Accessibility >= 95, SEO >= 95, Best Practices >= 95.
+- Budgets por ruta: activos y validados por `npm run test:budgets`.
+- Reporte técnico versionado más reciente: `reports/releases/2026-03-10.md`.
 
 ## LLM discovery (`llms.txt`)
 - Archivo canónico: `llms.txt` en la raíz del proyecto.
@@ -89,12 +94,15 @@ npm run test:e2e
 npm run test:a11y
 npm run test:visual
 npm run test:lighthouse
+npm run test:budgets
+npm run report:release
 npm run quality:ci
 ```
 
 Notas:
 - `test:visual` requiere snapshots base; para generarlos: `npm run test:visual:update`.
 - El workflow de CI está en `.github/workflows/quality-gate.yml`, bloquea con fallo en cualquier check y admite disparo manual (`workflow_dispatch`).
+- Además corre semanalmente por `schedule` (lunes 13:00 UTC) sobre rama `codex`.
 - Ejecución manual por CLI: `gh workflow run "Quality Gate" --ref <rama>`.
 - `LHCI_GITHUB_APP_TOKEN` es opcional; si existe en GitHub Secrets, Lighthouse puede publicar anotaciones más completas en PRs.
 - El check de enlaces externos usa `scripts/external-link-ignore.json` para URLs legacy o dominios aún no publicados.

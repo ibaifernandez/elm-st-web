@@ -17,7 +17,9 @@
     "test:visual": "playwright test tests/visual.spec.js",
     "test:visual:update": "playwright test tests/visual.spec.js --update-snapshots",
     "test:lighthouse": "lhci autorun --config=.lighthouserc.json",
-    "quality:ci": "npm run test:lint && npm run test:netlify && npm run test:links && npm run test:e2e && npm run test:a11y && npm run test:visual && npm run test:lighthouse"
+    "test:budgets": "node scripts/check-performance-budgets.mjs",
+    "report:release": "node scripts/generate-release-report.mjs",
+    "quality:ci": "npm run test:lint && npm run test:netlify && npm run test:links && npm run test:e2e && npm run test:a11y && npm run test:visual && npm run test:lighthouse && npm run test:budgets"
   },
   "engines": {
     "node": ">=20"

@@ -20,7 +20,7 @@ Corporate static website for Elm St. (audiovisual production company).
 
 ## Tech
 - Static HTML/CSS/JS
-- Netlify hosting + Netlify Forms
+- Netlify hosting + Netlify Functions
 - Playwright (E2E, a11y, visual)
 - Lighthouse CI
 
