@@ -11,6 +11,84 @@
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
 
+## Plan operativo accionable (10 marzo 2026 -> 11 abril 2026)
+### Bloque 1 - Cerrar antispam y seguridad de formulario
+Periodo: 10 marzo 2026 - 12 marzo 2026
+- Implementacion (Codex):
+  - Verificar en produccion el flujo `runtime-config` + `verify-turnstile`.
+  - Endurecer mensajes de error y logging de verificacion captcha.
+  - Registrar evidencia en `CHANGELOG.md`.
+- Necesito de ti:
+  - Crear widget Turnstile para `elmst.ibaifernandez.com`.
+  - Cargar en Netlify:
+    - `TURNSTILE_SITE_KEY`
+    - `TURNSTILE_SECRET_KEY`
+  - Lanzar redeploy de produccion.
+- Entregable:
+  - Formulario operativo con captcha invisible activo y sin regresion visual/copy.
+
+### Bloque 2 - Observabilidad y uptime
+Periodo: 13 marzo 2026 - 17 marzo 2026
+- Implementacion (Codex):
+  - Integrar captura de errores frontend (Sentry JS o alternativa equivalente).
+  - Definir endpoint/ping de uptime y checklist de alarmas.
+  - Documentar runbook de incidentes P1.
+- Necesito de ti:
+  - Cuenta de herramienta elegida (Sentry/Better Stack/UptimeRobot).
+  - Credenciales/DSN o API key correspondiente (como secret en GitHub o Netlify).
+  - Email/telefono de alerta.
+- Entregable:
+  - Deteccion automatica de caidas y errores JS criticos.
+
+### Bloque 3 - Automatizacion de consistencia
+Periodo: 18 marzo 2026 - 21 marzo 2026
+- Implementacion (Codex):
+  - Programar workflow semanal `Quality Gate` en GitHub Actions (`schedule`).
+  - Crear issue template y rutina mensual para QA manual (`qa-desktop.csv`, `qa-mobile.csv`).
+  - Definir policy de merge: sin `quality:ci` verde no entra nada.
+- Necesito de ti:
+  - Confirmar dia/hora de ejecucion semanal (zona horaria America/Bogota).
+  - Confirmar rama objetivo (`codex` o `main`) para checks programados.
+  - Activar branch protection en GitHub.
+- Entregable:
+  - Operacion recurrente automatizada + control manual mensual trazable.
+
+### Bloque 4 - Pruebas de ingenieria visibles
+Periodo: 24 marzo 2026 - 28 marzo 2026
+- Implementacion (Codex):
+  - Definir budgets por ruta (peso, LCP proxy, score minimo por categoria).
+  - Añadir reporte tecnico de release versionado por fecha.
+  - Consolidar dashboard tecnico minimo en documentacion.
+- Necesito de ti:
+  - Aprobacion de umbrales (estrictos o conservadores) para budgets.
+  - Aprobacion del formato final de reporte.
+- Entregable:
+  - Evidencia objetiva de calidad tecnica por release.
+
+### Bloque 5 - Dossier tecnico "vibe coder"
+Periodo: 31 marzo 2026 - 4 abril 2026
+- Implementacion (Codex):
+  - Crear pagina tecnica del proyecto (arquitectura, CI, seguridad, i18n, lighthouse, automatizaciones).
+  - Mantener look&feel actual, sin romper freeze de homepage principal.
+  - Añadir metadata y trazabilidad de cambios.
+- Necesito de ti:
+  - Aprobar tono de marca ES/EN.
+  - Definir si el enlace al dossier va visible en navegacion o solo URL directa.
+- Entregable:
+  - Activo de portfolio tecnico listo para entrevistas y propuestas.
+
+### Bloque 6 - Riesgo SEO por expiracion de `elmst.net`
+Periodo: 7 abril 2026 - 11 abril 2026
+- Implementacion (Codex):
+  - Plan de mitigacion SEO: inventario de backlinks criticos + outreach de actualizacion.
+  - Checklist Search Console/Bing para consolidar `elmst.ibaifernandez.com`.
+  - Seguimiento de cobertura e indexacion post-migracion.
+- Necesito de ti:
+  - Confirmacion final de negocio: mantener o no `elmst.net` 6-12 meses.
+  - Acceso/Search Console del dominio nuevo.
+- Entregable:
+  - Riesgo SEO documentado y mitigado con acciones concretas.
+
 ## Fase 0 - Fundacion (completada)
 Periodo: 7 marzo 2026
 - Auditoria inicial del repositorio y deuda tecnica.

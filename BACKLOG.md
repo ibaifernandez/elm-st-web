@@ -24,6 +24,7 @@
 | SEO-004 | P1 | DONE | Añadir Open Graph y Twitter cards | Previsualización social consistente |
 | SEO-005 | P1 | TODO | Corregir títulos/descripciones duplicadas o débiles | Metadata única por URL indexable |
 | SEO-006 | P1 | DONE | Añadir `hreflang` ES/EN cuando esté publicado el bilingüe | Cobertura internacional sin canibalización |
+| SEO-007 | P0 | TODO | Mitigar pérdida de equity por expiración de `elmst.net` | Backlinks críticos actualizados y cobertura de indexación estable en dominio nuevo |
 
 ## Accesibilidad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -43,6 +44,7 @@
 | PERF-004 | P2 | TODO | Definir budget por página | Budget documentado y medible |
 | PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 8 rutas auditadas (ES/EN) |
 | PERF-006 | P1 | DONE | Reducir dependencia de fuentes externas en render crítico | `Montserrat` servido en local con `font-display: swap` y menor variabilidad de LCP |
+| PERF-007 | P1 | TODO | Convertir umbrales Lighthouse en budgets de release por ruta | Presupuesto técnico publicado y auditado por release |
 
 ## Seguridad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -53,6 +55,7 @@
 | SEC-004 | P1 | TODO | Gestionar API keys expuestas en frontend | Ningún secreto sensible en HTML/JS público |
 | SEC-005 | P2 | DONE | Estabilizar checker de enlaces externos ante anti-bot (allowlist) | `test:links` estable en CI con externos habilitados |
 | SEC-006 | P1 | DOING | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
+| SEC-007 | P0 | TODO | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN |
 
 ## Calidad de código y contenido
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -81,6 +84,11 @@
 |---|---|---|---|---|
 | OBS-001 | P1 | TODO | Migrar tracking UA a GA4 o alternativa | Eventos base verificados en tiempo real |
 | OBS-002 | P2 | TODO | Definir panel mínimo de KPIs | Dashboard con tráfico y conversiones |
+| OBS-003 | P1 | TODO | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
+| OBS-004 | P1 | TODO | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
 | DOC-001 | P1 | DONE | Crear y mantener `CHANGELOG.md` | Historial de releases y cambios disponible |
 | DOC-002 | P1 | DONE | Mantener `ROADMAP.md` y `BACKLOG.md` al día | Estado real reflejado tras cada iteración |
 | DOC-003 | P1 | DONE | Publicar informe de estado por iteración | Resumen técnico + riesgos + resultados de tests por ciclo |
+| DOC-004 | P1 | TODO | Programar ejecución semanal automática de `Quality Gate` | Workflow `Quality Gate` corre por `schedule` y reporta estado |
+| DOC-005 | P1 | TODO | Formalizar revisión manual mensual de QA CSV | Issue mensual con checklist desktop/mobile y owner asignado |
+| DOC-006 | P1 | TODO | Generar reporte técnico versionado por release | Archivo de release con métricas de calidad, SEO, seguridad y pruebas |
