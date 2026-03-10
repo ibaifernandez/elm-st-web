@@ -29,3 +29,6 @@ D-027,ES,/,desktop,1440,900,Footer,Social links and legal copy,All social links 
 D-028,EN,/en/,desktop,1440,900,Footer,Social links and legal copy,All social links open in new tab with secure rel attrs,TODO,QA,
 D-029,EN,/en/about.html,desktop,1440,900,Brand tone,English wording review,Copy sounds natural and on-brand in English,TODO,Brand,
 D-030,EN,/en/contact.html,desktop,1440,900,Brand tone,English wording review,Copy sounds natural and on-brand in English,TODO,Brand,
+D-031,ES,/,desktop,1440,900,Language switch,Floating switch position and behavior,Floating language button stays bottom-left and links to /en/ without overlap,TODO,QA,
+D-032,EN,/en/,desktop,1440,900,Language switch,Floating switch position and behavior,Floating language button stays bottom-left and links to /,TODO,QA,
+D-033,ALL,/contacto.html,desktop,1440,900,Form security,Captcha optional activation,With Turnstile env vars set, submit requires valid captcha token,TODO,QA,Requires TURNSTILE_SITE_KEY and TURNSTILE_SECRET_KEY in Netlify

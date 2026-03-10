@@ -60,9 +60,28 @@ function sendNotFound(response) {
   response.end("Not Found");
 }
 
+function sendJson(response, payload, statusCode = 200) {
+  response.writeHead(statusCode, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store"
+  });
+  response.end(JSON.stringify(payload));
+}
+
 const server = http.createServer((request, response) => {
   try {
     const requestPath = request.url || "/";
+
+    if (requestPath.startsWith("/.netlify/functions/runtime-config")) {
+      sendJson(response, { turnstileSiteKey: "" });
+      return;
+    }
+
+    if (requestPath.startsWith("/.netlify/functions/verify-turnstile")) {
+      sendJson(response, { success: true });
+      return;
+    }
+
     let filePath = safeResolvePath(requestPath);
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {

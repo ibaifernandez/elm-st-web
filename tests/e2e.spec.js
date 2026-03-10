@@ -23,22 +23,23 @@ test.describe("Critical route availability", () => {
 
 test.describe("Language switch visibility", () => {
   const languageSwitchRoutes = [
-    { route: "/", label: "EN", href: "/en/" },
-    { route: "/nosotros.html", label: "EN", href: "/en/about.html" },
-    { route: "/portafolio.html", label: "EN", href: "/en/portfolio.html" },
-    { route: "/contacto.html", label: "EN", href: "/en/contact.html" },
-    { route: "/en/", label: "ES", href: "/" },
-    { route: "/en/about.html", label: "ES", href: "/nosotros.html" },
-    { route: "/en/portfolio.html", label: "ES", href: "/portafolio.html" },
-    { route: "/en/contact.html", label: "ES", href: "/contacto.html" }
+    { route: "/", href: "/en/", expectedAria: "English" },
+    { route: "/nosotros.html", href: "/en/about.html", expectedAria: "English" },
+    { route: "/portafolio.html", href: "/en/portfolio.html", expectedAria: "English" },
+    { route: "/contacto.html", href: "/en/contact.html", expectedAria: "English" },
+    { route: "/en/", href: "/", expectedAria: "español" },
+    { route: "/en/about.html", href: "/nosotros.html", expectedAria: "español" },
+    { route: "/en/portfolio.html", href: "/portafolio.html", expectedAria: "español" },
+    { route: "/en/contact.html", href: "/contacto.html", expectedAria: "español" }
   ];
 
   for (const langRoute of languageSwitchRoutes) {
     test(`shows language switch on ${langRoute.route}`, async ({ page }) => {
       await page.goto(langRoute.route, { waitUntil: "domcontentloaded" });
-      const switchLink = page.locator("li.lang-switch a").first();
-      await expect(switchLink).toHaveText(langRoute.label);
+      const switchLink = page.locator(".language-fab a").first();
+      await expect(switchLink).toBeVisible();
       await expect(switchLink).toHaveAttribute("href", langRoute.href);
+      await expect(switchLink).toHaveAttribute("aria-label", new RegExp(langRoute.expectedAria, "i"));
     });
   }
 });

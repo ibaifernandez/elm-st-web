@@ -7,6 +7,31 @@ All notable changes to this project are documented in this file.
 ### Planned
 - Bilingual implementation ES/EN for public routes (pending approved EN copy).
 
+## [2026-03-10]
+
+### Added
+- Floating language switcher UX (portfolio-like "pelotita") generated from existing ES/EN route pairs:
+  - implemented in `js/main.js` + styles in `css/style.css` and `css/responsive.css`.
+- Optional invisible captcha hardening for contact forms:
+  - `netlify/functions/runtime-config.js` (runtime site key exposure from env).
+  - `netlify/functions/verify-turnstile.js` (server-side Turnstile verification).
+- QA matrix extensions for manual review of new language switcher and captcha hardening:
+  - `qa/qa-desktop.csv`
+  - `qa/qa-mobile.csv`
+
+### Changed
+- CSP updated to allow optional Turnstile runtime endpoints:
+  - `_headers` now includes `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`.
+- Local test server now stubs Netlify function endpoints used by form hardening:
+  - `scripts/serve-test.mjs`.
+- Netlify config validator now checks required function files:
+  - `scripts/check-netlify-config.mjs`.
+- E2E language-switch checks now validate the floating switcher contract instead of header text chip:
+  - `tests/e2e.spec.js`.
+- Backlog and roadmap synchronized with migration state, SEO/i18n completion, and captcha rollout status:
+  - `BACKLOG.md`
+  - `ROADMAP.md`
+
 ## [2026-03-09]
 
 ### Added

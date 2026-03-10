@@ -1,10 +1,12 @@
 # ROADMAP - elm-st-web
 
-## Estado a 8 marzo 2026
+## Estado a 10 marzo 2026
 - Estrategia: `visual/copy freeze` activo.
 - Estado global: migracion a Netlify muy avanzada, hardening tecnico estabilizado.
 - Quality gate: `quality:ci` en verde (lint, links, e2e, a11y, visual, Lighthouse).
 - Bilingue ES/EN: rutas EN publicadas en modo operativo; QA de tono en curso.
+- Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
+- Formulario: Netlify Forms + honeypot activo + capa de captcha invisible opcional (Cloudflare Turnstile) lista para habilitar por variables de entorno.
 
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
@@ -35,6 +37,7 @@ Periodo: 10 marzo 2026 - 6 abril 2026
 - Accesibilidad: cierre de gaps serios y eliminacion de excepciones en axe.
 - Performance: optimizacion de imagenes y carga de JS/CSS no critico.
 - Seguridad: hardening de enlaces, headers, mixed content, secretos.
+- Seguridad formulario: verificacion serverless de captcha Turnstile pendiente de activacion con claves productivas.
 
 Exit criteria:
 - `quality:ci` en verde. (cumplido en esta iteracion)

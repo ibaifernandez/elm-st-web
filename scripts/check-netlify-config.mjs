@@ -9,7 +9,9 @@ const requiredFiles = [
   "en/index.html",
   "en/about.html",
   "en/portfolio.html",
-  "en/contact.html"
+  "en/contact.html",
+  "netlify/functions/runtime-config.js",
+  "netlify/functions/verify-turnstile.js"
 ];
 const missingFiles = requiredFiles.filter((file) => !fs.existsSync(file));
 

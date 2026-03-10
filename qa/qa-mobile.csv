@@ -24,3 +24,6 @@ M-022,EN,/en/about.html,mobile,390,844,Routing,Pretty URL redirects,/en/about re
 M-023,EN,/en/portfolio.html,mobile,390,844,Routing,Pretty URL redirects,/en/portfolio redirects to /en/portfolio.html with 200 content,TODO,QA,
 M-024,EN,/en/contact.html,mobile,390,844,Routing,Pretty URL redirects,/en/contact redirects to /en/contact.html with 200 content,TODO,QA,
 M-025,EN,/en/,mobile,390,844,Brand tone,English copy review on mobile,Tone remains natural and consistent in compact layouts,TODO,Brand,
+M-026,ES,/,mobile,390,844,Language switch,Floating switch on mobile,Floating language button remains reachable and does not clash with menu/footer,TODO,QA,
+M-027,EN,/en/,mobile,390,844,Language switch,Floating switch on mobile,Floating language button remains reachable and links back to ES route,TODO,QA,
+M-028,ALL,/contacto.html,mobile,390,844,Form security,Captcha optional activation on mobile,With Turnstile env vars set submit requires valid captcha token on touch devices,TODO,QA,Requires TURNSTILE_SITE_KEY and TURNSTILE_SECRET_KEY in Netlify

@@ -7,6 +7,7 @@ Deliver a fully bilingual public website (Spanish/English) while preserving the 
 - Do not modify existing design system: layout, typography, colors, spacing, components, or imagery.
 - Do not alter existing Spanish editorial content in current public pages.
 - Bilingual rollout must be additive and parity-based.
+- Allowed exception approved for UX: floating language switcher (`pelotita`) in bottom-left corner.
 
 ## 3) Routing strategy
 - Spanish (default):
@@ -35,19 +36,15 @@ Deliver a fully bilingual public website (Spanish/English) while preserving the 
 
 ## 6) Delivery phases
 1. Architecture and docs (done).
-2. Route scaffolding and navigation parity.
-3. Approved EN copy integration.
-4. SEO hreflang + sitemap publication.
-5. Full bilingual QA and release.
+2. Route scaffolding and navigation parity (done).
+3. EN copy integration + metadata/OG/Twitter definition (done, pending tone QA).
+4. SEO hreflang + sitemap publication (done).
+5. Full bilingual QA and release (in progress).
 
 ## 7) Required inputs from business
-- Approved final English copy for every public page section.
-- Approved EN SEO metadata:
-  - title
-  - meta description
-  - OG title/description
-- Decision on language selector UX text (`ES/EN`, `Spanish/English`, etc.).
+- Optional tone review for EN copy and metadata (brand voice refinement).
 - Legal/privacy bilingual text if contact/compliance pages are added later.
+- DNS/Netlify operational access for final production ownership tasks.
 
 ## 8) Risks
 - If EN copy is not approved centrally, bilingual release will stall.

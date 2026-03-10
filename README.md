@@ -28,6 +28,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Scripts: `js/`, `vendor/`, `rs-plugin/`
 - Activos: `images/`, `videos/`, `fonts/`
 - Formulario: Netlify Forms (POST a `/` desde `js/main.js`)
+- Selector de idioma: boton flotante inferior izquierdo (ES/EN), con fallback en navegacion legacy.
 
 ## Infra de migración ya preparada
 - `netlify.toml`
@@ -35,6 +36,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - `_headers`
 - `index.html` (entrada principal)
 - `404.html` (fallback de Netlify)
+- `netlify/functions/runtime-config.js` y `netlify/functions/verify-turnstile.js` (captcha opcional)
 
 ## Hallazgos clave de auditoría inicial
 - Dependencias frontend antiguas (jQuery 1.x, Bootstrap 3.x).
@@ -98,6 +100,19 @@ Notas:
 - El check de enlaces externos usa `scripts/external-link-ignore.json` para URLs legacy o dominios aún no publicados.
 - La suite axe en `test:a11y` ya no excluye `color-contrast`; los contrastes críticos se corrigen en CSS manteniendo freeze visual/copy.
 - La QA manual de marca/tono y de experiencia en desktop/mobile se registra en `qa/qa-desktop.csv` y `qa/qa-mobile.csv`.
+
+## Captcha opcional (Turnstile)
+El formulario funciona sin captcha adicional (Netlify Forms + honeypot). Si quieres activar captcha invisible:
+
+1. Define en Netlify:
+   - `TURNSTILE_SITE_KEY`
+   - `TURNSTILE_SECRET_KEY`
+2. Redeploy del sitio.
+
+Con ambas variables presentes:
+- El frontend solicita el site key vía `/.netlify/functions/runtime-config`.
+- `js/main.js` ejecuta Turnstile invisible.
+- `/.netlify/functions/verify-turnstile` valida token antes del submit final.
 
 ## Próximos pasos
 Seguir el orden de prioridades definido en `BACKLOG.md` empezando por tareas P0 de plataforma/migración.

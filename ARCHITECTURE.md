@@ -3,17 +3,18 @@
 ## 1) Estado actual (as-is)
 - Sitio multipágina estático en raíz (`inicio.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, etc.).
 - Frontend legacy con jQuery + Bootstrap 3 + plugins antiguos.
-- Formulario con POST a `php/submit.php`.
-- Despliegue actual acoplado a cPanel (`.cpanel.yml`).
+- Formulario migrado a Netlify Forms (`POST /`) con honeypot activo.
+- Routing bilingüe ES/EN publicado (`/` y `/en/` con mirrors de páginas públicas).
+- Despliegue operativo en Netlify para `elmst.ibaifernandez.com`.
 
 ### Hallazgos de auditoría relevantes
 - Dependencias legacy: jQuery 1.11.2/1.11.3, Bootstrap 3.3.5.
-- Recursos externos con `http://` en varias páginas.
-- `robots.txt`, `sitemap.xml`, `sitemap.html` y `urllist.txt` apuntando a `elmst.tv`.
-- Metadatos SEO básicos pero incompletos (sin canonical/OG/Twitter).
-- 53 imágenes con `alt=""` y varias sin `alt`.
-- API key de Google Maps expuesta en HTML.
-- Formulario PHP sin validación/saneado robusto.
+- Recursos externos en `https://`; mixed content bloqueado por pipeline.
+- `robots.txt`, `sitemap.xml`, `sitemap.html` y `urllist.txt` alineados con dominio activo.
+- Metadatos SEO completos en rutas críticas (canonical, `hreflang`, OG, Twitter).
+- Accesibilidad y contraste endurecidos para pasar axe sin excepciones.
+- API key de Google Maps eliminada del runtime público activo.
+- Hardening opcional de captcha invisible preparado (Turnstile + verificación serverless).
 - Activos pesados y residuos (`Thumbs.db`, vídeo principal grande).
 
 ## 2) Arquitectura objetivo (to-be)
@@ -24,7 +25,7 @@
 
 ### Capas
 - Capa de presentación: páginas estáticas optimizadas.
-- Capa de integración: formulario en Netlify Functions o Netlify Forms.
+- Capa de integración: Netlify Forms + Netlify Functions auxiliares (`runtime-config`, `verify-turnstile` opcional).
 - Capa de entrega: Netlify (deploys versionados, previews, CDN global).
 - Capa de observabilidad: analítica + monitoreo de errores.
 
@@ -58,7 +59,9 @@
   - `Referrer-Policy`
   - `Permissions-Policy`
 - Sin secretos en frontend.
-- Validación de inputs lado servidor para contacto.
+- Validación de inputs y protección anti-spam en contacto:
+  - honeypot activo en Netlify Forms (base).
+  - captcha invisible opcional con Turnstile y verificación serverless (cuando haya claves).
 
 ## 6) SEO objetivo
 - Canonical por página.
@@ -78,4 +81,5 @@
 - D-01: Mantener HTML estático puro o migrar a stack con build moderno (Astro/Vite).
 - D-02: Contacto vía Netlify Forms vs Function + proveedor de email.
 - D-03: Alcance del rediseño visual en fase 1 vs fase 2.
-- D-04: Estrategia final del selector de idioma sin romper freeze visual.
+- D-04 (resuelta): Selector de idioma flotante tipo "pelotita" abajo izquierda, generado desde rutas ES/EN existentes sin alterar copy.
+- D-05: Activar o no captcha obligatorio en producción (depende de volumen real de spam y de provisionar claves Turnstile).

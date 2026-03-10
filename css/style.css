@@ -441,6 +441,52 @@ header nav .ownmenu li.lang-switch a:hover {
 	background: #222222;
 	color: #fff;
 }
+body.lang-switch-enhanced header nav .ownmenu li.lang-switch {
+	display: none !important;
+}
+.language-fab {
+	position: fixed;
+	left: 18px;
+	bottom: 18px;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: #ffffff;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1100;
+}
+.language-fab-link {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	text-decoration: none;
+	background: #ffffff;
+}
+.language-fab-link:hover {
+	text-decoration: none;
+}
+.language-fab-link:focus-visible {
+	outline: 2px solid #111111;
+	outline-offset: 2px;
+}
+.language-fab-flag {
+	font-size: 24px;
+}
+.turnstile-slot {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
 /*=======================================================
       HOME SLIDER
 ========================================================*/

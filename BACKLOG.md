@@ -11,7 +11,7 @@
 | PLAT-002 | P0 | DONE | Definir `_redirects` para rutas legacy | No hay 404 en rutas públicas existentes |
 | PLAT-003 | P0 | DONE | Definir `_headers` de seguridad | Headers activos en producción |
 | PLAT-004 | P0 | DONE | Migrar formulario de `php/submit.php` a solución Netlify | Envío y recepción de mensajes verificados |
-| PLAT-005 | P1 | TODO | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
+| PLAT-005 | P1 | DONE | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
 
@@ -20,10 +20,10 @@
 |---|---|---|---|---|
 | SEO-001 | P0 | DONE | Actualizar `robots.txt` al dominio nuevo | `Sitemap:` correcto y rastreable |
 | SEO-002 | P0 | DONE | Regenerar `sitemap.xml` con URLs finales | URLs válidas y status 200 |
-| SEO-003 | P1 | TODO | Añadir canonical en todas las páginas | 100% páginas con canonical correcto |
-| SEO-004 | P1 | DOING | Añadir Open Graph y Twitter cards | Previsualización social consistente |
+| SEO-003 | P1 | DONE | Añadir canonical en todas las páginas | 100% páginas con canonical correcto |
+| SEO-004 | P1 | DONE | Añadir Open Graph y Twitter cards | Previsualización social consistente |
 | SEO-005 | P1 | TODO | Corregir títulos/descripciones duplicadas o débiles | Metadata única por URL indexable |
-| SEO-006 | P1 | DOING | Añadir `hreflang` ES/EN cuando esté publicado el bilingüe | Cobertura internacional sin canibalización |
+| SEO-006 | P1 | DONE | Añadir `hreflang` ES/EN cuando esté publicado el bilingüe | Cobertura internacional sin canibalización |
 
 ## Accesibilidad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -52,6 +52,7 @@
 | SEC-003 | P1 | DONE | Revisar enlaces externos `target="_blank"` con `rel` seguro | 100% enlaces externos endurecidos |
 | SEC-004 | P1 | TODO | Gestionar API keys expuestas en frontend | Ningún secreto sensible en HTML/JS público |
 | SEC-005 | P2 | DONE | Estabilizar checker de enlaces externos ante anti-bot (allowlist) | `test:links` estable en CI con externos habilitados |
+| SEC-006 | P1 | DOING | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
 
 ## Calidad de código y contenido
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -72,7 +73,8 @@
 | I18N-002 | P0 | DONE | Crear rutas EN equivalentes para páginas públicas | Paridad funcional ES/EN |
 | I18N-003 | P0 | DOING | Traducir copy EN aprobado por negocio | 100% contenido público con versión EN |
 | I18N-004 | P1 | DOING | QA bilingüe (links, sitemap, hreflang, Lighthouse) | Gate de calidad pasa en ES y EN |
-| I18N-005 | P1 | DONE | Exponer selector visible de idioma en navegación | Cambio ES/EN accesible desde header en todas las rutas públicas |
+| I18N-005 | P1 | DONE | Exponer selector visible de idioma en navegación | Cambio ES/EN accesible desde botón flotante en todas las rutas públicas |
+| I18N-006 | P2 | DONE | Replicar patrón de selector flotante tipo portfolio (`pelotita` abajo izquierda) | Selector flotante con bandera y fallback accesible en navegación legacy |
 
 ## Observabilidad y documentación
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
