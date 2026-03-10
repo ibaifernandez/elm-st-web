@@ -685,6 +685,18 @@
 </div>
 <!-- Wrap End --> 
 
+<!-- Netlify form detection fallback (hidden, no visual impact) -->
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+  <input type="hidden" name="form-name" value="contact">
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <input type="text" name="subject">
+  <textarea name="message"></textarea>
+  <input type="text" name="cf-turnstile-response">
+  <input type="text" name="bot-field">
+</form>
+
 <script src="/js/jquery-1.11.3.min.js"></script> 
 <script src="/js/bootstrap.min.js"></script> 
 <script src="/js/own-menu.js"></script> 

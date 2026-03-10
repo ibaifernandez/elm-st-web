@@ -87,6 +87,7 @@ All notable changes to this project are documented in this file.
   - `/.netlify/functions/verify-turnstile` rejects missing tokens as expected (`Missing captcha token.`).
 - Netlify form POST hardening:
   - Added explicit root rewrite rule (`/ /index.html 200`) as mitigation while diagnosing production `POST /` failures.
+  - Added hidden Netlify "shadow form" in ES/EN home routes to force form detection at deploy-time.
   - Current status: Netlify still returns `404` for form submissions; final fix depends on Forms-side activation/detection in platform settings.
 
 ## [2026-03-08]
