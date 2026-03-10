@@ -337,7 +337,7 @@ function submitContactForm($form, isEnglish) {
 		url: "/",
 		data: $form.serialize(),
 		success: function() {
-			alert(isEnglish ? "Thank you :) Your message was sent successfully." : "Gracias :) Este mensaje fue enviado con exito.");
+			alert(isEnglish ? "Thank you :) Your message was sent successfully." : "Gracias :) Este mensaje fue enviado con éxito.");
 			$form.trigger("reset");
 			if (elmstFormSecurity.turnstileEnabled) {
 				resetTurnstileState($form);
@@ -345,7 +345,7 @@ function submitContactForm($form, isEnglish) {
 			return true;
 		},
 		error: function() {
-			alert(isEnglish ? "There was an error. Please try again." : "Ha habido un error. Por favor, intentalo de nuevo.");
+			alert(isEnglish ? "There was an error. Please try again." : "Ha habido un error. Por favor, inténtalo de nuevo.");
 			return false;
 		}
 	});
@@ -381,7 +381,7 @@ function proceed(){
 		return false;
 	}
 	else if(checkmail(email.value)==false){
-		alert(isEnglish ? "Please provide a valid email address." : "Por favor, provee una direccion de correo electronico valida.");
+		alert(isEnglish ? "Please provide a valid email address." : "Por favor, provee una dirección de correo electrónico válida.");
 		return false;
 	}
 	else if(subject.value == ""){
@@ -397,7 +397,7 @@ function proceed(){
 		return false;
 	}
 	else if (!elmstFormSecurity.turnstileReady || !window.turnstile || elmstFormSecurity.turnstileWidgetId === null) {
-		alert(isEnglish ? "Security verification is loading. Please try again in a second." : "La verificacion de seguridad se esta cargando. Intentalo de nuevo en un segundo.");
+		alert(isEnglish ? "Security verification is loading. Please try again in a second." : "La verificación de seguridad se está cargando. Inténtalo de nuevo en un segundo.");
 		return false;
 	}
 	else {
