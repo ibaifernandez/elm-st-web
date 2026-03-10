@@ -85,6 +85,8 @@ All notable changes to this project are documented in this file.
 - Production captcha activation:
   - `/.netlify/functions/runtime-config` now returns configured Turnstile site key in production.
   - `/.netlify/functions/verify-turnstile` rejects missing tokens as expected (`Missing captcha token.`).
+- Netlify form POST hardening:
+  - Added explicit root rewrite rule (`/ /index.html 200`) so contact submissions to `/` do not fall into 404 fallback routing.
 
 ## [2026-03-08]
 

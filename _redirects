@@ -1,6 +1,7 @@
 /index.html / 301!
 /inicio.html / 301!
 /error-404.html /404.html 301
+/ /index.html 200
 
 /nosotros /nosotros.html 200
 /portafolio /portafolio.html 200
