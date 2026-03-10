@@ -27,7 +27,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Estilos: `css/`
 - Scripts: `js/`, `vendor/`, `rs-plugin/`
 - Activos: `images/`, `videos/`, `fonts/`
-- Formulario: Netlify Forms (POST a `/` desde `js/main.js`)
+- Formulario: Netlify Function `/.netlify/functions/submit-contact` (persistencia en Netlify Blobs, sin backend PHP)
 - Selector de idioma: boton flotante inferior izquierdo (ES/EN), con fallback en navegacion legacy.
 
 ## Infra de migración ya preparada
@@ -36,7 +36,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - `_headers`
 - `index.html` (entrada principal)
 - `404.html` (fallback de Netlify)
-- `netlify/functions/runtime-config.js` y `netlify/functions/verify-turnstile.js` (runtime config + captcha opcional)
+- `netlify/functions/runtime-config.js`, `netlify/functions/verify-turnstile.js` y `netlify/functions/submit-contact.js` (runtime config + captcha + submit serverless)
 
 ## Hallazgos clave de auditoría inicial
 - Dependencias frontend antiguas (jQuery 1.x, Bootstrap 3.x).
@@ -102,7 +102,7 @@ Notas:
 - La QA manual de marca/tono y de experiencia en desktop/mobile se registra en `qa/qa-desktop.csv` y `qa/qa-mobile.csv`.
 
 ## Captcha opcional (Turnstile)
-El formulario funciona sin captcha adicional (Netlify Forms + honeypot). Si quieres activar captcha invisible:
+El formulario funciona con endpoint serverless propio + honeypot. Si activas captcha invisible:
 
 1. Define en Netlify:
    - `TURNSTILE_SITE_KEY`
@@ -112,7 +112,12 @@ El formulario funciona sin captcha adicional (Netlify Forms + honeypot). Si quie
 Con ambas variables presentes:
 - El frontend solicita el site key vía `/.netlify/functions/runtime-config`.
 - `js/main.js` ejecuta Turnstile invisible.
-- `/.netlify/functions/verify-turnstile` valida token antes del submit final.
+- `/.netlify/functions/submit-contact` valida token en servidor antes de aceptar el mensaje.
+
+Persistencia/envío:
+- Siempre guarda el mensaje en Netlify Blobs (`contact-submissions`).
+- Si Blobs no está disponible en el entorno, mantiene fallback en logs de función para no perder envíos.
+- Opcional: envío de email con Resend si defines `RESEND_API_KEY` y `CONTACT_TO_EMAIL` (`CONTACT_FROM_EMAIL` opcional).
 
 ## Observabilidad (Sentry + Uptime)
 Frontend error monitoring está integrado de forma opcional y sin cambio visual/copy.

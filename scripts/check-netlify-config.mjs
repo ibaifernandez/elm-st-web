@@ -11,7 +11,8 @@ const requiredFiles = [
   "en/portfolio.html",
   "en/contact.html",
   "netlify/functions/runtime-config.js",
-  "netlify/functions/verify-turnstile.js"
+  "netlify/functions/verify-turnstile.js",
+  "netlify/functions/submit-contact.js"
 ];
 const missingFiles = requiredFiles.filter((file) => !fs.existsSync(file));
 

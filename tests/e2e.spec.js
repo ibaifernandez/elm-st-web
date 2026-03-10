@@ -64,14 +64,18 @@ test("header stays above choose-tab section", async ({ page }) => {
 });
 
 test.describe("Netlify form behavior", () => {
-  test("contact page submits via POST /", async ({ page }) => {
+  test("contact page submits via POST /.netlify/functions/submit-contact", async ({ page }) => {
     let posted = false;
 
     await page.route("**/*", async (route) => {
       const req = route.request();
-      if (req.method() === "POST" && req.url().endsWith("/")) {
+      if (req.method() === "POST" && req.url().includes("/.netlify/functions/submit-contact")) {
         posted = true;
-        await route.fulfill({ status: 200, body: "ok" });
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({ success: true, message: "Message received." })
+        });
         return;
       }
       await route.continue();
@@ -93,14 +97,18 @@ test.describe("Netlify form behavior", () => {
     await expect.poll(() => posted).toBeTruthy();
   });
 
-  test("home page submits via POST /", async ({ page }) => {
+  test("home page submits via POST /.netlify/functions/submit-contact", async ({ page }) => {
     let posted = false;
 
     await page.route("**/*", async (route) => {
       const req = route.request();
-      if (req.method() === "POST" && req.url().endsWith("/")) {
+      if (req.method() === "POST" && req.url().includes("/.netlify/functions/submit-contact")) {
         posted = true;
-        await route.fulfill({ status: 200, body: "ok" });
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({ success: true, message: "Message received." })
+        });
         return;
       }
       await route.continue();
@@ -122,14 +130,18 @@ test.describe("Netlify form behavior", () => {
     await expect.poll(() => posted).toBeTruthy();
   });
 
-  test("english contact page submits via POST /", async ({ page }) => {
+  test("english contact page submits via POST /.netlify/functions/submit-contact", async ({ page }) => {
     let posted = false;
 
     await page.route("**/*", async (route) => {
       const req = route.request();
-      if (req.method() === "POST" && req.url().endsWith("/")) {
+      if (req.method() === "POST" && req.url().includes("/.netlify/functions/submit-contact")) {
         posted = true;
-        await route.fulfill({ status: 200, body: "ok" });
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({ success: true, message: "Message received." })
+        });
         return;
       }
       await route.continue();

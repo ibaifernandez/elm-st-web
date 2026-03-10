@@ -87,6 +87,11 @@ const server = http.createServer((request, response) => {
       return;
     }
 
+    if (requestPath.startsWith("/.netlify/functions/submit-contact")) {
+      sendJson(response, { success: true, message: "Message received." });
+      return;
+    }
+
     let filePath = safeResolvePath(requestPath);
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {

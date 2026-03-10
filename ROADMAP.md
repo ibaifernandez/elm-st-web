@@ -6,7 +6,7 @@
 - Quality gate: `quality:ci` en verde (lint, links, e2e, a11y, visual, Lighthouse).
 - Bilingue ES/EN: rutas EN publicadas en modo operativo; QA de tono en curso.
 - Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
-- Formulario: Turnstile invisible activo; envio final bloqueado por `POST /` 404 en plataforma Netlify (pendiente cierre).
+- Formulario: Turnstile invisible activo y envío operativo vía `/.netlify/functions/submit-contact`.
 
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
@@ -17,13 +17,13 @@ Periodo: 10 marzo 2026 - 12 marzo 2026
 - Implementacion (Codex):
   - Verificado en produccion el flujo `runtime-config` + `verify-turnstile`.
   - Turnstile serverless activo en ES/EN.
-  - Detectado bloqueo de submit final: `POST /` responde 404 en produccion.
-  - Evidencia registrada en `CHANGELOG.md`.
+  - Desacoplado el submit de Netlify Forms por bloqueo de plataforma (`POST /` 404) y migrado a `/.netlify/functions/submit-contact`.
+  - Persistencia de mensajes habilitada en Netlify Blobs con opción de entrega por Resend.
 - Necesito de ti:
-  - Revisar en Netlify > Forms si el formulario `contact` esta detectado y activo.
-  - Si no aparece, ejecutar `Clear cache and deploy site`.
+  - Validar un envío manual ES y otro EN desde producción.
+  - (Opcional) Definir `RESEND_API_KEY` + `CONTACT_TO_EMAIL` para notificación por email.
 - Entregable:
-  - Formulario operativo con captcha invisible activo y sin regresion visual/copy. (pendiente por bloqueo de plataforma)
+  - Formulario operativo con captcha invisible activo y sin regresion visual/copy.
 
 ### Bloque 2 - Observabilidad y uptime
 Periodo: 13 marzo 2026 - 17 marzo 2026

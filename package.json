@@ -31,5 +31,8 @@
     "http-server": "^14.1.1",
     "stylelint": "^16.19.1",
     "stylelint-config-recommended": "^14.0.1"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.1"
   }
 }

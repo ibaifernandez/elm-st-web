@@ -16,7 +16,8 @@ var elmstFormSecurity = {
 	turnstileWidgetId: null,
 	turnstileToken: "",
 	turnstileReady: false,
-	pendingSubmit: null
+	pendingSubmit: null,
+	submitting: false
 };
 
 var elmstObservability = {
@@ -439,33 +440,32 @@ function initContactFormSecurity() {
 	});
 }
 
-function verifyTurnstileToken(isEnglish, token, onSuccess, onFailure) {
-	$.ajax({
-		type: "POST",
-		url: "/.netlify/functions/verify-turnstile",
-		contentType: "application/json",
-		dataType: "json",
-		timeout: 7000,
-		data: JSON.stringify({ token: token }),
-		success: function(response) {
-			if (response && response.success === true) {
-				onSuccess();
-				return;
-			}
-			onFailure(isEnglish ? "Captcha verification failed. Please try again." : "La verificacion captcha fallo. Intentalo de nuevo.");
-		},
-		error: function() {
-			onFailure(isEnglish ? "Captcha verification failed. Please try again." : "La verificacion captcha fallo. Intentalo de nuevo.");
-		}
-	});
-}
-
 function submitContactForm($form, isEnglish) {
+	if (elmstFormSecurity.submitting) {
+		return;
+	}
+	elmstFormSecurity.submitting = true;
+
+	var baseErrorMessage = isEnglish ? "There was an error. Please try again." : "Ha habido un error. Por favor, inténtalo de nuevo.";
+	var locale = isEnglish ? "en" : "es";
+	var payload = $form.serializeArray();
+	payload.push({ name: "locale", value: locale });
+	payload.push({ name: "sourcePath", value: window.location.pathname || "/" });
+
 	$.ajax({
 		type: "POST",
-		url: "/",
-		data: $form.serialize(),
-		success: function() {
+		url: "/.netlify/functions/submit-contact",
+		data: $.param(payload),
+		dataType: "json",
+		timeout: 10000,
+		success: function(response) {
+			if (!response || response.success !== true) {
+				alert(response && response.message ? response.message : baseErrorMessage);
+				if (elmstFormSecurity.turnstileEnabled) {
+					resetTurnstileState($form);
+				}
+				return false;
+			}
 			alert(isEnglish ? "Thank you :) Your message was sent successfully." : "Gracias :) Este mensaje fue enviado con éxito.");
 			$form.trigger("reset");
 			if (elmstFormSecurity.turnstileEnabled) {
@@ -473,9 +473,17 @@ function submitContactForm($form, isEnglish) {
 			}
 			return true;
 		},
-		error: function() {
-			alert(isEnglish ? "There was an error. Please try again." : "Ha habido un error. Por favor, inténtalo de nuevo.");
+		error: function(xhr) {
+			var responseMessage = xhr && xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : "";
+			alert(responseMessage || baseErrorMessage);
+			if (elmstFormSecurity.turnstileEnabled) {
+				resetTurnstileState($form);
+			}
 			return false;
+		},
+		complete: function() {
+			elmstFormSecurity.submitting = false;
+			elmstFormSecurity.pendingSubmit = null;
 		}
 	});
 }
@@ -495,6 +503,10 @@ function proceed(){
 	var msg = document.getElementById("message");
 	var $form = $("#contact_form");
 	var isEnglish = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+
+	if (elmstFormSecurity.submitting) {
+		return false;
+	}
 
 	name.className = name.className.replace(" error", "");
 	email.className = email.className.replace(" error", "");
@@ -530,21 +542,14 @@ function proceed(){
 		return false;
 	}
 	else {
-		var handleVerifiedSubmit = function() {
-			verifyTurnstileToken(isEnglish, elmstFormSecurity.turnstileToken, function() {
-				submitContactForm($form, isEnglish);
-			}, function(errorMessage) {
-				alert(errorMessage);
-				resetTurnstileState($form);
-			});
-		};
-
 		if (elmstFormSecurity.turnstileToken) {
-			handleVerifiedSubmit();
+			submitContactForm($form, isEnglish);
 			return false;
 		}
 
-		elmstFormSecurity.pendingSubmit = handleVerifiedSubmit;
+		elmstFormSecurity.pendingSubmit = function() {
+			submitContactForm($form, isEnglish);
+		};
 		window.turnstile.execute(elmstFormSecurity.turnstileWidgetId);
 		return false;
 	}

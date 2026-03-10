@@ -21,6 +21,10 @@ All notable changes to this project are documented in this file.
 - Runtime observability wiring for frontend errors:
   - `netlify/functions/runtime-config.js` now exposes sanitized `sentryDsn`, `sentryEnvironment`, and `sentryRelease`.
   - `js/main.js` initializes Sentry browser SDK conditionally from runtime config.
+- New serverless contact submit endpoint:
+  - `netlify/functions/submit-contact.js` validates fields + Turnstile server-side.
+  - Stores submissions in Netlify Blobs (`contact-submissions`) with log fallback when Blob store is unavailable.
+  - Optional Resend delivery (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`).
 
 ### Changed
 - CSP updated to allow optional Turnstile runtime endpoints:
@@ -32,6 +36,9 @@ All notable changes to this project are documented in this file.
   - `scripts/serve-test.mjs`.
 - Netlify config validator now checks required function files:
   - `scripts/check-netlify-config.mjs`.
+- Contact submit frontend flow:
+  - `js/main.js` no longer posts to `/`; it now sends to `/.netlify/functions/submit-contact`.
+  - Turnstile verification is enforced on the server in final submit path.
 - E2E language-switch checks now validate the floating switcher contract instead of header text chip:
   - `tests/e2e.spec.js`.
 - Backlog and roadmap synchronized with migration state, SEO/i18n completion, and captcha rollout status:
@@ -89,7 +96,7 @@ All notable changes to this project are documented in this file.
   - Added explicit root rewrite rule (`/ /index.html 200`) as mitigation while diagnosing production `POST /` failures.
   - Added hidden Netlify "shadow form" in ES/EN home routes to force form detection at deploy-time.
   - Removed catch-all redirect `/* /404.html 404` to avoid intercepting non-GET requests before Netlify Forms processing.
-  - Current status: Netlify still returns `404` for form submissions; final fix depends on Forms-side activation/detection in platform settings.
+  - Final mitigation: moved final submit flow to `/.netlify/functions/submit-contact`, removing runtime dependency on Netlify Forms detection.
 - Sentry browser boot sequence:
   - Fixed loader flow for `js.sentry-cdn.com` by supporting `Sentry.onLoad(...)` + `Sentry.forceLoad()` before `Sentry.init(...)`.
 

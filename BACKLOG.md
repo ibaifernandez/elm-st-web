@@ -10,7 +10,7 @@
 | PLAT-001 | P0 | DONE | Configurar `netlify.toml` base | Deploy preview funcional en Netlify |
 | PLAT-002 | P0 | DONE | Definir `_redirects` para rutas legacy | No hay 404 en rutas públicas existentes |
 | PLAT-003 | P0 | DONE | Definir `_headers` de seguridad | Headers activos en producción |
-| PLAT-004 | P0 | DONE | Migrar formulario de `php/submit.php` a solución Netlify | Envío y recepción de mensajes verificados |
+| PLAT-004 | P0 | DONE | Migrar formulario de `php/submit.php` a solución Netlify Functions | Envío y recepción verificados vía `submit-contact` + Turnstile server-side |
 | PLAT-005 | P1 | DONE | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
@@ -55,7 +55,7 @@
 | SEC-004 | P1 | TODO | Gestionar API keys expuestas en frontend | Ningún secreto sensible en HTML/JS público |
 | SEC-005 | P2 | DONE | Estabilizar checker de enlaces externos ante anti-bot (allowlist) | `test:links` estable en CI con externos habilitados |
 | SEC-006 | P1 | DONE | Integrar captcha invisible opcional para formulario (Turnstile + verificación serverless) | Captcha activo al definir `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` en Netlify |
-| SEC-007 | P0 | BLOCKED | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN (actualmente `POST /` responde 404 en Netlify) |
+| SEC-007 | P0 | DONE | Activar Turnstile en producción | Formulario bloquea envíos bot y mantiene envío válido en ES/EN vía `/.netlify/functions/submit-contact` |
 
 ## Calidad de código y contenido
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
