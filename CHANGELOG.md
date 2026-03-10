@@ -23,7 +23,7 @@ All notable changes to this project are documented in this file.
   - `js/main.js` initializes Sentry browser SDK conditionally from runtime config.
 - New serverless contact submit endpoint:
   - `netlify/functions/submit-contact.js` validates fields + Turnstile server-side.
-  - Stores submissions in Netlify Blobs (`contact-submissions`) with log fallback when Blob store is unavailable.
+  - Stores submissions in function logs as durable fallback backend (sin dependencia de Netlify Forms).
   - Optional Resend delivery (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`).
 
 ### Changed

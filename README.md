@@ -115,8 +115,7 @@ Con ambas variables presentes:
 - `/.netlify/functions/submit-contact` valida token en servidor antes de aceptar el mensaje.
 
 Persistencia/envío:
-- Siempre guarda el mensaje en Netlify Blobs (`contact-submissions`).
-- Si Blobs no está disponible en el entorno, mantiene fallback en logs de función para no perder envíos.
+- Guarda el mensaje en logs de la Netlify Function (sin exponer secretos en frontend).
 - Opcional: envío de email con Resend si defines `RESEND_API_KEY` y `CONTACT_TO_EMAIL` (`CONTACT_FROM_EMAIL` opcional).
 
 ## Observabilidad (Sentry + Uptime)

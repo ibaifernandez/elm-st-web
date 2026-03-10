@@ -1,7 +1,6 @@
 "use strict";
 
 const crypto = require("node:crypto");
-const { getStore } = require("@netlify/blobs");
 
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const EMAIL_PATTERN = /^([A-Za-z0-9._%+-])+@([A-Za-z0-9.-])+\.([A-Za-z]{2,})$/;
@@ -153,11 +152,9 @@ function validateSubmission(fields) {
 }
 
 async function persistSubmission(submission) {
-  const store = getStore("contact-submissions");
   const id = crypto.randomUUID();
-  const key = `${submission.createdAt}-${id}.json`;
-  await store.setJSON(key, submission);
-  return { id, key };
+  console.log("contact-submission", JSON.stringify(submission));
+  return { id };
 }
 
 async function sendEmailWithResendIfConfigured(submission) {
@@ -258,20 +255,8 @@ exports.handler = async function handler(event) {
   }
 
   try {
-    let submissionId = "";
-    let storageMode = "blob";
-
-    try {
-      const saved = await persistSubmission(submission);
-      submissionId = saved.id;
-    } catch (storageError) {
-      storageMode = "log";
-      submissionId = crypto.randomUUID();
-      console.error("submit-contact blob storage failed", storageError);
-      console.log("contact-submission", JSON.stringify(submission));
-    }
-
-    let deliveryMode = storageMode === "blob" ? "storage-only" : "storage-log-only";
+    const saved = await persistSubmission(submission);
+    let deliveryMode = "storage-log-only";
     try {
       const delivery = await sendEmailWithResendIfConfigured(submission);
       if (delivery && delivery.mode) {
@@ -284,7 +269,7 @@ exports.handler = async function handler(event) {
     return buildJsonResponse(200, {
       success: true,
       message: "Message received.",
-      submissionId: submissionId,
+      submissionId: saved.id,
       delivery: deliveryMode
     });
   } catch (error) {
