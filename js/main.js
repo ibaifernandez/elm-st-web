@@ -20,7 +20,8 @@ var elmstFormSecurity = {
 };
 
 var elmstObservability = {
-	sentryBooted: false
+	sentryBooted: false,
+	sentryInitQueued: false
 };
 
 $(document).ready(function($) {
@@ -252,7 +253,7 @@ function getSentryLoaderUrl(dsn) {
 }
 
 function loadSentryScript(scriptUrl, onLoaded) {
-	if (window.Sentry && typeof window.Sentry.init === "function") {
+	if (window.Sentry && (typeof window.Sentry.init === "function" || typeof window.Sentry.onLoad === "function")) {
 		onLoaded();
 		return;
 	}
@@ -273,6 +274,35 @@ function loadSentryScript(scriptUrl, onLoaded) {
 	document.head.appendChild(script);
 }
 
+function bootSentry(runtimeConfig) {
+	if (elmstObservability.sentryBooted || !window.Sentry || typeof window.Sentry.init !== "function") {
+		return;
+	}
+
+	try {
+		var sentryOptions = {
+			dsn: runtimeConfig.sentryDsn,
+			environment: runtimeConfig.sentryEnvironment || "production",
+			sampleRate: 1,
+			tracesSampleRate: 0,
+			sendDefaultPii: false
+		};
+
+		if (runtimeConfig.sentryRelease) {
+			sentryOptions.release = runtimeConfig.sentryRelease;
+		}
+
+		window.Sentry.init(sentryOptions);
+		if (typeof window.Sentry.setTag === "function") {
+			window.Sentry.setTag("site", "elmst");
+			window.Sentry.setTag("locale", (document.documentElement.lang || "es").toLowerCase());
+		}
+		elmstObservability.sentryBooted = true;
+	} catch (error) {
+		elmstObservability.sentryBooted = false;
+	}
+}
+
 function initSentryObservability() {
 	if (elmstObservability.sentryBooted) {
 		return;
@@ -288,35 +318,30 @@ function initSentryObservability() {
 			return;
 		}
 
-		loadSentryScript(scriptUrl, function() {
-			if (elmstObservability.sentryBooted || !window.Sentry || typeof window.Sentry.init !== "function") {
-				return;
-			}
-
-			try {
-				var sentryOptions = {
-					dsn: runtimeConfig.sentryDsn,
-					environment: runtimeConfig.sentryEnvironment || "production",
-					sampleRate: 1,
-					tracesSampleRate: 0,
-					sendDefaultPii: false
-				};
-
-				if (runtimeConfig.sentryRelease) {
-					sentryOptions.release = runtimeConfig.sentryRelease;
+			loadSentryScript(scriptUrl, function() {
+				if (elmstObservability.sentryBooted || !window.Sentry) {
+					return;
 				}
 
-				window.Sentry.init(sentryOptions);
-				if (typeof window.Sentry.setTag === "function") {
-					window.Sentry.setTag("site", "elmst");
-					window.Sentry.setTag("locale", (document.documentElement.lang || "es").toLowerCase());
+				if (typeof window.Sentry.init === "function") {
+					bootSentry(runtimeConfig);
+					return;
 				}
-				elmstObservability.sentryBooted = true;
-			} catch (error) {
-				elmstObservability.sentryBooted = false;
-			}
+
+				if (typeof window.Sentry.onLoad !== "function" || elmstObservability.sentryInitQueued) {
+					return;
+				}
+
+				elmstObservability.sentryInitQueued = true;
+				window.Sentry.onLoad(function() {
+					elmstObservability.sentryInitQueued = false;
+					bootSentry(runtimeConfig);
+				});
+				if (typeof window.Sentry.forceLoad === "function") {
+					window.Sentry.forceLoad();
+				}
+			});
 		});
-	});
 }
 
 function loadTurnstileScript(onLoaded) {
