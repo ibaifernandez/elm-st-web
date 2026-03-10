@@ -27,7 +27,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Estilos: `css/`
 - Scripts: `js/`, `vendor/`, `rs-plugin/`
 - Activos: `images/`, `videos/`, `fonts/`
-- Formulario: Netlify Function `/.netlify/functions/submit-contact` (persistencia en Netlify Blobs, sin backend PHP)
+- Formulario: Netlify Function `/.netlify/functions/submit-contact` (persistencia en logs de función, sin backend PHP)
 - Selector de idioma: boton flotante inferior izquierdo (ES/EN), con fallback en navegacion legacy.
 
 ## Infra de migración ya preparada
