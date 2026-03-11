@@ -24,6 +24,8 @@ All notable changes to this project are documented in this file.
   - `css/responsive.css` now enforces stable one-column fallback on tablet/mobile and modal sizing on small screens.
 - JS lint scope expanded:
   - `package.json` (`lint:js`) now includes `js/dossier-modal.js`.
+- CI scheduling resilience:
+  - `.github/workflows/quality-gate.yml` now resolves scheduled checkout from repository default branch (ready for `main`/`legacy` branch reordering).
 
 ### Fixed
 - Inconsistent dossier card flow where one block could visually "fall" below its intended row.
