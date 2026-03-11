@@ -7,7 +7,7 @@
     "build:noop": "echo \"Static site - no build step\"",
     "serve:test": "node scripts/serve-test.mjs",
     "lint:html": "htmlhint \"*.html\" \"en/*.html\"",
-    "lint:js": "eslint js/main.js scripts/**/*.mjs tests/**/*.js playwright.config.js",
+    "lint:js": "eslint js/main.js js/dossier-modal.js scripts/**/*.mjs tests/**/*.js playwright.config.js",
     "lint:css": "stylelint --allow-empty-input \"css/*.css\" \"dist/*.css\"",
     "test:lint": "npm run lint:html && npm run lint:js && npm run lint:css",
     "test:netlify": "node scripts/check-netlify-config.mjs",

@@ -14,7 +14,8 @@
 | PLAT-005 | P1 | DONE | Configurar dominio `elmst.ibaifernandez.com` en Netlify DNS | Dominio principal resolviendo en Netlify |
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
-| PLAT-008 | P1 | TODO | Activar entrega por email del formulario (Resend) | Cada envío válido llega al correo destino en < 1 minuto |
+| PLAT-008 | P1 | DONE | Activar entrega por email del formulario (Resend) | Envío válido confirmado por correo en producción (`submit-contact` + Resend) |
+| PLAT-009 | P0 | TODO | Reordenar ramas de GitHub (`main`->`legacy`, `codex`->`main`) y exigir `Quality Gate` por branch protection | Ningún merge/deploy a rama principal sin `Quality Gate` en verde |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -25,7 +26,7 @@
 | SEO-004 | P1 | DONE | Añadir Open Graph y Twitter cards | Previsualización social consistente |
 | SEO-005 | P1 | TODO | Corregir títulos/descripciones duplicadas o débiles | Metadata única por URL indexable |
 | SEO-006 | P1 | DONE | Añadir `hreflang` ES/EN cuando esté publicado el bilingüe | Cobertura internacional sin canibalización |
-| SEO-007 | P0 | TODO | Mitigar pérdida de equity por expiración de `elmst.net` | Backlinks críticos actualizados y cobertura de indexación estable en dominio nuevo |
+| SEO-007 | P0 | DONE | Decisión de negocio sobre expiración de `elmst.net` | Riesgo SEO aceptado: dominio no se renueva y proyecto queda como pieza de portfolio |
 
 ## Accesibilidad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -75,7 +76,7 @@
 |---|---|---|---|---|
 | I18N-001 | P0 | DONE | Definir estrategia bilingüe ES/EN (rutas, SEO, QA) | Documento de arquitectura i18n aprobado |
 | I18N-002 | P0 | DONE | Crear rutas EN equivalentes para páginas públicas | Paridad funcional ES/EN |
-| I18N-003 | P0 | DOING | Traducir copy EN aprobado por negocio | 100% contenido público con versión EN |
+| I18N-003 | P0 | DONE | Traducir copy EN aprobado por negocio | 100% rutas públicas con versión EN operativa |
 | I18N-004 | P1 | DONE | QA bilingüe (links, sitemap, hreflang, Lighthouse) | Gate de calidad pasa en ES y EN |
 | I18N-005 | P1 | DONE | Exponer selector visible de idioma en navegación | Cambio ES/EN accesible desde botón flotante en todas las rutas públicas |
 | I18N-006 | P2 | DONE | Replicar patrón de selector flotante tipo portfolio (`pelotita` abajo izquierda) | Selector flotante con bandera y fallback accesible en navegación legacy |
@@ -87,6 +88,7 @@
 | OBS-002 | P2 | TODO | Definir panel mínimo de KPIs | Dashboard con tráfico y conversiones |
 | OBS-003 | P1 | DONE | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
 | OBS-004 | P1 | DONE | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
+| OBS-005 | P1 | TODO | Configurar reglas de alertado P1/P2 en Sentry para reducir ruido | Reglas activas por entorno `production` con umbrales acordados |
 | DOC-001 | P1 | DONE | Crear y mantener `CHANGELOG.md` | Historial de releases y cambios disponible |
 | DOC-002 | P1 | DONE | Mantener `ROADMAP.md` y `BACKLOG.md` al día | Estado real reflejado tras cada iteración |
 | DOC-003 | P1 | DONE | Publicar informe de estado por iteración | Resumen técnico + riesgos + resultados de tests por ciclo |

@@ -84,6 +84,18 @@ header.main-header nav .ownmenu li {
 .our-blog .blog-in{
 	margin-bottom:50px;
 }
+.dossier-grid {
+	grid-template-columns: 1fr;
+	grid-row-gap: 24px;
+}
+.doc-modal-dialog {
+	width: calc(100% - 30px);
+	max-height: calc(100vh - 46px);
+	margin: 23px auto;
+}
+.doc-modal-content {
+	height: calc(100vh - 190px);
+}
 
 }
 @media(max-width:767px) {
@@ -175,6 +187,30 @@ header nav .ownmenu li.menu-cta a {
 }
 .dossier-callout {
 	padding: 22px 22px;
+}
+.dossier-grid {
+	grid-template-columns: 1fr;
+	grid-row-gap: 22px;
+}
+.doc-modal-dialog {
+	width: calc(100% - 20px);
+	max-height: calc(100vh - 22px);
+	margin: 11px auto;
+	padding: 18px 14px 12px;
+}
+.doc-modal-title {
+	padding-right: 30px;
+	margin-bottom: 10px;
+}
+.doc-modal-close {
+	top: 8px;
+	right: 10px;
+}
+.doc-modal-content {
+	height: calc(100vh - 150px);
+	max-height: none;
+	padding: 12px;
+	font-size: 12px;
 }
 .language-fab {
 	left: 12px;

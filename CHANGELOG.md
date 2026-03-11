@@ -7,6 +7,28 @@ All notable changes to this project are documented in this file.
 ### Planned
 - Bilingual implementation ES/EN for public routes (pending approved EN copy).
 
+## [2026-03-11]
+
+### Added
+- Interactive source-doc reader in dossier pages:
+  - New modal runtime script: `js/dossier-modal.js`.
+  - Source links in ES/EN dossier now open local Markdown docs in-page (`README.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `BACKLOG.md`, `CHANGELOG.md`).
+- E2E coverage for dossier source-doc modal behavior:
+  - `tests/e2e.spec.js` validates modal open, content load, and close (ES/EN).
+
+### Changed
+- Dossier information architecture:
+  - "Objetivo del dossier" moved to the beginning of dossier content in ES/EN.
+  - Card layout hardened into deterministic two-column grid to prevent dropped/misaligned blocks.
+- Responsive behavior for dossier and modal:
+  - `css/responsive.css` now enforces stable one-column fallback on tablet/mobile and modal sizing on small screens.
+- JS lint scope expanded:
+  - `package.json` (`lint:js`) now includes `js/dossier-modal.js`.
+
+### Fixed
+- Inconsistent dossier card flow where one block could visually "fall" below its intended row.
+- Missing interactive behavior for dossier source documentation links.
+
 ## [2026-03-10]
 
 ### Added

@@ -1,45 +1,44 @@
 # ROADMAP - elm-st-web
 
-## Estado a 10 marzo 2026
+## Estado a 11 marzo 2026
 - Estrategia: `visual/copy freeze` activo.
 - Estado global: migracion a Netlify muy avanzada, hardening tecnico estabilizado.
 - Quality gate: `quality:ci` con hardening anti-flake (Lighthouse `numberOfRuns=3` + budgets por ruta).
 - Bilingue ES/EN: rutas EN publicadas en modo operativo; QA de tono en curso.
 - Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
-- Formulario: Turnstile invisible activo y envío operativo vía `/.netlify/functions/submit-contact`.
-- Dossier tecnico: publicado en ES/EN y trazado en sitemap.
+- Formulario: Turnstile invisible activo y envio operativo via `/.netlify/functions/submit-contact` + Resend.
+- Dossier tecnico: publicado en ES/EN, trazado en sitemap y reforzado con visor modal de documentacion fuente.
 - Avance por fases de excelencia:
-  - Fase 1 ("robusto por dentro"): `100%` tecnico (pendiente opcional: activar email transaccional con Resend).
+  - Fase 1 ("robusto por dentro"): `100%` (captcha, observabilidad, uptime, envio transaccional y quality gate semanal).
   - Fase 2 ("pruebas de ingenieria visibles"): `100%` (budgets por ruta + reporte tecnico versionado + CI semanal).
-  - Fase 3 ("portfolio vibe coder"): `85%` (dossier publicado; pendiente decision de visibilidad en nav + aprobacion final de tono).
+  - Fase 3 ("portfolio vibe coder"): `90%` (dossier publicado y mejorado; pendiente cierre manual de gobernanza en GitHub/Sentry y QA manual final).
 
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
 
-## Plan operativo accionable (10 marzo 2026 -> 11 abril 2026)
+## Plan operativo accionable (11 marzo 2026 -> 11 abril 2026)
 ### Bloque 1 - Cerrar antispam y seguridad de formulario
 Periodo: 10 marzo 2026 - 12 marzo 2026
-- Estado: `HECHO` en robustez tecnica. Pendiente opcional: entrega email por Resend.
+- Estado: `HECHO`.
 - Implementacion (Codex):
   - Verificado en produccion el flujo `runtime-config` + `verify-turnstile`.
   - Turnstile serverless activo en ES/EN.
   - Desacoplado el submit de Netlify Forms por bloqueo de plataforma (`POST /` 404) y migrado a `/.netlify/functions/submit-contact`.
-  - Persistencia de mensajes habilitada en logs de funcion con opcion de entrega por Resend.
+  - Persistencia de mensajes habilitada en logs de funcion y entrega por Resend activada en produccion.
 - Necesito de ti:
-  - Validar un envío manual ES y otro EN desde producción.
-  - Definir `RESEND_API_KEY` + `CONTACT_TO_EMAIL` para notificación por email.
+  - Ningun bloqueo tecnico abierto en este bloque.
 - Entregable:
   - Formulario operativo con captcha invisible activo y sin regresion visual/copy.
 
 ### Bloque 2 - Observabilidad y uptime
 Periodo: 13 marzo 2026 - 17 marzo 2026
-- Estado: `HECHO` en instrumentacion. Pendiente: afinar destinatarios/severidad de alertas.
+- Estado: `PARCIAL` (instrumentacion hecha; pendiente afinado de alertas P1/P2 en Sentry).
 - Implementacion (Codex):
   - Integrada captura de errores frontend con Sentry JS por runtime config.
   - Monitor HTTP externo creado en UptimeRobot para `elmst.ibaifernandez.com`.
   - Publicado runbook de alertas/incidentes `ALERTING.md` con matriz P1/P2/P3.
 - Necesito de ti:
-  - Confirmar destinatarios finales (emails) para alertas P1/P2 en Sentry y UptimeRobot.
+  - Crear reglas P1/P2 en Sentry segun `ALERTING.md` (UptimeRobot ya activo con correo confirmado).
 - Entregable:
   - Deteccion automatica de caidas y errores JS criticos.
 
@@ -51,7 +50,7 @@ Periodo: 18 marzo 2026 - 21 marzo 2026
   - QA manual estructurada con CSV (`qa-desktop.csv`, `qa-mobile.csv`); falta formalizar issue mensual automático.
   - Definir policy de merge: sin `quality:ci` verde no entra nada.
 - Necesito de ti:
-  - Activar branch protection en GitHub.
+  - Reordenar ramas (`main`->`legacy`, `codex`->`main`) y activar branch protection sobre la nueva `main`.
 - Entregable:
   - Operacion recurrente automatizada + control manual mensual trazable.
 
@@ -69,9 +68,10 @@ Periodo: 24 marzo 2026 - 28 marzo 2026
 
 ### Bloque 5 - Dossier tecnico "vibe coder"
 Periodo: 31 marzo 2026 - 4 abril 2026
-- Estado: `PARCIAL` (publicado, pendiente curado final de posicionamiento personal).
+- Estado: `PARCIAL` (publicado y reforzado visualmente; pendiente cierre de QA manual y tono final).
 - Implementacion (Codex):
   - Pagina tecnica publicada: `dossier-tecnico.html` y `en/technical-dossier.html`.
+  - Mejoras de UX: CTA de menu en dos lineas, objetivo al inicio, grid estable y modal para documentacion fuente.
   - Mantener look&feel actual, sin romper freeze de homepage principal.
   - Añadir metadata y trazabilidad de cambios.
 - Necesito de ti:
@@ -81,15 +81,14 @@ Periodo: 31 marzo 2026 - 4 abril 2026
 
 ### Bloque 6 - Riesgo SEO por expiracion de `elmst.net`
 Periodo: 7 abril 2026 - 11 abril 2026
+- Estado: `CERRADO` por decision de negocio (dominio no se renueva).
 - Implementacion (Codex):
-  - Plan de mitigacion SEO: inventario de backlinks criticos + outreach de actualizacion.
-  - Checklist Search Console/Bing para consolidar `elmst.ibaifernandez.com`.
-  - Seguimiento de cobertura e indexacion post-migracion.
+  - Riesgo SEO residual documentado y aceptado.
+  - Sitio operativo orientado a portfolio tecnico, sin estrategia de retencion de equity en `elmst.net`.
 - Necesito de ti:
-  - Confirmacion final de negocio: mantener o no `elmst.net` 6-12 meses.
-  - Acceso/Search Console del dominio nuevo.
+  - Ninguna accion adicional sobre `elmst.net`.
 - Entregable:
-  - Riesgo SEO documentado y mitigado con acciones concretas.
+  - Riesgo SEO documentado como decision consciente de producto/negocio.
 
 ## Fase 0 - Fundacion (completada)
 Periodo: 7 marzo 2026

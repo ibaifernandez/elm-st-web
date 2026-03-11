@@ -72,6 +72,42 @@ test.describe("Dossier menu CTA", () => {
   }
 });
 
+test.describe("Dossier source docs modal", () => {
+  test("opens README.md inside modal on Spanish dossier", async ({ page }) => {
+    await page.goto("/dossier-tecnico.html", { waitUntil: "domcontentloaded" });
+
+    await page.click('.doc-modal-link[data-doc-path="/README.md"]');
+
+    const modal = page.locator("#doc-modal");
+    const modalTitle = page.locator("#doc-modal-title");
+    const modalContent = page.locator("#doc-modal-content");
+
+    await expect(modal).toBeVisible();
+    await expect(modalTitle).toHaveText("README.md");
+    await expect(modalContent).toContainText("elm-st-web");
+
+    await page.keyboard.press("Escape");
+    await expect(modal).toBeHidden();
+  });
+
+  test("opens ARCHITECTURE.md inside modal on English dossier", async ({ page }) => {
+    await page.goto("/en/technical-dossier.html", { waitUntil: "domcontentloaded" });
+
+    await page.click('.doc-modal-link[data-doc-path="/ARCHITECTURE.md"]');
+
+    const modal = page.locator("#doc-modal");
+    const modalTitle = page.locator("#doc-modal-title");
+    const modalContent = page.locator("#doc-modal-content");
+
+    await expect(modal).toBeVisible();
+    await expect(modalTitle).toHaveText("ARCHITECTURE.md");
+    await expect(modalContent).toContainText("ARCHITECTURE");
+
+    await page.keyboard.press("Escape");
+    await expect(modal).toBeHidden();
+  });
+});
+
 test("header stays above choose-tab section", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const zIndexes = await page.evaluate(() => {

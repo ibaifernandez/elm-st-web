@@ -124,12 +124,17 @@
 
     <section class="sectoion-100px dossier-main" id="dossier">
       <div class="container">
+        <div class="dossier-callout">
+          <h5>Dossier goal</h5>
+          <p>Show that this site, while visually sober, is engineered and operated with production discipline: automated quality, observability, security, traceability, and controlled maintenance.</p>
+        </div>
+
         <div class="tittle">
           <h4>Website engineering</h4>
           <p>Public documentation of the technical layer that makes elmst.ibaifernandez.com robust internally.</p>
         </div>
 
-        <div class="row">
+        <div class="row dossier-grid">
           <div class="col-md-6">
             <article class="dossier-card">
               <span class="dossier-card-icon"><i class="ion-cube" aria-hidden="true"></i></span>
@@ -204,14 +209,24 @@
           </div>
         </div>
 
-        <div class="dossier-callout">
-          <h5>Dossier goal</h5>
-          <p>Show that this site, while visually sober, is engineered and operated with production discipline: automated quality, observability, security, traceability, and controlled maintenance.</p>
-        </div>
-
         <div class="dossier-meta">
           <p><strong>Latest technical update:</strong> March 11, 2026.</p>
-          <p>Source documentation: <code>README.md</code>, <code>ARCHITECTURE.md</code>, <code>ROADMAP.md</code>, <code>BACKLOG.md</code>, <code>CHANGELOG.md</code>.</p>
+          <p>Source documentation:
+            <a href="/README.md" class="doc-modal-link" data-doc-path="/README.md">README.md</a>,
+            <a href="/ARCHITECTURE.md" class="doc-modal-link" data-doc-path="/ARCHITECTURE.md">ARCHITECTURE.md</a>,
+            <a href="/ROADMAP.md" class="doc-modal-link" data-doc-path="/ROADMAP.md">ROADMAP.md</a>,
+            <a href="/BACKLOG.md" class="doc-modal-link" data-doc-path="/BACKLOG.md">BACKLOG.md</a>,
+            <a href="/CHANGELOG.md" class="doc-modal-link" data-doc-path="/CHANGELOG.md">CHANGELOG.md</a>.
+          </p>
+        </div>
+
+        <div id="doc-modal" class="doc-modal" hidden>
+          <div class="doc-modal-backdrop" data-doc-modal-close></div>
+          <div class="doc-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title">
+            <button type="button" class="doc-modal-close" aria-label="Close modal" data-doc-modal-close>&times;</button>
+            <h5 id="doc-modal-title" class="doc-modal-title"></h5>
+            <pre id="doc-modal-content" class="doc-modal-content">Loading document...</pre>
+          </div>
         </div>
       </div>
     </section>
@@ -243,5 +258,6 @@
 <script src="/js/jquery-1.11.3.min.js"></script>
 <script src="/js/own-menu.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/dossier-modal.js"></script>
 </body>
 </html>
