@@ -76,7 +76,6 @@ Periodo: 31 marzo 2026 - 4 abril 2026
   - Añadir metadata y trazabilidad de cambios.
 - Necesito de ti:
   - Aprobar tono de marca ES/EN.
-  - Definir si el enlace al dossier va visible en navegacion o solo URL directa.
 - Entregable:
   - Activo de portfolio tecnico listo para entrevistas y propuestas.
 

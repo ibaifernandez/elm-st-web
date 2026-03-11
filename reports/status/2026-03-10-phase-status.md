@@ -28,9 +28,7 @@
    - define recipients + severity thresholds in Sentry and UptimeRobot (based on `ALERTING.md`).
 3. Governance hardening:
    - enable GitHub branch protection requiring `Quality Gate` to merge.
-4. Product decision:
-   - decide dossier discoverability: visible in nav vs direct URL only.
-5. SEO legacy risk:
+4. SEO legacy risk:
    - confirm if `elmst.net` will be kept for temporary redirect/equity handover window.
 
 ## Evidence

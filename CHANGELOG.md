@@ -38,6 +38,7 @@ All notable changes to this project are documented in this file.
   - `ALERTING.md` (P1/P2/P3 policy + incident flow).
 
 ### Changed
+- Main navigation now includes a visible "Dossier" CTA item in ES/EN routes with contrasted button styling.
 - CSP updated to allow optional Turnstile runtime endpoints:
   - `_headers` now includes `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`.
 - CSP updated for Sentry browser SDK + ingest endpoints:

@@ -48,6 +48,30 @@ test.describe("Language switch visibility", () => {
   }
 });
 
+test.describe("Dossier menu CTA", () => {
+  const dossierMenuRoutes = [
+    { route: "/", href: "dossier-tecnico.html" },
+    { route: "/nosotros.html", href: "dossier-tecnico.html" },
+    { route: "/portafolio.html", href: "dossier-tecnico.html" },
+    { route: "/contacto.html", href: "dossier-tecnico.html" },
+    { route: "/dossier-tecnico.html", href: "/dossier-tecnico.html" },
+    { route: "/en/", href: "/en/technical-dossier.html" },
+    { route: "/en/about.html", href: "/en/technical-dossier.html" },
+    { route: "/en/portfolio.html", href: "/en/technical-dossier.html" },
+    { route: "/en/contact.html", href: "/en/technical-dossier.html" },
+    { route: "/en/technical-dossier.html", href: "/en/technical-dossier.html" }
+  ];
+
+  for (const menuRoute of dossierMenuRoutes) {
+    test(`shows dossier CTA on ${menuRoute.route}`, async ({ page }) => {
+      await page.goto(menuRoute.route, { waitUntil: "domcontentloaded" });
+      const dossierLink = page.locator("header nav .ownmenu li.menu-cta a").first();
+      await expect(dossierLink).toBeVisible();
+      await expect(dossierLink).toHaveAttribute("href", menuRoute.href);
+    });
+  }
+});
+
 test("header stays above choose-tab section", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const zIndexes = await page.evaluate(() => {

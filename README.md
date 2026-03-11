@@ -26,6 +26,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Páginas: `inicio.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, `error-404.html`, `en-construccion.html`.
 - Rutas EN: `en/index.html`, `en/about.html`, `en/portfolio.html`, `en/contact.html`.
 - Dossier técnico: `dossier-tecnico.html`, `en/technical-dossier.html`.
+- Navegación principal: incluye CTA visible a "Dossier" (ES/EN) con estilo diferenciado.
 - Estilos: `css/`
 - Scripts: `js/`, `vendor/`, `rs-plugin/`
 - Activos: `images/`, `videos/`, `fonts/`

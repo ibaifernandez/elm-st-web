@@ -155,6 +155,12 @@ header nav .ownmenu li.lang-switch a {
 	margin-left: 0;
 	max-width: 120px;
 }
+header nav .ownmenu li.menu-cta a {
+	display: block;
+	margin: 8px auto 2px;
+	max-width: 150px;
+	text-align: center;
+}
 .language-fab {
 	left: 12px;
 	bottom: 12px;
