@@ -443,12 +443,25 @@ header nav .ownmenu li.lang-switch a:hover {
 }
 header nav .ownmenu li.menu-cta a {
 	margin-left: 16px;
-	padding: 7px 12px;
+	padding: 5px 12px;
+	min-width: 94px;
+	min-height: 34px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1px;
 	border: 1px solid #0f4c81;
 	border-radius: 2px;
 	background: #0f4c81;
 	color: #ffffff;
-	line-height: 1;
+	line-height: 1.05;
+	font-size: 10px;
+	letter-spacing: 0.8px;
+	text-align: center;
+}
+header nav .ownmenu li.menu-cta a .menu-cta-line {
+	display: block;
 }
 header nav .ownmenu li.menu-cta a:hover,
 header nav .ownmenu li.menu-cta.active a {

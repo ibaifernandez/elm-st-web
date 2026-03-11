@@ -156,9 +156,11 @@ header nav .ownmenu li.lang-switch a {
 	max-width: 120px;
 }
 header nav .ownmenu li.menu-cta a {
-	display: block;
+	display: flex;
 	margin: 8px auto 2px;
 	max-width: 150px;
+	width: 150px;
+	min-height: 40px;
 	text-align: center;
 }
 .language-fab {
