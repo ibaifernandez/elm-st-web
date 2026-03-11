@@ -39,6 +39,8 @@ All notable changes to this project are documented in this file.
 
 ### Changed
 - Main navigation now includes a visible "Dossier" CTA item in ES/EN routes with contrasted button styling.
+- Dossier navigation CTA refined to two-line labels (`Dossier`/`Técnico`, `Technical`/`Dossier`) with stabilized alignment.
+- Public dossier pages (`dossier-tecnico.html`, `en/technical-dossier.html`) redesigned with hero, KPI strip, card layout, and clearer technical hierarchy while preserving site visual language.
 - CSP updated to allow optional Turnstile runtime endpoints:
   - `_headers` now includes `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`.
 - CSP updated for Sentry browser SDK + ingest endpoints:

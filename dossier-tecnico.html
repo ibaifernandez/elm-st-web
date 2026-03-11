@@ -75,22 +75,54 @@
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li class="menu-cta active"><a href="/dossier-tecnico.html"><span class="menu-cta-line">Dossier</span><span class="menu-cta-line">técnico</span></a></li>
+            <li class="menu-cta active"><a href="/dossier-tecnico.html"><span class="menu-cta-line">Dossier</span><span class="menu-cta-line">Técnico</span></a></li>
             <li class="lang-switch"><a href="/en/technical-dossier.html" hreflang="en" lang="en" aria-label="Switch language to English">EN</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section class="sub-banner">
+    <section class="sub-banner dossier-hero">
       <div class="container">
         <div class="position-center-center">
-          <h2 style="color:#fff; font-weight: 900;">Dossier técnico</h2>
+          <h2>Dossier técnico</h2>
+          <p class="dossier-hero-sub">Un vistazo público a la ingeniería que sostiene elmst.ibaifernandez.com: arquitectura, calidad, seguridad, rendimiento, observabilidad y operación.</p>
         </div>
       </div>
     </section>
 
-    <section class="sectoion-100px" id="dossier">
+    <section class="dossier-kpi-strip">
+      <div class="container">
+        <ul class="row">
+          <li class="col-sm-3 col-xs-6">
+            <div class="dossier-kpi">
+              <span class="dossier-kpi-value">10/10</span>
+              <span class="dossier-kpi-label">Rutas auditadas</span>
+            </div>
+          </li>
+          <li class="col-sm-3 col-xs-6">
+            <div class="dossier-kpi">
+              <span class="dossier-kpi-value">100%</span>
+              <span class="dossier-kpi-label">Quality gate en verde</span>
+            </div>
+          </li>
+          <li class="col-sm-3 col-xs-6">
+            <div class="dossier-kpi">
+              <span class="dossier-kpi-value">ES/EN</span>
+              <span class="dossier-kpi-label">Paridad operativa</span>
+            </div>
+          </li>
+          <li class="col-sm-3 col-xs-6">
+            <div class="dossier-kpi">
+              <span class="dossier-kpi-value">24/7</span>
+              <span class="dossier-kpi-label">Uptime + alertas</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sectoion-100px dossier-main" id="dossier">
       <div class="container">
         <div class="tittle">
           <h4>Ingeniería del sitio</h4>
@@ -99,71 +131,87 @@
 
         <div class="row">
           <div class="col-md-6">
-            <h5>Arquitectura y hosting</h5>
-            <p>Sitio estático HTML/CSS/JS desplegado en Netlify, con funciones serverless para configuración runtime, verificación de captcha y envío del formulario.</p>
-            <ul>
-              <li>Hosting: Netlify + dominio productivo `elmst.ibaifernandez.com`.</li>
-              <li>Funciones: `runtime-config`, `verify-turnstile`, `submit-contact`.</li>
-              <li>Ruteo y hardening: `_redirects`, `_headers`, `netlify.toml`.</li>
-            </ul>
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-cube" aria-hidden="true"></i></span>
+              <h5>Arquitectura y hosting</h5>
+              <p>Sitio estático HTML/CSS/JS desplegado en Netlify, con funciones serverless para configuración runtime, validación de captcha y envío de formularios.</p>
+              <ul>
+                <li>Hosting: Netlify con dominio productivo <code>elmst.ibaifernandez.com</code>.</li>
+                <li>Funciones: <code>runtime-config</code>, <code>verify-turnstile</code>, <code>submit-contact</code>.</li>
+                <li>Ruteo/hardening: <code>_redirects</code>, <code>_headers</code>, <code>netlify.toml</code>.</li>
+              </ul>
+            </article>
           </div>
           <div class="col-md-6">
-            <h5>Calidad y CI</h5>
-            <p>Pipeline bloqueante en GitHub Actions. Si un check falla, no pasa el quality gate.</p>
-            <ul>
-              <li>Playwright E2E de rutas críticas y formulario.</li>
-              <li>Regresión visual desktop/mobile.</li>
-              <li>Accesibilidad automatizada con axe.</li>
-              <li>Lighthouse CI + budgets por ruta.</li>
-              <li>Checker de enlaces y mixed content.</li>
-            </ul>
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></span>
+              <h5>Calidad y CI</h5>
+              <p>Pipeline bloqueante en GitHub Actions: si un check falla, no pasa el quality gate.</p>
+              <ul>
+                <li>Playwright E2E para rutas críticas y formulario.</li>
+                <li>Regresión visual desktop/mobile con baseline versionado.</li>
+                <li>Accesibilidad automatizada con axe.</li>
+                <li>Lighthouse CI + budgets por ruta y reporte por release.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-locked" aria-hidden="true"></i></span>
+              <h5>Seguridad</h5>
+              <ul>
+                <li>Cabeceras CSP/HSTS/X-Frame-Options y controles anti mixed-content.</li>
+                <li>Captcha invisible Turnstile con validación server-side.</li>
+                <li>Honeypot + validación estricta de campos en backend.</li>
+                <li>Sin backend PHP legacy en producción.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-earth" aria-hidden="true"></i></span>
+              <h5>SEO técnico e i18n</h5>
+              <ul>
+                <li>Versiones ES/EN con <code>hreflang</code> y canonical por página.</li>
+                <li>Sitemap y robots alineados al dominio productivo.</li>
+                <li>Metadata OG/Twitter optimizada por ruta.</li>
+                <li>Compatibilidad legacy controlada con redirects explícitos.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-ios-pulse-strong" aria-hidden="true"></i></span>
+              <h5>Observabilidad y uptime</h5>
+              <ul>
+                <li>Sentry para captura de errores frontend por entorno.</li>
+                <li>UptimeRobot monitorizando disponibilidad HTTP productiva.</li>
+                <li>Runbook de alertas con severidades P1/P2/P3.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="dossier-card">
+              <span class="dossier-card-icon"><i class="ion-loop" aria-hidden="true"></i></span>
+              <h5>Operación continua</h5>
+              <ul>
+                <li>Quality Gate manual + ejecución semanal automática.</li>
+                <li>Reportes técnicos versionados por release.</li>
+                <li>QA manual desktop/mobile en CSV.</li>
+                <li>Backlog y roadmap actualizados por iteración.</li>
+              </ul>
+            </article>
           </div>
         </div>
 
-        <div class="row margin-top-40">
-          <div class="col-md-6">
-            <h5>Seguridad</h5>
-            <ul>
-              <li>Cabeceras de seguridad (CSP, HSTS, X-Frame-Options, etc.).</li>
-              <li>Captcha invisible Turnstile con validación server-side.</li>
-              <li>Honeypot de formulario y validación de campos en backend.</li>
-              <li>Sin backend PHP legacy en producción.</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h5>SEO técnico e i18n</h5>
-            <ul>
-              <li>Versiones ES/EN con `hreflang` y canonical por página.</li>
-              <li>Sitemap y robots apuntando al dominio productivo.</li>
-              <li>Metadata OG/Twitter optimizada por ruta.</li>
-              <li>Rutas amigables y compatibilidad legacy controlada en redirects.</li>
-            </ul>
-          </div>
+        <div class="dossier-callout">
+          <h5>Objetivo del dossier</h5>
+          <p>Mostrar que este sitio, aunque sobrio visualmente, está construido y operado con disciplina de ingeniería: calidad automatizada, observabilidad, seguridad, trazabilidad y mantenimiento controlado.</p>
         </div>
 
-        <div class="row margin-top-40">
-          <div class="col-md-6">
-            <h5>Observabilidad y uptime</h5>
-            <ul>
-              <li>Sentry para errores frontend (runtime config sin exponer secretos).</li>
-              <li>Monitor HTTP externo con UptimeRobot.</li>
-              <li>Política de alertas y runbook operativo documentados.</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h5>Operación continua</h5>
-            <ul>
-              <li>Quality Gate manual y semanal automatizado.</li>
-              <li>Reportes técnicos versionados por release.</li>
-              <li>QA manual desktop/mobile en CSV.</li>
-              <li>Backlog y roadmap actualizados por iteración.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="margin-top-40">
-          <p><strong>Última actualización técnica:</strong> 10 de marzo de 2026.</p>
-          <p>Documentación completa en el repositorio: `README.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `BACKLOG.md`, `CHANGELOG.md`.</p>
+        <div class="dossier-meta">
+          <p><strong>Última actualización técnica:</strong> 11 de marzo de 2026.</p>
+          <p>Documentación fuente: <code>README.md</code>, <code>ARCHITECTURE.md</code>, <code>ROADMAP.md</code>, <code>BACKLOG.md</code>, <code>CHANGELOG.md</code>.</p>
         </div>
       </div>
     </section>

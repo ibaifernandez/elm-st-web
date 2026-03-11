@@ -163,6 +163,19 @@ header nav .ownmenu li.menu-cta a {
 	min-height: 40px;
 	text-align: center;
 }
+.dossier-hero {
+	padding: 95px 0 85px;
+}
+.dossier-hero .dossier-hero-sub {
+	font-size: 15px;
+	line-height: 1.6;
+}
+.dossier-card {
+	min-height: auto;
+}
+.dossier-callout {
+	padding: 22px 22px;
+}
 .language-fab {
 	left: 12px;
 	bottom: 12px;
