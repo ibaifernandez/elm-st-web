@@ -30,6 +30,9 @@ All notable changes to this project are documented in this file.
 ### Fixed
 - Inconsistent dossier card flow where one block could visually "fall" below its intended row.
 - Missing interactive behavior for dossier source documentation links.
+- Bootstrap float interference in dossier cards:
+  - Dossier cards now render through native `.dossier-grid` + `.dossier-grid-item` wrappers (no `col-md-6` dependency inside dossier cards).
+  - Added E2E structural assertions for deterministic card sequence and objective-first ordering.
 
 ## [2026-03-10]
 

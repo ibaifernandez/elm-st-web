@@ -108,6 +108,48 @@ test.describe("Dossier source docs modal", () => {
   });
 });
 
+test.describe("Dossier structure order", () => {
+  test("places objective callout before section title in Spanish dossier", async ({ page }) => {
+    await page.goto("/dossier-tecnico.html", { waitUntil: "domcontentloaded" });
+    const order = await page.evaluate(() => {
+      const callout = document.querySelector(".dossier-main .dossier-callout");
+      const title = document.querySelector(".dossier-main .tittle");
+      if (!callout || !title) {
+        return null;
+      }
+      return callout.compareDocumentPosition(title);
+    });
+
+    expect(order).not.toBeNull();
+    expect(order & 4).toBeTruthy();
+  });
+
+  test("renders six dossier cards in deterministic sequence on desktop", async ({ page }) => {
+    await page.setViewportSize({ width: 1366, height: 1000 });
+    await page.goto("/dossier-tecnico.html", { waitUntil: "domcontentloaded" });
+
+    const positions = await page.evaluate(() => {
+      const nodes = Array.from(document.querySelectorAll(".dossier-grid .dossier-grid-item"));
+      return nodes.map((node, index) => {
+        const rect = node.getBoundingClientRect();
+        return {
+          index,
+          top: Math.round(rect.top),
+          left: Math.round(rect.left)
+        };
+      });
+    });
+
+    expect(positions).toHaveLength(6);
+    expect(positions[0].left).toBeLessThan(positions[1].left);
+    expect(positions[0].top).toBe(positions[1].top);
+    expect(positions[2].top).toBeGreaterThan(positions[0].top);
+    expect(positions[2].left).toBeLessThan(positions[3].left);
+    expect(positions[4].top).toBeGreaterThan(positions[2].top);
+    expect(positions[4].left).toBeLessThan(positions[5].left);
+  });
+});
+
 test("header stays above choose-tab section", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const zIndexes = await page.evaluate(() => {

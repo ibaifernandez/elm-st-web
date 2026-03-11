@@ -538,11 +538,8 @@ header nav .ownmenu li.menu-cta a:focus-visible {
 	grid-row-gap: 30px;
 	margin-top: 2px;
 }
-.dossier-grid > [class*="col-"] {
-	float: none;
-	width: auto;
-	padding-left: 0;
-	padding-right: 0;
+.dossier-grid-item {
+	min-width: 0;
 }
 .dossier-card {
 	background: #ffffff;
