@@ -48,6 +48,7 @@
 | PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 10 rutas auditadas (ES/EN + dossier) |
 | PERF-006 | P1 | DONE | Reducir dependencia de fuentes externas en render crítico | `Montserrat` servido en local con `font-display: swap` y menor variabilidad de LCP |
 | PERF-007 | P1 | DONE | Convertir umbrales Lighthouse en budgets de release por ruta | Presupuesto técnico publicado y auditado por release (`npm run report:release`) |
+| PERF-008 | P2 | DONE | Ejecutar barrido final de residuos legacy del repositorio | Eliminados assets unreferenced de `vendor/`, `videos/`, `dist/` y restos no usados de `rs-plugin/` sin regresión en `quality:ci` |
 
 ## Seguridad
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |

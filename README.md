@@ -34,8 +34,8 @@ Web corporativa de Elm St. (productora audiovisual), ya estabilizada en Netlify 
 - Dossier técnico: `dossier-tecnico.html`, `en/technical-dossier.html`.
 - Navegación principal: incluye CTA visible a "Dossier" (ES/EN) con estilo diferenciado.
 - Estilos: `css/`
-- Scripts: `js/`, `vendor/`, `rs-plugin/`
-- Activos: `images/`, `videos/`, `fonts/`
+- Scripts: `js/`, `rs-plugin/`
+- Activos: `images/`, `fonts/`, `dist/`
 - Formulario: Netlify Function `/.netlify/functions/submit-contact` (persistencia en logs de función, sin backend PHP)
 - Selector de idioma: boton flotante inferior izquierdo (ES/EN), con fallback en navegacion legacy.
 - Documentación operativa: `docs/`

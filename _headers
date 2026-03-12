@@ -17,6 +17,3 @@
 
 /fonts/*
   Cache-Control: public, max-age=2592000
-
-/videos/*
-  Cache-Control: public, max-age=2592000
