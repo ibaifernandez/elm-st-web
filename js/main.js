@@ -201,6 +201,11 @@ function sanitizeRuntimeString(value) {
 	return typeof value === "string" ? value.trim() : "";
 }
 
+function normalizeRuntimeEnvironment(value) {
+	var normalizedValue = sanitizeRuntimeString(value).toLowerCase();
+	return normalizedValue || "production";
+}
+
 function loadRuntimeConfig(callback) {
 	if (elmstRuntimeConfig.checked) {
 		callback(elmstRuntimeConfig);
@@ -222,7 +227,7 @@ function loadRuntimeConfig(callback) {
 		success: function(response) {
 			elmstRuntimeConfig.turnstileSiteKey = sanitizeRuntimeString(response && response.turnstileSiteKey);
 			elmstRuntimeConfig.sentryDsn = sanitizeRuntimeString(response && response.sentryDsn);
-			elmstRuntimeConfig.sentryEnvironment = sanitizeRuntimeString(response && response.sentryEnvironment) || "production";
+			elmstRuntimeConfig.sentryEnvironment = normalizeRuntimeEnvironment(response && response.sentryEnvironment);
 			elmstRuntimeConfig.sentryRelease = sanitizeRuntimeString(response && response.sentryRelease);
 		},
 		complete: function() {
@@ -283,7 +288,7 @@ function bootSentry(runtimeConfig) {
 	try {
 		var sentryOptions = {
 			dsn: runtimeConfig.sentryDsn,
-			environment: runtimeConfig.sentryEnvironment || "production",
+			environment: normalizeRuntimeEnvironment(runtimeConfig.sentryEnvironment),
 			sampleRate: 1,
 			tracesSampleRate: 0,
 			sendDefaultPii: false

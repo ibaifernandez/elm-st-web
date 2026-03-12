@@ -1,6 +1,6 @@
 # ROADMAP - elm-st-web
 
-## Estado a 11 marzo 2026
+## Estado a 12 marzo 2026
 - Estrategia: `visual/copy freeze` activo.
 - Estado global: migracion a Netlify muy avanzada, hardening tecnico estabilizado.
 - Quality gate: `quality:ci` con hardening anti-flake (Lighthouse `numberOfRuns=3` + budgets por ruta).
@@ -8,15 +8,16 @@
 - Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
 - Formulario: Turnstile invisible activo y envio operativo via `/.netlify/functions/submit-contact` + Resend.
 - Dossier tecnico: publicado en ES/EN, trazado en sitemap y reforzado con visor modal de documentacion fuente.
+- Gobernanza de ramas: `main` definido como rama productiva (protegida) y `legacy` como rama historica de resguardo.
 - Avance por fases de excelencia:
   - Fase 1 ("robusto por dentro"): `100%` (captcha, observabilidad, uptime, envio transaccional y quality gate semanal).
   - Fase 2 ("pruebas de ingenieria visibles"): `100%` (budgets por ruta + reporte tecnico versionado + CI semanal).
-  - Fase 3 ("portfolio vibe coder"): `90%` (dossier publicado y mejorado; pendiente cierre manual de gobernanza en GitHub/Sentry y QA manual final).
+  - Fase 3 ("portfolio vibe coder"): `95%` (dossier publicado/mejorado; pendiente QA manual final desktop/mobile y curado de tono).
 
 ## Horizonte
 Plan de 10 semanas (marzo a mayo de 2026), con entregas incrementales.
 
-## Plan operativo accionable (11 marzo 2026 -> 11 abril 2026)
+## Plan operativo accionable (12 marzo 2026 -> 11 abril 2026)
 ### Bloque 1 - Cerrar antispam y seguridad de formulario
 Periodo: 10 marzo 2026 - 12 marzo 2026
 - Estado: `HECHO`.
@@ -32,13 +33,13 @@ Periodo: 10 marzo 2026 - 12 marzo 2026
 
 ### Bloque 2 - Observabilidad y uptime
 Periodo: 13 marzo 2026 - 17 marzo 2026
-- Estado: `PARCIAL` (instrumentacion hecha; pendiente afinado de alertas P1/P2 en Sentry).
+- Estado: `HECHO`.
 - Implementacion (Codex):
   - Integrada captura de errores frontend con Sentry JS por runtime config.
   - Monitor HTTP externo creado en UptimeRobot para `elmst.ibaifernandez.com`.
   - Publicado runbook de alertas/incidentes `ALERTING.md` con matriz P1/P2/P3.
 - Necesito de ti:
-  - Crear reglas P1/P2 en Sentry segun `ALERTING.md` (UptimeRobot ya activo con correo confirmado).
+  - Ningun bloqueo tecnico abierto en este bloque.
 - Entregable:
   - Deteccion automatica de caidas y errores JS criticos.
 
@@ -46,11 +47,11 @@ Periodo: 13 marzo 2026 - 17 marzo 2026
 Periodo: 18 marzo 2026 - 21 marzo 2026
 - Estado: `PARCIAL`.
 - Implementacion (Codex):
-  - Workflow semanal `Quality Gate` activo (`schedule`: lunes 13:00 UTC, checkout sobre `codex`).
+  - Workflow semanal `Quality Gate` activo (`schedule`: lunes 13:00 UTC, checkout sobre rama por defecto del repo).
   - QA manual estructurada con CSV (`qa-desktop.csv`, `qa-mobile.csv`); falta formalizar issue mensual automático.
   - Definir policy de merge: sin `quality:ci` verde no entra nada.
 - Necesito de ti:
-  - Reordenar ramas (`main`->`legacy`, `codex`->`main`) y activar branch protection sobre la nueva `main`.
+  - Formalizar rutina mensual de QA manual (owner + fecha fija).
 - Entregable:
   - Operacion recurrente automatizada + control manual mensual trazable.
 
