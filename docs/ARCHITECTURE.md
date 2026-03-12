@@ -1,11 +1,13 @@
 # ARCHITECTURE - elm-st-web
 
 ## 1) Estado actual (as-is)
-- Sitio multipágina estático en raíz (`inicio.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, etc.).
+- Sitio multipágina estático en raíz (`index.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, `dossier-tecnico.html`, `404.html`).
+- Espejo EN publicado en `en/` (`index.html`, `about.html`, `portfolio.html`, `contact.html`, `technical-dossier.html`).
 - Frontend legacy con jQuery + Bootstrap 3 + plugins antiguos.
-- Formulario migrado a Netlify Forms (`POST /`) con honeypot activo.
+- Formulario operativo vía Netlify Functions (`/.netlify/functions/submit-contact`) con validación server-side, honeypot, Turnstile opcional y entrega por Resend.
 - Routing bilingüe ES/EN publicado (`/` y `/en/` con mirrors de páginas públicas).
 - Despliegue operativo en Netlify para `elmst.ibaifernandez.com`.
+- Documentación operativa, QA y reportes centralizados en `docs/`.
 
 ### Hallazgos de auditoría relevantes
 - Dependencias legacy: jQuery 1.11.2/1.11.3, Bootstrap 3.3.5.
@@ -15,7 +17,7 @@
 - Accesibilidad y contraste endurecidos para pasar axe sin excepciones.
 - API key de Google Maps eliminada del runtime público activo.
 - Hardening de captcha invisible activo (Turnstile + verificación serverless).
-- Activos pesados y residuos (`Thumbs.db`, vídeo principal grande).
+- Stack frontend legacy estable, con deuda técnica conocida pero acotada.
 
 ## 2) Arquitectura objetivo (to-be)
 ### Principios
@@ -25,7 +27,7 @@
 
 ### Capas
 - Capa de presentación: páginas estáticas optimizadas.
-- Capa de integración: Netlify Forms + Netlify Functions auxiliares (`runtime-config`, `verify-turnstile` opcional).
+- Capa de integración: Netlify Functions (`runtime-config`, `verify-turnstile`, `submit-contact`) y Resend opcional para entrega de formularios.
 - Capa de entrega: Netlify (deploys versionados, previews, CDN global).
 - Capa de observabilidad: analítica + monitoreo de errores (Sentry) + uptime externo (UptimeRobot).
 
@@ -33,7 +35,8 @@
 - Dominio principal de producción: `elmst.ibaifernandez.com`.
 - Dominio `elmst.net`: decisión de negocio de no mantenerlo.
 - Estrategia de rutas:
-  - `/` como entrada principal (consolidar `inicio.html` hacia `index.html` en la migración).
+  - `/` como entrada principal.
+  - `/inicio.html` y `/error-404.html` quedan solo como URLs legacy atendidas por redirects.
   - URLs canónicas estables para `/nosotros`, `/portafolio`, `/contacto` (con o sin `.html`, pero consistentes).
 
 ## 3.1) Routing bilingüe objetivo (ES/EN)
@@ -60,8 +63,9 @@
   - `Permissions-Policy`
 - Sin secretos en frontend.
 - Validación de inputs y protección anti-spam en contacto:
-  - honeypot activo en Netlify Forms (base).
+  - honeypot activo en `submit-contact`.
   - captcha invisible activo con Turnstile y verificación serverless.
+  - envío transaccional desacoplado vía Resend.
 
 ## 6) SEO objetivo
 - Canonical por página.
@@ -79,7 +83,7 @@
 
 ## 8) Decisiones técnicas abiertas
 - D-01: Mantener HTML estático puro o migrar a stack con build moderno (Astro/Vite).
-- D-02: Contacto vía Netlify Forms vs Function + proveedor de email.
+- D-02 (resuelta): Contacto vía Netlify Functions + Resend opcional; no se usa Netlify Forms como canal productivo.
 - D-03: Alcance del rediseño visual en fase 1 vs fase 2.
 - D-04 (resuelta): Selector de idioma flotante tipo "pelotita" abajo izquierda, generado desde rutas ES/EN existentes sin alterar copy.
-- D-05 (resuelta): Turnstile activo en producción; se mantiene como capa adicional de seguridad sobre Netlify Forms.
+- D-05 (resuelta): Turnstile activo en producción; se mantiene como capa adicional de seguridad sobre `submit-contact`.

@@ -11,12 +11,12 @@ Corporate static website for Elm St. (audiovisual production company).
 
 ## Key Docs
 - /README.md
-- /PRD.md
-- /ARCHITECTURE.md
-- /ROADMAP.md
-- /BACKLOG.md
-- /CHANGELOG.md
-- /I18N-STRATEGY.md
+- /docs/PRD.md
+- /docs/ARCHITECTURE.md
+- /docs/ROADMAP.md
+- /docs/BACKLOG.md
+- /docs/CHANGELOG.md
+- /docs/I18N-STRATEGY.md
 
 ## Tech
 - Static HTML/CSS/JS

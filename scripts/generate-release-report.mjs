@@ -116,7 +116,7 @@ function runGit(command, fallback = "n/a") {
 
 const args = parseArgs(process.argv.slice(2));
 const today = new Date().toISOString().slice(0, 10);
-const outputPath = path.resolve(args.output || `reports/releases/${today}.md`);
+const outputPath = path.resolve(args.output || `docs/reports/releases/${today}.md`);
 
 const budgets = loadJson(BUDGETS_PATH, { routes: {} });
 const links = loadJson(LINKS_PATH, {});

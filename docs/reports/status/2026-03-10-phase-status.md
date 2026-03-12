@@ -14,7 +14,7 @@
 - Fase 2 ("pruebas de ingeniería visibles"): `100%` technical completion.
   - Route budgets implemented (`performance-budgets.json` + `test:budgets`).
   - Versioned technical report implemented (`npm run report:release`).
-  - Latest report generated: `reports/releases/2026-03-10.md`.
+  - Latest report generated: `docs/reports/releases/2026-03-10.md`.
 - Fase 3 ("portfolio vibe coder"): `85%`.
   - Public dossier ES/EN shipped.
   - Pending business/brand curation decisions (see dependencies).

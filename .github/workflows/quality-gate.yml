@@ -40,12 +40,12 @@ jobs:
       - name: Generate release report snapshot
         if: always()
         continue-on-error: true
-        run: npm run report:release -- --output reports/releases/latest-ci.md
+        run: npm run report:release -- --output docs/reports/releases/latest-ci.md
 
       - name: Upload release report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: release-report-${{ github.run_id }}
-          path: reports/releases/latest-ci.md
+          path: docs/reports/releases/latest-ci.md
           if-no-files-found: warn
