@@ -1,6 +1,6 @@
 # elm-st-web
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/TU_API_ID_DE_NETLIFY/deploy-status)
+![Netlify Status](https://api.netlify.com/api/v1/badges/77eb85e4-28e2-400a-8776-c7856367203d/deploy-status)
 ![GitHub Actions Quality Gate](https://github.com/ibaifernandez/elm-st-web/actions/workflows/quality-gate.yml/badge.svg)
 ![Sentry Connected](https://img.shields.io/badge/Observability-Sentry-6C5B7B?logo=sentry)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
