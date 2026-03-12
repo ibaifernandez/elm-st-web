@@ -4,82 +4,95 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elm St. — Error 404</title>
-<meta name="keywords" content="cine, televisión, productora audiovisual, publicidad, producción audiovisual, Elm St., Ibai Fernández, Mónica Montúfar, Bogotá, Medellín, Cali, Colombia">
-<meta name="description" content="Elm St. - Productora audiovisual radicada en Bogotá, Colombia">
+<meta name="keywords" content="cine, televisión, productora audiovisual, publicidad, producción audiovisual, Elm St., Ibai Fernández, Bogotá, Colombia">
+<meta name="description" content="La página que buscas no ha sido encontrada.">
 <meta name="author" content="Ibai Fernández">
+<meta name="robots" content="noindex,follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- FONTS ONLINE -->
-<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" rel="stylesheet" type="text/css"></noscript>
 
-<!--MAIN STYLE-->
-<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link href="css/responsive.css" rel="stylesheet" type="text/css">
-<link href="css/animate.css" rel="stylesheet" type="text/css">
-<link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+<!-- MAIN STYLE -->
+<link rel="preload" as="style" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></noscript>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="preload" as="style" href="/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"></noscript>
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/responsive.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="/rs-plugin/css/settings.css" media="screen">
 
-<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115156525-2"></script>
+<!-- Google Analytics (lazy-loaded after first paint) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-115156525-2');
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-115156525-2';
+      document.head.appendChild(gaScript);
+    }, 8000);
+  });
 </script>
-	
 </head>
 <body>
 
-<!-- Page Wrap -->
 <div id="wrap" class="no-padding">
   <div id="main-wrapper">
     <header id="header" class="main-header">
       <div class="container">
-        <div class="logo"> <a href="/"> <img src="images/logo.png" alt="Elm St. Logo"></a> </div>
-        
-        <!-- Nav -->
+        <div class="logo">
+          <a id="nav-logo" href="/">
+            <img src="/images/logo.png" alt="Elm St. Logo" loading="eager" fetchpriority="high" decoding="async">
+          </a>
+        </div>
+
         <nav>
           <ul id="ownmenu" class="ownmenu">
-            <li><a href="/"> Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="portafolio.html">Portafolio</a></li>
-            <li class="active"><a href="contacto.html">Contacto</a></li>
-
+            <li><a id="nav-home" href="/">Inicio</a></li>
+            <li><a id="nav-about" href="/nosotros.html">Nosotros</a></li>
+            <li><a id="nav-portfolio" href="/portafolio.html">Portafolio</a></li>
+            <li><a id="nav-contact" href="/contacto.html">Contacto</a></li>
+            <li class="menu-cta"><a id="nav-dossier" href="/dossier-tecnico.html"><span id="nav-dossier-line-1" class="menu-cta-line">Dossier</span><span id="nav-dossier-line-2" class="menu-cta-line">Técnico</span></a></li>
+            <li class="lang-switch"><a id="nav-lang-switch" href="/en/" hreflang="en" lang="en" aria-label="Switch language to English">EN</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!--======= 404 Section =========-->
     <div class="error-404">
       <div class="tittle-404">
-        <h4>Página no encontrada</h4>
-        <p>La página que buscas no ha sido encontrada.</p><p>Por favor, utiliza el menú de la parte superior de esta página para navegar a la página que estabas buscando.</p><p>Si has llegado aquí a través de un enlace, por favor, notifícanoslo a <a style="color:white; font-weight:bold;" href="mailto:info@elmst.ibaifernandez.com" target="_blank" rel="noopener noreferrer">nuestro correo</a> para poder hacer algo al respecto.</p>
-        <p class="big-error-404">Error<br>404</p>
+        <h4 id="error-title">Página no encontrada</h4>
+        <p id="error-copy-1">La página que buscas no ha sido encontrada.</p>
+        <p id="error-copy-2">Por favor, utiliza el menú de la parte superior de esta página para navegar a la página que estabas buscando.</p>
+        <p>
+          <span id="error-copy-3-prefix">Si has llegado aquí a través de un enlace, por favor, notifícanoslo por </span>
+          <a id="error-mail-link" style="color:white; font-weight:bold;" href="mailto:info@ibaifernandez.com" rel="noopener noreferrer">correo electrónico</a>
+          <span id="error-copy-3-suffix"> para poder hacer algo al respecto.</span>
+        </p>
+        <p class="big-error-404" id="error-code">Error<br>404</p>
       </div>
     </div>
 
-    <!--======= FOOTER UP =========-->
     <section class="footer-up">
       <div class="col-sm-62">
-        <div class="contact"> 
-          
-          <!--======= Social Icon =========-->
-          <h5 class="dirigido" style="padding-bottom: 5px;">Síguenos en redes sociales</h5>
+        <div class="contact">
+          <h5 id="footer-social-heading" class="dirigido" style="padding-bottom: 5px;">Síguenos en redes sociales</h5>
           <ul class="social_icons">
             <li class="facebook"><a class="facebook" aria-label="Facebook" title="Facebook" href="https://facebook.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
             <li class="youtube"><a class="youtube" aria-label="YouTube" title="YouTube" href="https://youtube.com/elmstproductions" target="_blank" rel="nofollow noopener noreferrer"><i class="fa fa-youtube"></i></a></li>
@@ -87,23 +100,107 @@
           </ul>
         </div>
       </div>
-      <div class="copyright"><p>Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Ecuador por <a href="https://ibaifernandez.com" target="_blank" rel="noopener noreferrer">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p>
-      </div>
-    </section>  </div>
+      <div class="copyright"><p id="footer-copyright">Hecho para <a href="https://aglaya.biz">AGLAYA</a> con mucho ❤️ en Ecuador por <a href="https://ibaifernandez.com" target="_blank" rel="noopener noreferrer">Ibai Fernández</a> © 2020 · Todos los derechos reservados.</p></div>
+    </section>
+  </div>
 </div>
-<!-- Wrap End --> 
 
-<script src="js/jquery-1.11.3.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/own-menu.js"></script> 
-<script src="js/owl.carousel.min.js"></script> 
-<script src="js/jquery.isotope.min.js"></script> 
-<script src="js/counter.js"></script> 
+<script>
+  (function() {
+    var isEnglish404 = /^\/en(?:\/|$)/i.test(window.location.pathname || "");
+    if (!isEnglish404) {
+      return;
+    }
 
-<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
-<script src="js/main.js"></script> 
+    var englishContent = {
+      title: "Elm St. — 404 Page Not Found",
+      description: "The page you are looking for could not be found.",
+      homeHref: "/en/",
+      homeLabel: "Home",
+      aboutHref: "/en/about.html",
+      aboutLabel: "About",
+      portfolioHref: "/en/portfolio.html",
+      portfolioLabel: "Portfolio",
+      contactHref: "/en/contact.html",
+      contactLabel: "Contact",
+      dossierHref: "/en/technical-dossier.html",
+      dossierLine1: "Technical",
+      dossierLine2: "Dossier",
+      langSwitchHref: "/",
+      langSwitchLang: "es",
+      langSwitchHrefLang: "es",
+      langSwitchLabel: "Cambiar idioma a español",
+      langSwitchText: "ES",
+      errorTitle: "Page not found",
+      errorCopy1: "The page you are looking for could not be found.",
+      errorCopy2: "Please use the menu at the top of this page to navigate to the page you were trying to reach.",
+      errorCopy3Prefix: "If you got here through a link, please let us know via ",
+      errorMailText: "email",
+      errorCopy3Suffix: " so we can fix it.",
+      footerSocialHeading: "Follow us on social media",
+      footerCopyright: "Made for <a href=\"https://aglaya.biz\">AGLAYA</a> with lots of ❤️ in Ecuador by <a href=\"https://ibaifernandez.com\" target=\"_blank\" rel=\"noopener noreferrer\">Ibai Fernández</a> © 2020 · All rights reserved."
+    };
+
+    document.documentElement.lang = "en";
+    document.title = englishContent.title;
+
+    var descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.setAttribute("content", englishContent.description);
+    }
+
+    var mappings = [
+      ["nav-logo", "href", englishContent.homeHref],
+      ["nav-home", "href", englishContent.homeHref],
+      ["nav-home", "text", englishContent.homeLabel],
+      ["nav-about", "href", englishContent.aboutHref],
+      ["nav-about", "text", englishContent.aboutLabel],
+      ["nav-portfolio", "href", englishContent.portfolioHref],
+      ["nav-portfolio", "text", englishContent.portfolioLabel],
+      ["nav-contact", "href", englishContent.contactHref],
+      ["nav-contact", "text", englishContent.contactLabel],
+      ["nav-dossier", "href", englishContent.dossierHref],
+      ["nav-dossier-line-1", "text", englishContent.dossierLine1],
+      ["nav-dossier-line-2", "text", englishContent.dossierLine2],
+      ["nav-lang-switch", "href", englishContent.langSwitchHref],
+      ["nav-lang-switch", "hreflang", englishContent.langSwitchHrefLang],
+      ["nav-lang-switch", "lang", englishContent.langSwitchLang],
+      ["nav-lang-switch", "aria-label", englishContent.langSwitchLabel],
+      ["nav-lang-switch", "text", englishContent.langSwitchText],
+      ["error-title", "text", englishContent.errorTitle],
+      ["error-copy-1", "text", englishContent.errorCopy1],
+      ["error-copy-2", "text", englishContent.errorCopy2],
+      ["error-copy-3-prefix", "text", englishContent.errorCopy3Prefix],
+      ["error-mail-link", "text", englishContent.errorMailText],
+      ["error-copy-3-suffix", "text", englishContent.errorCopy3Suffix],
+      ["footer-social-heading", "text", englishContent.footerSocialHeading]
+    ];
+
+    mappings.forEach(function(mapping) {
+      var element = document.getElementById(mapping[0]);
+      if (!element) {
+        return;
+      }
+
+      if (mapping[1] === "text") {
+        element.textContent = mapping[2];
+        return;
+      }
+
+      element.setAttribute(mapping[1], mapping[2]);
+    });
+
+    var footerCopyright = document.getElementById("footer-copyright");
+    if (footerCopyright) {
+      footerCopyright.innerHTML = englishContent.footerCopyright;
+    }
+  })();
+</script>
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/own-menu.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

@@ -16,6 +16,7 @@
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
 | PLAT-008 | P1 | DONE | Activar entrega por email del formulario (Resend) | Envío válido confirmado por correo en producción (`submit-contact` + Resend) |
 | PLAT-009 | P0 | DONE | Consolidar gobernanza de GitHub (`main` protegida + PR + `Quality Gate`) | Ruleset `Main Protection` activo con PR obligatorio + check `quality` + bloqueo de force push/delete |
+| PLAT-010 | P1 | DONE | Unificar la experiencia 404 en ES/EN bajo el `404.html` global de Netlify | `/ruta-inexistente` y `/en/ruta-inexistente` responden 404 con header actual, CTA de dossier y assets cargados |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |

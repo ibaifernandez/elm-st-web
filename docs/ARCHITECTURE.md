@@ -44,6 +44,7 @@
 - EN (mirror): `/en/`, `/en/about.html`, `/en/portfolio.html`, `/en/contact.html`.
 - Cada URL debe tener canonical propio y alternates `hreflang` cruzados.
 - `x-default` inicialmente apuntará a `/` (ES) hasta decisión comercial.
+- `404.html` es único a nivel Netlify y adapta shell/copy ES/EN en runtime según el prefijo de la ruta (`/en/*` => experiencia 404 en inglés).
 
 ## 4) Deploy en Netlify
 - Entorno `production`: rama principal.

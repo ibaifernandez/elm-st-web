@@ -26,6 +26,7 @@ Deliver a fully bilingual public website (Spanish/English) while preserving the 
 - Add `x-default` pointing to Spanish home until product decides otherwise.
 - Keep one canonical per language URL (self-referencing canonical).
 - Publish bilingual sitemap entries once EN pages are live.
+- Netlify 404 fallback is global (`/404.html`), so the error shell must localize client-side based on the requested path (`/en/*` => English copy/navigation).
 
 ## 5) Quality gates (ES and EN)
 - Extend E2E to cover both language trees.
