@@ -7,6 +7,18 @@ All notable changes to this project are documented in this file.
 ### Planned
 - Bilingual implementation ES/EN for public routes (pending approved EN copy).
 
+## [2026-03-12]
+
+### Changed
+- Observability runtime hardening:
+  - `netlify/functions/runtime-config.js` now normalizes `SENTRY_ENVIRONMENT` to lowercase before exposing runtime config.
+  - `js/main.js` now normalizes `sentryEnvironment` before `Sentry.init(...)` to guarantee stable `production` filtering in Sentry rules.
+- Alerting runbook aligned with production policy:
+  - `ALERTING.md` now documents active thresholds (`P1: 10 events/15m`, `P2: 3 events/60m`) and re-notify windows.
+- Branch governance documentation synchronized with production state:
+  - `README.md`, `BACKLOG.md`, and `ROADMAP.md` updated to reflect `main` as protected production branch and `legacy` as historical archive branch.
+  - `.github/workflows/quality-gate.yml` push trigger simplified to `main` (legacy `codex` trigger removed after branch rotation).
+
 ## [2026-03-11]
 
 ### Added

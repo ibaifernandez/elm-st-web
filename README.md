@@ -8,6 +8,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Dominio objetivo de operación: `elmst.ibaifernandez.com`.
 - Decisión de negocio: no mantener `elmst.net` a largo plazo.
 - Modo actual: freeze de diseño/copy, mejoras solo técnicas.
+- Git flow activo: `main` (producción protegida) + `legacy` (archivo histórico).
 
 ## Documentación base
 - [PRD](./PRD.md)
@@ -103,7 +104,7 @@ npm run quality:ci
 Notas:
 - `test:visual` requiere snapshots base; para generarlos: `npm run test:visual:update`.
 - El workflow de CI está en `.github/workflows/quality-gate.yml`, bloquea con fallo en cualquier check y admite disparo manual (`workflow_dispatch`).
-- Además corre semanalmente por `schedule` (lunes 13:00 UTC) sobre rama `codex`.
+- Además corre semanalmente por `schedule` (lunes 13:00 UTC) sobre la rama por defecto del repositorio (`main`).
 - Ejecución manual por CLI: `gh workflow run "Quality Gate" --ref <rama>`.
 - `LHCI_GITHUB_APP_TOKEN` es opcional; si existe en GitHub Secrets, Lighthouse puede publicar anotaciones más completas en PRs.
 - El check de enlaces externos usa `scripts/external-link-ignore.json` para URLs legacy o dominios aún no publicados.
@@ -139,6 +140,7 @@ Frontend error monitoring está integrado de forma opcional y sin cambio visual/
 Con variables presentes:
 - El frontend solicita `sentryDsn`, `sentryEnvironment`, `sentryRelease` vía `/.netlify/functions/runtime-config`.
 - `js/main.js` carga SDK de Sentry en runtime (`js.sentry-cdn.com`) y reporta errores JS.
+- `SENTRY_ENVIRONMENT` se normaliza automáticamente a minúsculas en runtime para mantener filtros consistentes (`production`).
 - CSP en `_headers` permite dominios de carga/ingesta de Sentry.
 
 Uptime externo:

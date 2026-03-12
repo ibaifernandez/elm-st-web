@@ -18,8 +18,13 @@ function sanitizeSentryDsn(rawDsn) {
   }
 }
 
+function normalizeEnvironment(rawEnvironment) {
+  const value = typeof rawEnvironment === "string" ? rawEnvironment.trim().toLowerCase() : "";
+  return value || "production";
+}
+
 exports.handler = async function handler() {
-  const sentryEnvironment = (process.env.SENTRY_ENVIRONMENT || "production").trim() || "production";
+  const sentryEnvironment = normalizeEnvironment(process.env.SENTRY_ENVIRONMENT);
   const sentryRelease = (process.env.SENTRY_RELEASE || "").trim();
 
   return {

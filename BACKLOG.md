@@ -15,7 +15,7 @@
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
 | PLAT-008 | P1 | DONE | Activar entrega por email del formulario (Resend) | Envío válido confirmado por correo en producción (`submit-contact` + Resend) |
-| PLAT-009 | P0 | TODO | Reordenar ramas de GitHub (`main`->`legacy`, `codex`->`main`) y exigir `Quality Gate` por branch protection | Ningún merge/deploy a rama principal sin `Quality Gate` en verde |
+| PLAT-009 | P0 | DONE | Reordenar ramas de GitHub (`main` producción, `legacy` archivo) y exigir `Quality Gate` por branch protection | Ruleset `Main Protection` activo con PR obligatorio + check `quality` + bloqueo de force push/delete |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -88,7 +88,7 @@
 | OBS-002 | P2 | TODO | Definir panel mínimo de KPIs | Dashboard con tráfico y conversiones |
 | OBS-003 | P1 | DONE | Integrar monitoreo de errores frontend (Sentry o equivalente) | Errores JS críticos visibles con contexto y alertas |
 | OBS-004 | P1 | DONE | Configurar monitoreo de uptime externo | Alertas automáticas ante caída de `elmst.ibaifernandez.com` |
-| OBS-005 | P1 | TODO | Configurar reglas de alertado P1/P2 en Sentry para reducir ruido | Reglas activas por entorno `production` con umbrales acordados |
+| OBS-005 | P1 | DONE | Configurar reglas de alertado P1/P2 en Sentry para reducir ruido | Reglas activas en `production` (`P1: 10/15m`, `P2: 3/60m`) y regla por defecto de alto ruido desactivada |
 | DOC-001 | P1 | DONE | Crear y mantener `CHANGELOG.md` | Historial de releases y cambios disponible |
 | DOC-002 | P1 | DONE | Mantener `ROADMAP.md` y `BACKLOG.md` al día | Estado real reflejado tras cada iteración |
 | DOC-003 | P1 | DONE | Publicar informe de estado por iteración | Resumen técnico + riesgos + resultados de tests por ciclo |
