@@ -9,6 +9,13 @@ All notable changes to this project are documented in this file.
 
 ## [2026-03-12]
 
+### Fixed
+- Netlify 404 parity and localization:
+  - `404.html` now uses the current shared header shell (including dossier CTA and language switch source link).
+  - All local assets/scripts in `404.html` now use root-absolute paths so nested missing routes like `/en/vwre` no longer lose CSS/JS/images.
+  - The single Netlify `404.html` now localizes navigation, copy, and footer to English automatically for `/en/*` missing routes.
+  - E2E coverage now validates both Spanish and English 404 behavior on real missing routes.
+
 ### Changed
 - Documentation and QA consolidation:
   - Operational Markdown docs moved from repository root to `docs/`.

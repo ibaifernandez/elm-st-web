@@ -23,6 +23,57 @@ test.describe("Critical route availability", () => {
   }
 });
 
+test.describe("404 localization and shared shell", () => {
+  test("renders styled Spanish 404 with dossier CTA on missing root route", async ({ page }) => {
+    const response = await page.goto("/ruta-inexistente", { waitUntil: "domcontentloaded" });
+    expect(response && response.status()).toBe(404);
+
+    await expect(page.locator("#error-title")).toHaveText("Página no encontrada");
+    await expect(page.locator("header nav .ownmenu li.menu-cta a")).toHaveAttribute("href", "/dossier-tecnico.html");
+    await expect(page.locator(".language-fab a")).toHaveAttribute("href", "/en/");
+
+    const shellState = await page.evaluate(() => {
+      const errorBlock = document.querySelector(".error-404");
+      const logo = document.querySelector(".logo img");
+
+      return {
+        backgroundImage: window.getComputedStyle(errorBlock).backgroundImage,
+        logoSrc: logo ? logo.getAttribute("src") : ""
+      };
+    });
+
+    expect(shellState.backgroundImage).toContain("fondo-reel");
+    expect(shellState.logoSrc).toBe("/images/logo.png");
+  });
+
+  test("renders styled English 404 with English navigation on missing EN route", async ({ page }) => {
+    const response = await page.goto("/en/vwre", { waitUntil: "domcontentloaded" });
+    expect(response && response.status()).toBe(404);
+
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("#nav-home")).toHaveText("Home");
+    await expect(page.locator("#nav-about")).toHaveText("About");
+    await expect(page.locator("#nav-portfolio")).toHaveText("Portfolio");
+    await expect(page.locator("#nav-contact")).toHaveText("Contact");
+    await expect(page.locator("#nav-dossier")).toHaveAttribute("href", "/en/technical-dossier.html");
+    await expect(page.locator("#error-title")).toHaveText("Page not found");
+    await expect(page.locator(".language-fab a")).toHaveAttribute("href", "/");
+
+    const shellState = await page.evaluate(() => {
+      const errorBlock = document.querySelector(".error-404");
+      const logo = document.querySelector(".logo img");
+
+      return {
+        backgroundImage: window.getComputedStyle(errorBlock).backgroundImage,
+        logoSrc: logo ? logo.getAttribute("src") : ""
+      };
+    });
+
+    expect(shellState.backgroundImage).toContain("fondo-reel");
+    expect(shellState.logoSrc).toBe("/images/logo.png");
+  });
+});
+
 test.describe("Language switch visibility", () => {
   const languageSwitchRoutes = [
     { route: "/", href: "/en/", expectedAria: "English" },
