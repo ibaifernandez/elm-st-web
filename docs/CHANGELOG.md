@@ -10,14 +10,30 @@ All notable changes to this project are documented in this file.
 ## [2026-03-12]
 
 ### Changed
+- Documentation and QA consolidation:
+  - Operational Markdown docs moved from repository root to `docs/`.
+  - QA CSVs moved from `qa/` to `docs/qa/`.
+  - Versioned technical reports moved from `reports/` to `docs/reports/`.
+  - `README.md`, `AGENTS.md`, `llms.txt`, dossier source links, release tooling, and tests updated to the new structure.
+  - Fresh technical snapshot generated at `docs/reports/releases/2026-03-12.md`.
 - Observability runtime hardening:
   - `netlify/functions/runtime-config.js` now normalizes `SENTRY_ENVIRONMENT` to lowercase before exposing runtime config.
   - `js/main.js` now normalizes `sentryEnvironment` before `Sentry.init(...)` to guarantee stable `production` filtering in Sentry rules.
 - Alerting runbook aligned with production policy:
   - `ALERTING.md` now documents active thresholds (`P1: 10 events/15m`, `P2: 3 events/60m`) and re-notify windows.
 - Branch governance documentation synchronized with production state:
-  - `README.md`, `BACKLOG.md`, and `ROADMAP.md` updated to reflect `main` as protected production branch and `legacy` as historical archive branch.
+  - `README.md`, `BACKLOG.md`, and `ROADMAP.md` updated to reflect `main` as protected production branch and PR-first workflow.
   - `.github/workflows/quality-gate.yml` push trigger simplified to `main` (legacy `codex` trigger removed after branch rotation).
+
+### Removed
+- Legacy deployment and repository residue no longer used in Netlify production:
+  - `.cpanel.yml`
+  - `inicio.html`
+  - `error-404.html`
+  - `en-construccion.html`
+  - `pages/`
+  - `js/main-original.js`
+  - tracked `Thumbs.db` artifacts
 
 ## [2026-03-11]
 

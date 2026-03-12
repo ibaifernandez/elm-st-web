@@ -1,35 +1,35 @@
 # elm-st-web
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/TU_API_ID_DE_NETLIFY/deploy-status)
+![Netlify Status](https://api.netlify.com/api/v1/badges/77eb85e4-28e2-400a-8776-c7856367203d/deploy-status)
 ![GitHub Actions Quality Gate](https://github.com/ibaifernandez/elm-st-web/actions/workflows/quality-gate.yml/badge.svg)
 ![Sentry Connected](https://img.shields.io/badge/Observability-Sentry-6C5B7B?logo=sentry)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de profesionalización técnica y migración a Netlify.
+Web corporativa de Elm St. (productora audiovisual), ya estabilizada en Netlify y mantenida con foco en calidad técnica.
 
 ## Estado del proyecto
-- Estado: en modernización.
-- Hosting objetivo: Netlify.
+- Estado: estabilizado en Netlify; mantenimiento posterior solo por iteraciones puntuales.
+- Hosting activo: Netlify.
 - Dominio objetivo de operación: `elmst.ibaifernandez.com`.
 - Decisión de negocio: no mantener `elmst.net` a largo plazo.
 - Modo actual: freeze de diseño/copy, mejoras solo técnicas.
-- Git flow activo: `main` (producción protegida) + `legacy` (archivo histórico).
+- Git flow activo: `main` protegida + ramas cortas `codex/*` con PR y merge manual.
 
 ## Documentación base
-- [PRD](./PRD.md)
-- [Reglas IA](./IA-RULES.md)
-- [Arquitectura](./ARCHITECTURE.md)
-- [Roadmap](./ROADMAP.md)
-- [Backlog](./BACKLOG.md)
+- [PRD](./docs/PRD.md)
+- [Reglas IA](./docs/IA-RULES.md)
+- [Arquitectura](./docs/ARCHITECTURE.md)
+- [Roadmap](./docs/ROADMAP.md)
+- [Backlog](./docs/BACKLOG.md)
 - [Guía de agentes](./AGENTS.md)
-- [Estrategia i18n](./I18N-STRATEGY.md)
-- [Changelog](./CHANGELOG.md)
-- [Runbook de alertas](./ALERTING.md)
-- [QA Desktop CSV](./qa/qa-desktop.csv)
-- [QA Mobile CSV](./qa/qa-mobile.csv)
+- [Estrategia i18n](./docs/I18N-STRATEGY.md)
+- [Changelog](./docs/CHANGELOG.md)
+- [Runbook de alertas](./docs/ALERTING.md)
+- [QA Desktop CSV](./docs/qa/qa-desktop.csv)
+- [QA Mobile CSV](./docs/qa/qa-mobile.csv)
 
-## Estructura actual (legacy)
-- Páginas: `inicio.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, `error-404.html`, `en-construccion.html`.
+## Estructura actual
+- Páginas ES: `index.html`, `nosotros.html`, `portafolio.html`, `contacto.html`, `dossier-tecnico.html`, `404.html`.
 - Rutas EN: `en/index.html`, `en/about.html`, `en/portfolio.html`, `en/contact.html`.
 - Dossier técnico: `dossier-tecnico.html`, `en/technical-dossier.html`.
 - Navegación principal: incluye CTA visible a "Dossier" (ES/EN) con estilo diferenciado.
@@ -38,6 +38,7 @@ Web corporativa de Elm St. (productora audiovisual), actualmente en proceso de p
 - Activos: `images/`, `videos/`, `fonts/`
 - Formulario: Netlify Function `/.netlify/functions/submit-contact` (persistencia en logs de función, sin backend PHP)
 - Selector de idioma: boton flotante inferior izquierdo (ES/EN), con fallback en navegacion legacy.
+- Documentación operativa: `docs/`
 
 ## Infra de migración ya preparada
 - `netlify.toml`
@@ -63,7 +64,7 @@ Completar una migración segura a Netlify sin regresiones funcionales, dejando u
 - Checks en verde: lint (HTML/JS/CSS), netlify config, links/mixed-content, E2E, a11y (axe), visual regression (ES), Lighthouse (ES+EN).
 - Umbrales Lighthouse activos: Performance >= 90, Accessibility >= 95, SEO >= 95, Best Practices >= 95.
 - Budgets por ruta: activos y validados por `npm run test:budgets`.
-- Reporte técnico versionado más reciente: `reports/releases/2026-03-10.md`.
+- Reporte técnico versionado más reciente: `docs/reports/releases/2026-03-12.md`.
 
 ## LLM discovery (`llms.txt`)
 - Archivo canónico: `llms.txt` en la raíz del proyecto.
@@ -114,7 +115,7 @@ Notas:
 - `LHCI_GITHUB_APP_TOKEN` es opcional; si existe en GitHub Secrets, Lighthouse puede publicar anotaciones más completas en PRs.
 - El check de enlaces externos usa `scripts/external-link-ignore.json` para URLs legacy o dominios aún no publicados.
 - La suite axe en `test:a11y` ya no excluye `color-contrast`; los contrastes críticos se corrigen en CSS manteniendo freeze visual/copy.
-- La QA manual de marca/tono y de experiencia en desktop/mobile se registra en `qa/qa-desktop.csv` y `qa/qa-mobile.csv`.
+- La QA manual de marca/tono y de experiencia en desktop/mobile se registra en `docs/qa/qa-desktop.csv` y `docs/qa/qa-mobile.csv`.
 
 ## Captcha opcional (Turnstile)
 El formulario funciona con endpoint serverless propio + honeypot. Si activas captcha invisible:
@@ -152,4 +153,4 @@ Uptime externo:
 - Monitor HTTP activo en UptimeRobot sobre `https://elmst.ibaifernandez.com`.
 
 ## Próximos pasos
-Seguir el orden de prioridades definido en `BACKLOG.md` empezando por tareas P0 de plataforma/migración.
+Seguir el orden de prioridades definido en `docs/BACKLOG.md`, manteniendo `main` limpia y usando ramas cortas con PR para cualquier cambio futuro.

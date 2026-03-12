@@ -8,7 +8,7 @@
 - Selector de idioma: migrado a patron flotante (`pelotita` inferior izquierda) con fallback en navegacion legacy.
 - Formulario: Turnstile invisible activo y envio operativo via `/.netlify/functions/submit-contact` + Resend.
 - Dossier tecnico: publicado en ES/EN, trazado en sitemap y reforzado con visor modal de documentacion fuente.
-- Gobernanza de ramas: `main` definido como rama productiva (protegida) y `legacy` como rama historica de resguardo.
+- Gobernanza de ramas: `main` definida como rama productiva protegida; cambios futuros via ramas cortas + PR.
 - Avance por fases de excelencia:
   - Fase 1 ("robusto por dentro"): `100%` (captcha, observabilidad, uptime, envio transaccional y quality gate semanal).
   - Fase 2 ("pruebas de ingenieria visibles"): `100%` (budgets por ruta + reporte tecnico versionado + CI semanal).
@@ -48,7 +48,7 @@ Periodo: 18 marzo 2026 - 21 marzo 2026
 - Estado: `PARCIAL`.
 - Implementacion (Codex):
   - Workflow semanal `Quality Gate` activo (`schedule`: lunes 13:00 UTC, checkout sobre rama por defecto del repo).
-  - QA manual estructurada con CSV (`qa-desktop.csv`, `qa-mobile.csv`); falta formalizar issue mensual automático.
+  - QA manual estructurada con CSV (`docs/qa/qa-desktop.csv`, `docs/qa/qa-mobile.csv`); falta formalizar issue mensual automático.
   - Definir policy de merge: sin `quality:ci` verde no entra nada.
 - Necesito de ti:
   - Formalizar rutina mensual de QA manual (owner + fecha fija).
@@ -75,6 +75,7 @@ Periodo: 31 marzo 2026 - 4 abril 2026
   - Mejoras de UX: CTA de menu en dos lineas, objetivo al inicio, grid estable y modal para documentacion fuente.
   - Mantener look&feel actual, sin romper freeze de homepage principal.
   - Añadir metadata y trazabilidad de cambios.
+  - Documentacion operativa consolidada en `docs/` para reducir ruido del repo y centralizar QA/reportes.
 - Necesito de ti:
   - Aprobar tono de marca ES/EN.
 - Entregable:
@@ -94,7 +95,7 @@ Periodo: 7 abril 2026 - 11 abril 2026
 ## Fase 0 - Fundacion (completada)
 Periodo: 7 marzo 2026
 - Auditoria inicial del repositorio y deuda tecnica.
-- Documentacion base creada: `PRD.md`, `IA-RULES.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `BACKLOG.md`, `AGENTS.md`, `README.md`.
+- Documentacion base creada y consolidada en `docs/`: `PRD.md`, `IA-RULES.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `BACKLOG.md`, `CHANGELOG.md`, `I18N-STRATEGY.md`.
 
 Exit criteria:
 - Gobierno del proyecto definido y versionado.

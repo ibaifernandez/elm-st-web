@@ -15,7 +15,7 @@
 | PLAT-006 | P1 | DONE | Añadir CI bloqueante (`quality-gate`) | Pipeline ejecuta checks automatizados |
 | PLAT-007 | P0 | DONE | Eliminar bucle de redirección en `/en/` | `/en/` responde 200 sin `ERR_TOO_MANY_REDIRECTS` |
 | PLAT-008 | P1 | DONE | Activar entrega por email del formulario (Resend) | Envío válido confirmado por correo en producción (`submit-contact` + Resend) |
-| PLAT-009 | P0 | DONE | Reordenar ramas de GitHub (`main` producción, `legacy` archivo) y exigir `Quality Gate` por branch protection | Ruleset `Main Protection` activo con PR obligatorio + check `quality` + bloqueo de force push/delete |
+| PLAT-009 | P0 | DONE | Consolidar gobernanza de GitHub (`main` protegida + PR + `Quality Gate`) | Ruleset `Main Protection` activo con PR obligatorio + check `quality` + bloqueo de force push/delete |
 
 ## SEO
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
@@ -41,7 +41,7 @@
 | ID | Prioridad | Estado | Tarea | Criterio de aceptación |
 |---|---|---|---|---|
 | PERF-001 | P0 | DONE | Comprimir/modernizar imágenes pesadas | Reducción significativa del peso total |
-| PERF-002 | P1 | TODO | Eliminar activos residuales (`Thumbs.db`, duplicados) | Repositorio limpio de basura binaria |
+| PERF-002 | P1 | DONE | Eliminar activos residuales (`Thumbs.db`, duplicados) | Repositorio limpio de basura binaria y artefactos legacy sin uso |
 | PERF-003 | P1 | DONE | Revisar carga de JS/CSS y `defer` en no críticos | Menor blocking time inicial |
 | PERF-004 | P2 | DONE | Definir budget por página | Budget documentado en `performance-budgets.json` y validado por `test:budgets` |
 | PERF-005 | P0 | DONE | Subir Lighthouse a umbral de CI | `test:lighthouse` pasa en 10 rutas auditadas (ES/EN + dossier) |
@@ -96,3 +96,4 @@
 | DOC-005 | P1 | TODO | Formalizar revisión manual mensual de QA CSV | Issue mensual con checklist desktop/mobile y owner asignado |
 | DOC-006 | P1 | DONE | Generar reporte técnico versionado por release | Archivo de release con métricas de calidad, SEO, seguridad y pruebas |
 | DOC-007 | P1 | DONE | Publicar dossier técnico web ES/EN | `dossier-tecnico.html` y `en/technical-dossier.html` disponibles en sitemap |
+| DOC-008 | P1 | DONE | Consolidar documentación y QA bajo `docs/` | Markdown operativos, QA CSV y reportes versionados centralizados con rutas actualizadas |

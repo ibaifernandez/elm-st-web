@@ -5,17 +5,17 @@ Mejorar y operar `elm-st-web` con criterio de producto: calidad técnica alta, c
 
 ## 2) Documentación que manda
 Antes de cualquier cambio, revisar:
-1. `PRD.md`
-2. `ARCHITECTURE.md`
-3. `ROADMAP.md`
-4. `BACKLOG.md`
-5. `IA-RULES.md`
-6. `CHANGELOG.md`
-7. `I18N-STRATEGY.md`
+1. `docs/PRD.md`
+2. `docs/ARCHITECTURE.md`
+3. `docs/ROADMAP.md`
+4. `docs/BACKLOG.md`
+5. `docs/IA-RULES.md`
+6. `docs/CHANGELOG.md`
+7. `docs/I18N-STRATEGY.md`
 
 ## 3) Reglas operativas
 - Trabajar siempre contra tareas trazables del backlog.
-- No introducir cambios de arquitectura sin actualizar `ARCHITECTURE.md`.
+- No introducir cambios de arquitectura sin actualizar `docs/ARCHITECTURE.md`.
 - No introducir deuda técnica "temporal" sin fecha de retiro.
 - No mezclar refactor masivo con cambios funcionales en el mismo lote.
 - Priorizar P0/P1 antes que tareas cosméticas.
@@ -33,7 +33,7 @@ Cada entrega debe incluir:
 - Qué riesgo se mitigó o qué objetivo se cumple.
 - Qué validaciones se ejecutaron.
 - Qué queda pendiente.
-- Actualización de `CHANGELOG.md` cuando aplique.
+- Actualización de `docs/CHANGELOG.md` cuando aplique.
 
 ## 6) Convenciones de alcance
 - Fase migración: estabilidad > reescritura total.

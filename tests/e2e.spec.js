@@ -93,7 +93,7 @@ test.describe("Dossier source docs modal", () => {
   test("opens ARCHITECTURE.md inside modal on English dossier", async ({ page }) => {
     await page.goto("/en/technical-dossier.html", { waitUntil: "domcontentloaded" });
 
-    await page.click('.doc-modal-link[data-doc-path="/ARCHITECTURE.md"]');
+    await page.click('.doc-modal-link[data-doc-path="/docs/ARCHITECTURE.md"]');
 
     const modal = page.locator("#doc-modal");
     const modalTitle = page.locator("#doc-modal-title");
