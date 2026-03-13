@@ -31,6 +31,9 @@ All notable changes to this project are documented in this file.
 - Branch governance documentation synchronized with production state:
   - `README.md`, `BACKLOG.md`, and `ROADMAP.md` updated to reflect `main` as protected production branch and PR-first workflow.
   - `.github/workflows/quality-gate.yml` push trigger simplified to `main` (legacy `codex` trigger removed after branch rotation).
+- Final low-risk repo hygiene:
+  - `README.md` and `_headers` no longer advertise removed `vendor/` / `videos/` legacy paths.
+  - Repository structure now reflects only active runtime asset buckets.
 
 ### Removed
 - Legacy deployment and repository residue no longer used in Netlify production:
@@ -41,6 +44,16 @@ All notable changes to this project are documented in this file.
   - `pages/`
   - `js/main-original.js`
   - tracked `Thumbs.db` artifacts
+- Additional dead asset residue confirmed unreferenced in runtime:
+  - `vendor/jquery.js`
+  - `vendor/zepto.js`
+  - `videos/Elm-St-Reel.mp4`
+  - non-minified `dist/lity.css` / `dist/lity.js`
+  - `rs-plugin/css/settings-ie8.css`
+  - `rs-plugin/js/jquery.themepunch.enablelog.js`
+  - `rs-plugin/js/jquery.themepunch.revolution.js`
+  - `rs-plugin/assets/arrows.psd`
+  - `rs-plugin/assets/small_arrows.psd`
 
 ## [2026-03-11]
 
